@@ -1,0 +1,23 @@
+{
+  "name": "eloimagnien_6_06042021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./utils/styles/SCSS/main.scss:./utils/styles/CSS/style.css",
+    "prefix": "postcss ./Styles/css/style.css --use autoprefixer -d ./utils/prefixed"
+  },
+
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eloidev/eloimagnien_6_06042021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eloidev/eloimagnien_6_06042021/issues"
+  },
+  "homepage": "https://github.com/Eloidev/eloimagnien_6_06042021#readme"
+}

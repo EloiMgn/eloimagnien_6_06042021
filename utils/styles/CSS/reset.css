@@ -49,3 +49,6 @@ table {
 img {
     max-width: 100%;
 }
+body{
+	width: auto;
+}

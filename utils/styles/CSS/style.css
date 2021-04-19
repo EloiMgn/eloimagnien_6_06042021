@@ -1,3 +1,99 @@
+.contact {
+  margin: 20px;
+  background: #911C1C;
+  border-radius: 7px;
+  border: none;
+  width: 170px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+.contact:hover {
+  background: #D3573C;
+  cursor: pointer;
+  color: black;
+}
+.contact__text {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 130%;
+  line-height: 26px;
+  /* identical to box height */
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.listbox {
+  padding-left: 100px;
+  margin: 20px 0;
+}
+.listbox__label {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  color: #000000;
+}
+.listbox__select {
+  background: #911C1C;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  padding: 10px;
+}
+.listbox__select__option {
+  padding: 10px;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 100px;
+  background: #FAFAFA;
+  border-radius: 5px;
+  padding: 30px;
+}
+.banner h1 {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 83px;
+  margin-left: 20px;
+  color: #D3573C;
+}
+.banner__description {
+  margin-left: 20px;
+}
+.banner__description__location {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 31px;
+  color: #901C1C;
+  margin-bottom: 19px;
+}
+.banner__description__citation {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  margin-bottom: 16px;
+  color: #525252;
+}
+.banner__links {
+  margin-left: 20px;
+}
+
 .row {
   display: flex;
   justify-content: space-between;
@@ -120,16 +216,17 @@
 header {
   height: 20vh;
   width: 100%;
-  margin-bottom: 5px;
-  margin: 20px 10px;
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
 }
 
 .header__logo {
   width: 200px;
   height: 50px;
+  margin: 20px 20px 20px 0;
+  padding-left: 100px;
 }
 
 .hidden {
@@ -163,6 +260,7 @@ header {
 
 .header__navigation nav {
   line-height: 47px;
+  margin: 20px;
 }
 .header__navigation h1 {
   font-family: DM Sans;
@@ -172,6 +270,7 @@ header {
   line-height: 47px;
   /* identical to box height */
   color: #911C1C;
+  margin: 20px;
 }
 
 main {

@@ -1,17 +1,18 @@
 header {
     height: 20vh;
     width: 100%;
-    margin-bottom: 5px;
-    margin: 20px 10px;
+    margin: 20px 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
+    align-items: flex-start;
+    
 }
 
 .header__logo {
     width: 200px;
     height: 50px;
+    margin: 20px 20px 20px 0;
+    padding-left: 100px;
 }
 
 .hidden {
@@ -21,7 +22,7 @@ header {
 .header__navigation {
     display: flex;
     justify-content: space-around;
-}
+    }
 
 .navigation__tag {
     text-decoration: none;
@@ -47,6 +48,7 @@ header {
 .header__navigation {
     nav{
         line-height: 47px;
+        margin: 20px;
     }
     h1{
     font-family: DM Sans;
@@ -58,5 +60,6 @@ header {
     
     
     color: #911C1C;
+    margin: 20px;
     }
 }

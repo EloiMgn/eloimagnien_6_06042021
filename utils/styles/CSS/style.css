@@ -1,3 +1,31 @@
+.photo__img {
+  width: 200px;
+  height: 200px;
+}
 
+header {
+  height: 157px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.header__logo {
+  width: 200px;
+  height: 50px;
+}
+
+.hidden {
+  display: none;
+}
+
+.header__navigation {
+  display: flex;
+  justify-content: space-around;
+}
+
+main {
+  width: 100%;
+  height: fit-content;
+}
 
 /*# sourceMappingURL=style.css.map */

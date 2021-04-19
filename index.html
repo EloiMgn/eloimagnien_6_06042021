@@ -46,26 +46,33 @@
 
 <body>
     <header>
-        <a href="#main" class="headerlogo" aria=hidden>Passer au contenu</a>
-        <a href="index.html"><img src="utils/images/Logos/logo.png" alt="Fisheye Homepage"></a>
-        <nav aria-label="photographer categories" role="navigation">
-            <a href="#" class="navigation__tag portraits">#Portraits</a>
-            <a href="#" class="navigation__tag art">#Art</a>
-            <a href="#" class="navigation__tag fashion">#Fashion</a>
-            <a href="#" class="navigation__tag architecture">#Architecture</a>
-            <a href="#" class="navigation__tag travel">#Travel</a>
-            <a href="#" class="navigation__tag sports">#Sport</a>
-            <a href="#" class="navigation__tag animals">#Animals</a>
-            <a href="#" class="navigation__tag events">#Events</a>
-        </nav>
-        <h1>Nos photographes</h1>
+        <div class="hidden">
+            <a href="#main" aria=hidden>Passer au contenu</a>
+        </div>
+        <div class="header__navigation">
+            <a href="index.html"><img src="utils/images/Logos/logo.png" class="header__logo" alt="Fisheye Homepage"></a>
+            <nav aria-label="photographer categories" role="navigation">
+                <a href="#" class="navigation__tag portraits">#Portraits</a>
+                <a href="#" class="navigation__tag art">#Art</a>
+                <a href="#" class="navigation__tag fashion">#Fashion</a>
+                <a href="#" class="navigation__tag architecture">#Architecture</a>
+                <a href="#" class="navigation__tag travel">#Travel</a>
+                <a href="#" class="navigation__tag sports">#Sport</a>
+                <a href="#" class="navigation__tag animals">#Animals</a>
+                <a href="#" class="navigation__tag events">#Events</a>
+            </nav>
+            <h1>Nos photographes</h1>
+        </div>
     </header>
     <main>
 
         <!-- Mimi Keel -->
         <div class="photographer mimi_keel">
             <a href="" class="photographer__profil">
-                <img class="photographer__profil__img" src="utils/images/Photographers_profil_img/Portrait_Nora.jpg" alt="Mimi Keel profil">
+                <div class="photo__img">
+                <img class="photographer__profil__img" src="utils/images/Photographers_profil_img/Portrait_Nora.jpg"
+                    alt="Mimi Keel profil">
+                </div>
                 <h2 class="photographer__profil__name">Mimi Keel</h2>
             </a>
             <div class="description">
@@ -81,10 +88,12 @@
             </div>
         </div>
 
-    <!-- Ellie-Rose Wilkens -->
+        <!-- Ellie-Rose Wilkens -->
         <div class="photographer ellie_rose_wilkens">
             <a href="" class="photographer__profil">
-                <img class="photographer__profil__img" src="utils/images/Photographers_profil_img/Ellie Rose/Architecture_Horseshoe.jpg" alt="Ellie Rose profil">
+                <img class="photographer__profil__img"
+                    src="utils/images/Photographers_profil_img/Ellie Rose/Architecture_Horseshoe.jpg"
+                    alt="Ellie Rose profil">
                 <h2 class="photographer__profil__name">Ellie-Rose Wilkens</h2>
             </a>
             <div class="description">
@@ -98,10 +107,11 @@
             </div>
         </div>
 
-    <!-- Tracy Galindo -->
+        <!-- Tracy Galindo -->
         <div class="photographer tracy_galindo">
             <a href="" class="photographer__profil">
-                <img class="photographer__profil__img" src="utils/images/Photographers_profil_img/Fashion_Urban_Jungle.jpg" alt="Tracy Galindo profil">
+                <img class="photographer__profil__img"
+                    src="utils/images/Photographers_profil_img/Fashion_Urban_Jungle.jpg" alt="Tracy Galindo profil">
                 <h2 class="photographer__profil__name">Tracy Galindo</h2>
             </a>
             <div class="description">
@@ -117,28 +127,31 @@
         </div>
 
 
-            <!-- Nabeel Bradford  -->
-            <div class="photographer nabeel_bradford">
-                <a href="" class="photographer__profil">
-                    <img class="photographer__profil__img" src="utils/images/Photographers_profil_img/Travel_Outdoor_Baths.jpg" alt="Nabeel Bradford profil">
-                    <h2 class="photographer__profil__name">Nabeel Bradford</h2>
-                </a>
-                <div class="description">
-                    <h3 class="description__location">Mexico City, Mexico</h3>
-                    <p class="description__citation">Je vais toujours de l'avant</p>
-                    <p class="description__price">350€/jour</p>
-                </div>
-                <div class="links">
-                    <a href="#" class="navigation__tag travel">#travel</a>
-                    <a href="#" class="navigation__tag portraits">#portraits</a>
-                </div>
+        <!-- Nabeel Bradford  -->
+        <div class="photographer nabeel_bradford">
+            <a href="" class="photographer__profil">
+                <img class="photographer__profil__img"
+                    src="utils/images/Photographers_profil_img/Travel_Outdoor_Baths.jpg" alt="Nabeel Bradford profil">
+                <h2 class="photographer__profil__name">Nabeel Bradford</h2>
+            </a>
+            <div class="description">
+                <h3 class="description__location">Mexico City, Mexico</h3>
+                <p class="description__citation">Je vais toujours de l'avant</p>
+                <p class="description__price">350€/jour</p>
             </div>
+            <div class="links">
+                <a href="#" class="navigation__tag travel">#travel</a>
+                <a href="#" class="navigation__tag portraits">#portraits</a>
+            </div>
+        </div>
 
 
-                <!-- Rhode Dubois -->
+        <!-- Rhode Dubois -->
         <div class="photographer rhdoe_dubois">
             <a href="" class="photographer__profil">
-                <img class="photographer__profil__img" src="utils/images/Photographers_profil_img/Fashion_Melody_Red_on_Stripes.jpg" alt="Rhode Dubois profil">
+                <img class="photographer__profil__img"
+                    src="utils/images/Photographers_profil_img/Fashion_Melody_Red_on_Stripes.jpg"
+                    alt="Rhode Dubois profil">
                 <h2 class="photographer__profil__name">Rhode Dubois</h2>
             </a>
             <div class="description">
@@ -155,22 +168,23 @@
         </div>
 
 
-            <!-- Marcel Nikolic -->
-            <div class="photographer marcel_nikolic">
-                <a href="" class="photographer__profil">
-                    <img class="photographer__profil__img" src="utils/images/Photographers_profil_img/Marcel/Travel_Tower.jpg" alt="Marcel Nikolic profil">
-                    <h2 class="photographer__profil__name">Marcel Nikolic</h2>
-                </a>
-                <div class="description">
-                    <h3 class="description__location">Berlin, Germany</h3>
-                    <p class="description__citation">Toujours à la recherceh de LA photo</p>
-                    <p class="description__price">300€/jour</p>
-                </div>
-                <div class="links">
-                    <a href="#" class="navigation__tag travel">#travel</a>
-                    <a href="#" class="navigation__tag architecture">#architecture</a>
-                </div>
+        <!-- Marcel Nikolic -->
+        <div class="photographer marcel_nikolic">
+            <a href="" class="photographer__profil">
+                <img class="photographer__profil__img" src="utils/images/Photographers_profil_img/Travel_Tower.jpg"
+                    alt="Marcel Nikolic profil">
+                <h2 class="photographer__profil__name">Marcel Nikolic</h2>
+            </a>
+            <div class="description">
+                <h3 class="description__location">Berlin, Germany</h3>
+                <p class="description__citation">Toujours à la recherceh de LA photo</p>
+                <p class="description__price">300€/jour</p>
             </div>
+            <div class="links">
+                <a href="#" class="navigation__tag travel">#travel</a>
+                <a href="#" class="navigation__tag architecture">#architecture</a>
+            </div>
+        </div>
     </main>
     <footer>
     </footer>

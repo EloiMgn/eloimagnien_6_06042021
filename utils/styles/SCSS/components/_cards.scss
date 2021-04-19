@@ -1,7 +1,139 @@
-.photographer__profil__img{
-   
+.row {
+    display: flex;
+    justify-content: space-between;
+    height: 60vh;
 }
-.photo__img{
-    width: 200px;
-    height: 200px;
+
+.photographer {
+    width: 100%;
+    text-align: center;
+
+    &__profil {
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
+        text-align: center;
+
+        &--mimi {
+            margin: auto;
+            background-image: url(../../images/Photographers_profil_img/Portrait_Nora.jpg);
+            background-size: cover;
+            background-position: center;
+            width: 200px;
+            height: 200px;
+            border-radius: 10em;
+        }
+
+        &--ellie {
+            margin: auto;
+            background-image: url(../../images/Photographers_profil_img/Architecture_horseshoe.jpg);
+            background-size: cover;
+            background-position: center;
+            width: 200px;
+            height: 200px;
+            border-radius: 10em;
+        }
+
+        &--tracy {
+            margin: auto;
+            background-image: url(../../images/Photographers_profil_img/Fashion_Urban_Jungle.jpg);
+            background-size: cover;
+            background-position: center;
+            width: 200px;
+            height: 200px;
+            border-radius: 10em;
+        }
+
+        &--nabeel {
+            margin: auto;
+            background-image: url(../../images/Photographers_profil_img/Travel_Outdoor_Baths.jpg);
+            background-size: cover;
+            background-position: center;
+            width: 200px;
+            height: 200px;
+            border-radius: 10em;
+        }
+
+        &--rhode {
+            margin: auto;
+            background-image: url(../../images/Photographers_profil_img/Fashion_Melody_Red_on_Stripes.jpg);
+            background-size: cover;
+            width: 200px;
+            height: 200px;
+            border-radius: 10em;
+        }
+
+        &--marcel {
+            margin: auto;
+            background-image: url(../../images/Photographers_profil_img/Travel_Tower.jpg);
+            background-size: cover;
+            background-position: center;
+            width: 200px;
+            height: 200px;
+            border-radius: 10em;
+        }
+
+        &__img {
+            display: none;
+        }
+
+        h2 {
+            margin: auto;
+            width: fit-content;
+            text-decoration: none;
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 36px;
+            line-height: 47px;
+            /* identical to box height */
+
+            text-align: center;
+
+            color: #D3573C;
+        }
+    }
+
+}
+
+.description {
+    &__location {
+        margin: 10px 0;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 17px;
+        /* identical to box height */
+
+        text-align: center;
+
+        color: #CA4E33;
+    }
+
+    &__citation {
+        margin: 10px 0;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 80%;
+        line-height: 13px;
+        /* identical to box height */
+
+        text-align: center;
+
+        color: #000000;
+    }
+
+    &__price {
+        margin: 10px 0;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 70%;
+        line-height: 12px;
+        /* identical to box height */
+
+        text-align: center;
+    }
 }

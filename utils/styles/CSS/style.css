@@ -101,7 +101,7 @@
 }
 
 .photographer {
-  width: 100%;
+  width: 30%;
   text-align: center;
 }
 .photographer__profil {
@@ -241,6 +241,7 @@ header {
 .navigation__tag {
   text-decoration: none;
   padding: 4px 10px;
+  margin: 0 2px;
   border: 0.5px solid #C4C4C4;
   box-sizing: border-box;
   border-radius: 15px;

@@ -31,7 +31,7 @@
       "tags": ["art", "fashion", "events"],
       "tagline": "Photographe freelance",
       "price": 500,
-      "portrait": "TracyGalindo.jpg"
+      "portrait": "Fashion_Urban_Jungle.jpg"
     },
     {
       "name": "Nabeel Bradford",
@@ -42,7 +42,7 @@
       "tags": ["travel", "portrait"],
       "tagline": "Toujours aller de l'avant",
       "price": 350,
-      "portrait": "NabeelBradford.jpg"
+      "portrait": "Travel_Outdoor_Baths.jpg"
     },
     {
       "name": "Rhode Dubois",
@@ -53,7 +53,7 @@
       "tags": ["sport", "fashion", "events", "animals"],
       "tagline": "Je crée des souvenirs",
       "price": 275,
-      "portrait": "RhodeDubois.jpg"
+      "portrait": "Fashion_Melody_Red_on_Stripes.jpg"
     },
     {
       "name": "Marcel Nikolic",
@@ -64,7 +64,7 @@
       "tags": ["travel", "architecture"],
       "tagline": "Toujours à la recherche de LA photo",
       "price": 300,
-      "portrait": "MarcelNikolic.jpg"
+      "portrait": "Travel_Tower.jpg"
     }
   ],
   "media": [

@@ -2,26 +2,29 @@
   "photographers": [
     {
       "name": "Mimi Keel",
+      "pseudo": "mimi_keel",
       "id": 243,
       "city": "London",
       "country": "UK",
       "tags": ["portrait", "events", "travel", "animals"],
       "tagline": "Voir le beau dans le quotidien",
       "price": 400,
-      "portrait": "MimiKeel.jpg"
+      "portrait": "Portrait_Nora.jpg"
     },
     {
       "name": "Ellie-Rose Wilkens",
+      "pseudo": "ellie-rose_wilkens",
       "id": 930,
       "city": "Paris",
       "country": "France",
       "tags": ["sports", "architecture"],
       "tagline": "Capturer des compositions complexes",
       "price": 250,
-      "portrait": "EllieRoseWilkens.jpg"
+      "portrait": "Architecture_horseshoe.jpg"
     },
     {
       "name": "Tracy Galindo",
+      "pseudo": "tracy_galindo",
       "id": 82,
       "city": "Montreal",
       "country": "Canada",
@@ -32,6 +35,7 @@
     },
     {
       "name": "Nabeel Bradford",
+      "pseudo": "nabeel_bradford",
       "id": 527,
       "city": "Mexico City",
       "country": "Mexico",
@@ -42,6 +46,7 @@
     },
     {
       "name": "Rhode Dubois",
+      "pseudo": "rhode_dubois",
       "id": 925,
       "city": "Barcelona",
       "country": "Spain",
@@ -52,6 +57,7 @@
     },
     {
       "name": "Marcel Nikolic",
+      "pseudo": "marcel_nikolic",
       "id": 195,
       "city": "Berlin",
       "country": "Germany",

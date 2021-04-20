@@ -1,5 +1,6 @@
 var section1 = document.getElementById('row1');
 var section2 = document.getElementById('row2');
+
 var requestURL = 'utils/datas/datas.json';
 var request = new XMLHttpRequest();
 request.open('GET', requestURL);

@@ -213,6 +213,20 @@
   text-align: center;
 }
 
+.selection {
+  display: flex;
+  flex-wrap: wrap;
+}
+.selection__card {
+  display: flex;
+  flex-direction: column;
+}
+.selection__card__div {
+  border-radius: 5px;
+  width: 350px;
+  height: 300px;
+}
+
 header {
   height: 20vh;
   width: 100%;

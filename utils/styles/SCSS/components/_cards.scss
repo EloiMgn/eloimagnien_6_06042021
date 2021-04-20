@@ -22,7 +22,7 @@
             background-position: center;
             width: 200px;
             height: 200px;
-            border-radius: 10em;
+            border-radius: 10em; 
         }
 
         &--ellie-rose_wilkens {
@@ -137,4 +137,18 @@
 
         text-align: center;
     }
+}
+
+.selection{
+    display: flex;
+    flex-wrap: wrap;
+     &__card{
+         display: flex;
+         flex-direction: column;
+        &__div{
+            border-radius: 5px;
+            width: 350px;
+            height: 300px;
+        }
+     }
 }

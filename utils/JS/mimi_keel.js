@@ -101,7 +101,7 @@ function showSelection(jsonObj) {
 
     for (var i = 0; i < medias.length; i++) {
 
-         if (medias[i].photographerId == 243 && medias[i].image){
+         if (medias[i].photographerId === 243 && medias[i].image){
 
         //=== création de la carte ===
         var selectionCard = document.createElement('div');
@@ -122,6 +122,7 @@ function showSelection(jsonObj) {
         // === insertion des elts de la description ====
         var cardTitle = document.createElement("span");
         cardTitle.classList.add("card__title");
+        cardTitle.textContent = medias[i].image;
         var cardPrice = document.createElement("span");
         cardPrice.classList.add("card__price");
         var cardLike = document.createElement("div");

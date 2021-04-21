@@ -1,7 +1,9 @@
 .row {
     display: flex;
-    justify-content: space-between;
-    height: 60vh;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 110vh;
 }
 
 .photographer {
@@ -13,65 +15,16 @@
         width: 100%;
         text-decoration: none;
         text-align: center;
+        
 
 
-        &--mimi_keel {
+        &__portrait {
             margin: auto;
-            background-image: url(../../images/Photographers_profil_img/Portrait_Nora.jpg);
             background-size: cover;
             background-position: center;
             width: 200px;
             height: 200px;
             border-radius: 10em; 
-        }
-
-        &--ellie-rose_wilkens {
-            margin: auto;
-            background-image: url(../../images/Photographers_profil_img/Architecture_horseshoe.jpg);
-            background-size: cover;
-            background-position: center;
-            width: 200px;
-            height: 200px;
-            border-radius: 10em;
-        }
-
-        &--tracy_galindo {
-            margin: auto;
-            background-image: url(../../images/Photographers_profil_img/Fashion_Urban_Jungle.jpg);
-            background-size: cover;
-            background-position: center;
-            width: 200px;
-            height: 200px;
-            border-radius: 10em;
-        }
-
-        &--nabeel_bradford {
-            margin: auto;
-            background-image: url(../../images/Photographers_profil_img/Travel_Outdoor_Baths.jpg);
-            background-size: cover;
-            background-position: center;
-            width: 200px;
-            height: 200px;
-            border-radius: 10em;
-        }
-
-        &--rhode_dubois {
-            margin: auto;
-            background-image: url(../../images/Photographers_profil_img/Fashion_Melody_Red_on_Stripes.jpg);
-            background-size: cover;
-            width: 200px;
-            height: 200px;
-            border-radius: 10em;
-        }
-
-        &--marcel_nikolic {
-            margin: auto;
-            background-image: url(../../images/Photographers_profil_img/Travel_Tower.jpg);
-            background-size: cover;
-            background-position: center;
-            width: 200px;
-            height: 200px;
-            border-radius: 10em;
         }
 
         &__img {
@@ -142,6 +95,8 @@
 .selection{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
      &__card{
          display: flex;
          flex-direction: column;

@@ -2,7 +2,6 @@
   "photographers": [
     {
       "name": "Mimi Keel",
-      "pseudo": "mimi_keel",
       "id": 243,
       "city": "London",
       "country": "UK",
@@ -13,7 +12,6 @@
     },
     {
       "name": "Ellie-Rose Wilkens",
-      "pseudo": "ellie-rose_wilkens",
       "id": 930,
       "city": "Paris",
       "country": "France",
@@ -24,7 +22,6 @@
     },
     {
       "name": "Tracy Galindo",
-      "pseudo": "tracy_galindo",
       "id": 82,
       "city": "Montreal",
       "country": "Canada",
@@ -35,7 +32,6 @@
     },
     {
       "name": "Nabeel Bradford",
-      "pseudo": "nabeel_bradford",
       "id": 527,
       "city": "Mexico City",
       "country": "Mexico",
@@ -46,7 +42,6 @@
     },
     {
       "name": "Rhode Dubois",
-      "pseudo": "rhode_dubois",
       "id": 925,
       "city": "Barcelona",
       "country": "Spain",
@@ -57,7 +52,6 @@
     },
     {
       "name": "Marcel Nikolic",
-      "pseudo": "marcel_nikolic",
       "id": 195,
       "city": "Berlin",
       "country": "Germany",
@@ -98,7 +92,7 @@
     {
       "id": 9275938,
       "photographerId": 82,
-      "image": "Event-_eddingGazebo.jpg",
+      "image": "Event_WeddingGazebo.jpg",
       "tags": ["events"],
       "likes": 69,
       "date": "2018-02-22",
@@ -198,7 +192,7 @@
     {
       "id": 725639493,
       "photographerId": 925,
-      "image": "Event_ProductPitchjpg",
+      "image": "Event_ProductPitch.jpg",
       "tags": ["events"],
       "likes": 3,
       "date": "2019-05-20",

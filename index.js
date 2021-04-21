@@ -24,7 +24,7 @@ function showPhotographerRow(jsonObj) {
         var cardLink = document.createElement("a");
         cardLink.classList.add("photographer__profil");
         var pseudo = photographers[i].name.replace(" ", "_");
-        var attributeLink = "photographers/" + pseudo + ".html" + `?name=${photographers[i].name}&id=${photographers[i].id}`;
+        var attributeLink = "photographers/pages.html" + `?name=${photographers[i].name}&id=${photographers[i].id}`;
         cardLink.setAttribute("href", attributeLink);
 
         // === insertion de l'image cachée ===    

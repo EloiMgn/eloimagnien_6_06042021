@@ -29,7 +29,7 @@ function showPhotographerRow(jsonObj) {
 
         // === insertion de l'image cachée ===    
         var imageHtml = document.createElement('img');
-        var attributeImg = "utils/images/Photographers_profil_img/" + photographers[i].portrait;
+        var attributeImg = "../utils/images/Photographers_profil_img/" + photographers[i].portrait;
         var altImage = photographers[i].name + " profil";
         imageHtml.classList.add("photographer__profil__img");
         imageHtml.setAttribute("src", attributeImg);

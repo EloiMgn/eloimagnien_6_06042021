@@ -10,6 +10,7 @@ request.onload = function () {
     showBanner(photographers);
     var medias = request.response;
     showSelection(medias);
+    pageHeader(photographers);
 }
 
 var urlCourante = window.location.href;
@@ -181,6 +182,26 @@ function showSelection(jsonObj) {
         cardLike.appendChild(likeIcon);
 
         
+         }
+
+    }
+    
+}
+
+var head = document.getElementById ("head");
+
+
+function pageHeader(jsonObj) {
+    var photographers = jsonObj['photographers'];
+
+    for (var i = 0; i < photographers.length; i++) {
+
+         if (photographers[i].id == artistId){
+
+            var pageTitle = document.createElement('title');
+            pageTitle.textContent = "Fisheye - " + artistName;
+        
+            head.appendChild(pageTitle);
          }
 
     }

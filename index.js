@@ -1,6 +1,6 @@
 var section = document.getElementById('row');
 
-var requestURL = 'utils/datas/datas.json';
+var requestURL = 'datas/datas.json';
 var request = new XMLHttpRequest();
 request.open('GET', requestURL);
 request.responseType = 'json';
@@ -24,12 +24,12 @@ function showPhotographerRow(jsonObj) {
         var cardLink = document.createElement("a");
         cardLink.classList.add("photographer__profil");
         var pseudo = photographers[i].name.replace(" ", "_");
-        var attributeLink = "photographers/pages.html" + `?name=${photographers[i].name}&id=${photographers[i].id}`;
+        var attributeLink = "pages/photographers.html" + `?name=${photographers[i].name}&id=${photographers[i].id}`;
         cardLink.setAttribute("href", attributeLink);
 
         // === insertion de l'image cachée ===    
         var imageHtml = document.createElement('img');
-        var attributeImg = "../utils/images/Photographers_profil_img/" + photographers[i].portrait;
+        var attributeImg = "./images/Photographers_profil_img/" + photographers[i].portrait;
         var altImage = photographers[i].name + " profil";
         imageHtml.classList.add("photographer__profil__img");
         imageHtml.setAttribute("src", attributeImg);
@@ -39,7 +39,7 @@ function showPhotographerRow(jsonObj) {
         var photographerProfil = document.createElement('div');
     
         photographerProfil.classList.add("photographer__profil__portrait");
-        var pictureUrl = "../utils/images/Photographers_profil_img/" + photographers[i].portrait;
+        var pictureUrl = "./images/Photographers_profil_img/" + photographers[i].portrait;
         photographerProfil.style.backgroundImage = `url("${pictureUrl}")`;
        
         photographerProfil.style.margin = "auto";

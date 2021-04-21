@@ -26,5 +26,8 @@
   "homepage": "https://github.com/Eloidev/eloimagnien_6_06042021#readme",
   "browserslist": [
     "last 30 versions"
-  ]
+  ],
+  "dependencies": {
+    "tinify": "^1.6.0-beta.2"
+  }
 }

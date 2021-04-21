@@ -127,9 +127,10 @@ function showSelection(jsonObj) {
         var pictureDiv = document.createElement('div');
         pictureDiv.classList.add("selection__card__div");
         artistFirst =  artistName.substring (0, artistName.lastIndexOf( " " ) );
-        var pictureUrl = "../utils/images/" + artistFirst + "/" + medias[i].image;
+        var pictureUrl = "../utils/images/" + artistFirst + "/tinified/" + medias[i].image;
         pictureDiv.style.backgroundImage = `url("${pictureUrl}")`;
         pictureDiv.style.backgroundSize = "cover";
+        
         
         // === création de la description ====
 
@@ -139,14 +140,16 @@ function showSelection(jsonObj) {
         // === insertion des elts de la description ====
         var cardTitle = document.createElement("span");
         cardTitle.classList.add("card__title");
-        cardTitle.textContent = medias[i].image;
+        cardTitle.textContent = medias[i].image.substring(medias[i].image.lastIndexOf( "_" )+1).replace(".jpg", "");
         var cardPrice = document.createElement("span");
         cardPrice.classList.add("card__price");
+        cardPrice.textContent = medias[i].price + " €";
         var cardLike = document.createElement("div");
         cardLike.classList.add("card__likes");
 
         var likesNumber = document.createElement("span");
         likesNumber.classList.add("card__likes__number");
+        likesNumber.textContent = medias[i].likes;
 
         var likeIcon = document.createElement("i");
         likeIcon.classList.add("fas");
@@ -161,6 +164,9 @@ function showSelection(jsonObj) {
         pictureDescription.appendChild(cardTitle);
         pictureDescription.appendChild(cardPrice);
         pictureDescription.appendChild(cardLike)
+
+        cardLike.appendChild(likesNumber);
+        cardLike.appendChild(likeIcon);
 
         
          }

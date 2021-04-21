@@ -179,11 +179,60 @@
 .selection__card {
   display: flex;
   flex-direction: column;
+  margin: 10px;
 }
 .selection__card__div {
   border-radius: 5px;
   width: 350px;
   height: 300px;
+}
+.selection__card__description {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px;
+  align-items: center;
+}
+.selection__card__description:nth-child(0) {
+  justify-self: flex-start;
+}
+
+.card__title {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 31px;
+  color: #911C1C;
+}
+.card__price {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 31px;
+  text-align: right;
+  color: #911C1C;
+}
+.card__likes {
+  width: fit-content;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.card__likes__number {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 31px;
+  text-align: right;
+  color: #911C1C;
+  margin: 3px;
+}
+.card__likes__icon {
+  color: #911C1C;
+  font-size: 20px;
+  margin: 3px;
 }
 
 header {

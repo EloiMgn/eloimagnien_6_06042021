@@ -83,6 +83,9 @@ function showBanner(jsonObj) {
         photographerProfil.classList.add("photographer__profil__portrait");
         var pictureUrl = "../utils/images/Photographers_ID_Photos/" + artistName.replace(" ", "") + ".jpg";
         photographerProfil.style.backgroundImage = `url("${pictureUrl}")`;
+        photographerProfil.style.marginLeft = "auto";
+        photographerProfil.style.marginRight = "50px";
+        
 
         // === insertion de l'image cachée ===    
         var imageHtml = document.createElement('img');
@@ -124,12 +127,21 @@ function showSelection(jsonObj) {
         selectionCard.classList.add("selection__card");
 
         //=== création de la div photo ===
-        var pictureDiv = document.createElement('div');
+        var pictureDiv = document.createElement('a');
         pictureDiv.classList.add("selection__card__div");
         artistFirst =  artistName.substring (0, artistName.lastIndexOf( " " ) );
         var pictureUrl = "../utils/images/" + artistFirst + "/tinified/" + medias[i].image;
         pictureDiv.style.backgroundImage = `url("${pictureUrl}")`;
         pictureDiv.style.backgroundSize = "cover";
+        pictureDiv.setAttribute("href", "#")
+
+        // === insertion de l'image cachée ===    
+        var imageHtml = document.createElement('img');
+        var attributeImg = "../utils/images/" + artistFirst + "/tinified/" + medias[i].image;
+        var altImage = artistName + " profil";
+        imageHtml.classList.add("photographer__profil__img");
+        imageHtml.setAttribute("src", attributeImg);
+        imageHtml.setAttribute("alt", altImage);
         
         
         // === création de la description ====

@@ -41,6 +41,8 @@ function showPhotographerRow(jsonObj) {
         photographerProfil.classList.add("photographer__profil__portrait");
         var pictureUrl = "../utils/images/Photographers_profil_img/" + photographers[i].portrait;
         photographerProfil.style.backgroundImage = `url("${pictureUrl}")`;
+       
+        photographerProfil.style.margin = "auto";
 
         // === insertion du Nom de l'artiste ===     
         var photographerName = document.createElement('h2');

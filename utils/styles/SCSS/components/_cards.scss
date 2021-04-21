@@ -19,7 +19,6 @@
 
 
         &__portrait {
-            margin: auto;
             background-size: cover;
             background-position: center;
             width: 200px;
@@ -97,6 +96,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    margin: 10px 70px;
 
     &__card {
         display: flex;

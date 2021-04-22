@@ -25,9 +25,9 @@ function showBanner(jsonObj) {
     var photographers = jsonObj['photographers'];
     
 
-    for (var i = 0; i < photographers.length; i++) {
+    photographers.forEach (photographers => {
         
-        if (artistName === photographers[i].name){
+        if (artistName === photographers.name){
             
         
         //=== création de la carte ===
@@ -36,7 +36,7 @@ function showBanner(jsonObj) {
         
         // === insertion du Nom de l'artiste ===     
         var photographerName = document.createElement('h1');
-        photographerName.textContent = photographers[i].name;
+        photographerName.textContent = photographers.name;
         photographerName.classList.add("banner__profil__name");
 
         // === création de la description ===     
@@ -46,29 +46,29 @@ function showBanner(jsonObj) {
         // === insertion des éléments de la description ===     
         var location = document.createElement('h2');
         location.classList.add("banner__description__location");
-        location.textContent = location.textContent = photographers[i].city + ", " + photographers[i].country;
+        location.textContent = location.textContent = photographers.city + ", " + photographers.country;
 
         var citation = document.createElement('p');
         citation.classList.add("banner__description__citation")
-        citation.textContent = photographers[i].tagline;
+        citation.textContent = photographers.tagline;
 
         // === création de la div des liens ===     
         var tagsList = document.createElement("div");
         tagsList.classList.add("banner__links");
 
         // === insertion des tags ===
-        var tags = photographers[i].tags;
-        for (var j = 0; j < tags.length; j++) {
+        var tags = photographers.tags;
+        tags.forEach (tags => {
             var tag = document.createElement("a");
-            tag.textContent = "#" + tags[j];
+            tag.textContent = "#" + tags;
 
             var tagsAttribute = "#"
             tag.setAttribute("href", tagsAttribute);
             tag.classList.add("navigation__tag");
-            tag.classList.add(tags[j]);
+            tag.classList.add(tags);
             
             tagsList.appendChild(tag);
-          }
+          });
 
         // === création du bouton ===     
         var button = document.createElement('button');
@@ -110,7 +110,7 @@ function showBanner(jsonObj) {
 
         button.appendChild(contactMe);
     }
-    }
+    });
 }
 
 var selection = document.getElementById ("selection");
@@ -119,9 +119,9 @@ var selection = document.getElementById ("selection");
 function showSelection(jsonObj) {
     var medias = jsonObj['media'];
 
-    for (var i = 0; i < medias.length; i++) {
+    medias.forEach(medias => {
 
-         if (medias[i].photographerId == artistId && medias[i].image){
+         if (medias.photographerId == artistId && medias.image){
 
         //=== création de la carte ===
         var selectionCard = document.createElement('div');
@@ -131,14 +131,14 @@ function showSelection(jsonObj) {
         var pictureDiv = document.createElement('a');
         pictureDiv.classList.add("selection__card__div");
         artistFirst =  artistName.substring (0, artistName.lastIndexOf( " " ) );
-        var pictureUrl = "../../images/" + artistFirst + "/tinified/" + medias[i].image;
+        var pictureUrl = "../../images/" + artistFirst + "/tinified/" + medias.image;
         pictureDiv.style.backgroundImage = `url("${pictureUrl}")`;
         pictureDiv.style.backgroundSize = "cover";
         pictureDiv.setAttribute("href", "#")
 
         // === insertion de l'image cachée ===    
         var imageHtml = document.createElement('img');
-        var attributeImg = "../../images/" + artistFirst + "/tinified/" + medias[i].image;
+        var attributeImg = "../../images/" + artistFirst + "/tinified/" + medias.image;
         var altImage = artistName + " profil";
         imageHtml.classList.add("photographer__profil__img");
         imageHtml.setAttribute("src", attributeImg);
@@ -153,16 +153,16 @@ function showSelection(jsonObj) {
         // === insertion des elts de la description ====
         var cardTitle = document.createElement("span");
         cardTitle.classList.add("card__title");
-        cardTitle.textContent = medias[i].image.substring(medias[i].image.lastIndexOf( "_" )+1).replace(".jpg", "");
+        cardTitle.textContent = medias.image.substring(medias.image.lastIndexOf( "_" )+1).replace(".jpg", "");
         var cardPrice = document.createElement("span");
         cardPrice.classList.add("card__price");
-        cardPrice.textContent = medias[i].price + " €";
+        cardPrice.textContent = medias.price + " €";
         var cardLike = document.createElement("div");
         cardLike.classList.add("card__likes");
 
         var likesNumber = document.createElement("span");
         likesNumber.classList.add("card__likes__number");
-        likesNumber.textContent = medias[i].likes;
+        likesNumber.textContent = medias.likes;
 
         var likeIcon = document.createElement("i");
         likeIcon.classList.add("fas");
@@ -184,7 +184,7 @@ function showSelection(jsonObj) {
         
          }
 
-    }
+    });
     
 }
 
@@ -194,9 +194,9 @@ var head = document.getElementById ("head");
 function pageHeader(jsonObj) {
     var photographers = jsonObj['photographers'];
 
-    for (var i = 0; i < photographers.length; i++) {
+    photographers.forEach(photographers => {
 
-         if (photographers[i].id == artistId){
+         if (photographers.id == artistId){
 
             var pageTitle = document.createElement('title');
             pageTitle.textContent = "Fisheye - " + artistName;
@@ -204,6 +204,6 @@ function pageHeader(jsonObj) {
             head.appendChild(pageTitle);
          }
 
-    }
+    });
     
 }

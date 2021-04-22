@@ -56,3 +56,15 @@ function createPicture(classe, pictureUrl) {
         div.classList.add(`${classe}`);
         div.style.backgroundImage = `url("${pictureUrl}")`;
 }
+
+function CreatePicture(classe, pictureUrl){
+        this.classe = classe;
+        this.pictureUrl = pictureUrl;
+
+        this.picture = function(){
+                div.classList.add(`${this.classe}`);
+                div.style.backgroundImage = `url("${this.pictureUrl}")`;
+                return this.picture;
+        }
+
+}

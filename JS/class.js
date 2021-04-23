@@ -1,70 +1,22 @@
-function createNewElement(parent, name, elementType, classe, text) {
-        var getName = function (name) {
-                document.createElement(`${elementType}`);
-                getName.classList.add(`${classe}`);
-                getName.textContent = `${text}`;
-
-                return getName
-        }
+// === fonticon ajout d'une classe === 
+function addClass(variable, classe) {
+        variable.classList.add(classe);
 }
 
-function createName(varName){
-        var varName = function (){
-                return
-        }
+// === fonction ajout d'un attribut === 
+function addAttribut(variable, attributType, attributValue) {
+        variable.setAttribute(attributType, attributValue);
 }
 
-function createVarName(varName) {
-        var getName = function () {
-                return varName;
-        }
-        return getName;
-}
+// fonction création d'un element ===
 
+function addElement(variable, classe, attributType, attributValue){
+        addClass(variable, classe);
+        addAttribut(variable, attributType, attributValue);
+    }
+    
+// === fonction ajout texte === 
 
-
-class element {
-        constructor(name, classe, text) {
-                this.name = name;
-                this.classe = classe;
-                this.text = text;
-
-        }
-}
-
-let newCard = new element(section, card, photographer, text);
-
-
-var card = document.createElement("div");
-card.classList.add(newCard.classe);
-section.appendChild(card);
-
-
-var div = document.createElement("div");
-var link = document.createElement("a");
-var image = document.createElement("img");
-var paragraph = document.createElement("p");
-var title1 = document.createElement("h1");
-var title2 = document.createElement("h2");
-var title3 = document.createElement("h3");
-
-function createCard(classe) {
-        div.classList.add(`${classe}`);
-}
-
-function createPicture(classe, pictureUrl) {
-        div.classList.add(`${classe}`);
-        div.style.backgroundImage = `url("${pictureUrl}")`;
-}
-
-function CreatePicture(classe, pictureUrl){
-        this.classe = classe;
-        this.pictureUrl = pictureUrl;
-
-        this.picture = function(){
-                div.classList.add(`${this.classe}`);
-                div.style.backgroundImage = `url("${this.pictureUrl}")`;
-                return this.picture;
-        }
-
-}
+function addText(variable, text){
+        variable.textContent = text;
+    }

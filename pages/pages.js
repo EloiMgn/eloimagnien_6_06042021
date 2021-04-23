@@ -82,7 +82,7 @@ function showBanner(jsonObj) {
         var photographerProfil = document.createElement('div');
         
         photographerProfil.classList.add("photographer__profil__portrait");
-        var pictureUrl = "../images/Photographers_ID_Photos/" + artistName.replace(" ", "") + ".jpg";
+        var pictureUrl = "../images/Photographers_ID_Photos/tinified/" + artistName.replace(" ", "") + ".jpg";
         photographerProfil.style.backgroundImage = `url("${pictureUrl}")`;
         photographerProfil.style.marginLeft = "auto";
         photographerProfil.style.marginRight = "50px";
@@ -90,7 +90,7 @@ function showBanner(jsonObj) {
 
         // === insertion de l'image cachée ===    
         var imageHtml = document.createElement('img');
-        var attributeImg = "../images/Photographers_ID_Photos/" + artistName.replace(" ", "") + ".jpg";
+        var attributeImg = "../images/Photographers_ID_Photos/tinified/" + artistName.replace(" ", "") + ".jpg";
         var altImage = artistName + " profil";
         imageHtml.classList.add("photographer__profil__img");
         imageHtml.setAttribute("src", attributeImg);

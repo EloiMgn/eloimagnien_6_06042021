@@ -1,4 +1,4 @@
-import { Pages } from "../JS/class.js";
+import { Pages, ContactModal } from "../JS/class.js";
 
 var requestURL = '../datas/datas.json';
 var request = new XMLHttpRequest();
@@ -12,19 +12,11 @@ request.onload = function () {
     Pages.showBanner(photographers);
     Pages.showSelection(medias);
     Pages.pageHeader(photographers);
+    ContactModal.createModal();
+    ContactModal.modalOpen();
+    ContactModal.modalClose();
 }
 
-
-
-const modalBtn = document.querySelectorAll(".modal-btn");
-
-modalBtn.forEach((btn) => btn.addEventListener("click", function () {
-    launchModal();
-  }));
-
-  function launchModal() {
-    modalbg.style.display = "block";
-  }
 
 
 

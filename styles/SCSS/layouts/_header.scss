@@ -28,7 +28,7 @@ header {
     text-decoration: none;
     padding: 4px 10px;
     margin: 0 2px;
-    border: 0.5px solid #C4C4C4;
+    border: 0.5px solid $border-color;
     box-sizing: border-box;
     border-radius: 15px;
     font-family: DM Sans;
@@ -39,10 +39,10 @@ header {
     /* identical to box height */
     text-align: center;
 
-    color: #911C1C;
+    color: $color-primary;
     &:hover{
-        color: white;
-        background-color: #911C1C;
+        color: $text-hover-color;
+        background-color: $color-primary;
     }
 
 }
@@ -60,7 +60,7 @@ header {
     /* identical to box height */
     
     
-    color: #911C1C;
+    color: $color-primary;
     margin: 20px;
     }
 }

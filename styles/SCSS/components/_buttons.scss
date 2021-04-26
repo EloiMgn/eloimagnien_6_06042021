@@ -1,6 +1,6 @@
-.contact {
+.contact, .btn-submit {
     margin: 20px;
-    background: #911C1C;
+    background: $color-primary;
     border-radius: 7px;
     border: none;
     width: 170px;
@@ -10,12 +10,13 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #FFFFFF;
+    color: $text-hover-color;
+
 
     &:hover {
-        background: #D3573C;
+        background: $color-secondary;
         cursor: pointer;
-        color: black;
+        color: $text-color;
     }
 
     &__text {
@@ -33,6 +34,14 @@
 
     }
 }
+.btn-submit{
+    margin: 20px auto;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 130%;
+    line-height: 26px;
+}
 
 .listbox {
     padding-left: 100px;
@@ -44,13 +53,13 @@
         font-size: 18px;
         line-height: 23px;
 
-        color: #000000;
+        color: $text-color;
     }
 
     &__select {
-        background: #911C1C;
+        background: $color-primary;
         border-radius: 5px;
-        color: white;
+        color: $text-hover-color;
         border: none;
         padding: 10px;
 

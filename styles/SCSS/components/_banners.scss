@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     margin: 0 100px;
-    background: #FAFAFA;
+    background: $bg-color-light;
     border-radius: 5px;
     padding: 30px;
 
@@ -14,7 +14,7 @@
         line-height: 83px;
         margin-left: 20px;
 
-        color: #D3573C;
+        color: $color-secondary;
     }
 
     &__description {
@@ -25,7 +25,7 @@
             font-weight: normal;
             font-size: 24px;
             line-height: 31px;
-            color: #901C1C;
+            color: $color-primary;
             margin-bottom: 19px;
         }
 
@@ -36,7 +36,7 @@
             font-size: 18px;
             line-height: 23px;
             margin-bottom: 16px;
-            color: #525252;
+            color: $bg-color-dark;
         }
     }
     &__links{

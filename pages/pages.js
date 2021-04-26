@@ -19,7 +19,7 @@ var artistName = url.searchParams.get("name");
 var artistId = url.searchParams.get("id");
 
 
-
+import { CreateCards } from "../JS/class.js";
 
 function showBanner(jsonObj) {
     var photographers = jsonObj['photographers'];
@@ -32,56 +32,53 @@ function showBanner(jsonObj) {
         
         //=== création de la carte ===
         var bannerProfil = document.createElement('div');
-        bannerProfil.classList.add("banner__profil");
+        CreateCards.addClass(bannerProfil, "banner__profil");
         
         // === insertion du Nom de l'artiste ===     
         var photographerName = document.createElement('h1');
-        photographerName.textContent = photographers.name;
-        photographerName.classList.add("banner__profil__name");
+        CreateCards.addText(photographerName, `${photographers.name}`);
+        CreateCards.addClass(photographerName, "banner__profil__name");
 
         // === création de la description ===     
         var description = document.createElement('div');
-        description.classList.add("banner__description");
+        CreateCards.addClass(description, "banner__description");
 
         // === insertion des éléments de la description ===     
         var location = document.createElement('h2');
-        location.classList.add("banner__description__location");
-        location.textContent = location.textContent = photographers.city + ", " + photographers.country;
+        CreateCards.addClass(location, "banner__description__location");
+        CreateCards.addText(location, `${photographers.city + ", " + photographers.country}`);
 
         var citation = document.createElement('p');
-        citation.classList.add("banner__description__citation")
-        citation.textContent = photographers.tagline;
+        CreateCards.addClass(citation, "banner__description__citation");
+        CreateCards.addText(location, `${photographers.tagline}`);
 
         // === création de la div des liens ===     
         var tagsList = document.createElement("div");
-        tagsList.classList.add("banner__links");
+        CreateCards.addClass(tagsList, "banner__links");
 
         // === insertion des tags ===
         var tags = photographers.tags;
         tags.forEach (tags => {
             var tag = document.createElement("a");
-            tag.textContent = "#" + tags;
-
-            var tagsAttribute = "#"
-            tag.setAttribute("href", tagsAttribute);
-            tag.classList.add("navigation__tag");
-            tag.classList.add(tags);
+            CreateCards.addText(tag, `${"#" + tags}`);
+            CreateCards.addAttribut(tag, "href", "#")
+            CreateCards.addClass(tag, "navigation__tag");
+            CreateCards.addClass(tag, `${tags}`);
             
             tagsList.appendChild(tag);
           });
 
         // === création du bouton ===     
         var button = document.createElement('button');
-        button.classList.add("contact");
+        CreateCards.addClass(button, `contact`);
 
         var contactMe = document.createElement("span");
-        contactMe.classList.add("contact__text");
-        contactMe.textContent = "Contactez moi";
+        CreateCards.addClass(contactMe, `contact__text`);
+        CreateCards.addText(contactMe, `Contactez moi`);
 
         // === création div photo de profil === 
         var photographerProfil = document.createElement('div');
-        
-        photographerProfil.classList.add("photographer__profil__portrait");
+        CreateCards.addClass(photographerProfil, `photographer__profil__portrait`);
         var pictureUrl = "../images/Photographers_ID_Photos/tinified/" + artistName.replace(" ", "") + ".jpg";
         photographerProfil.style.backgroundImage = `url("${pictureUrl}")`;
         photographerProfil.style.marginLeft = "auto";
@@ -90,11 +87,10 @@ function showBanner(jsonObj) {
 
         // === insertion de l'image cachée ===    
         var imageHtml = document.createElement('img');
-        var attributeImg = "../images/Photographers_ID_Photos/tinified/" + artistName.replace(" ", "") + ".jpg";
         var altImage = artistName + " profil";
-        imageHtml.classList.add("photographer__profil__img");
-        imageHtml.setAttribute("src", attributeImg);
-        imageHtml.setAttribute("alt", altImage);
+        CreateCards.addClass(imageHtml, `photographer__profil__img`);
+        CreateCards.addAttribut(imageHtml, "src", `${"../images/Photographers_ID_Photos/tinified/" + artistName.replace(" ", "") + ".jpg"}`);
+        CreateCards.addAttribut(imageHtml, "alt", `${artistName + "profil"}`);
 
 
         banner.appendChild(bannerProfil);
@@ -130,7 +126,7 @@ function showSelection(jsonObj) {
         //=== création de la div photo ===
         var pictureDiv = document.createElement('a');
         pictureDiv.classList.add("selection__card__div");
-        artistFirst =  artistName.substring (0, artistName.lastIndexOf( " " ) );
+        var artistFirst =  artistName.substring (0, artistName.lastIndexOf( " " ) );
         var pictureUrl = "../images/" + artistFirst + "/tinified/" + medias.image;
         pictureDiv.style.backgroundImage = `url("${pictureUrl}")`;
         pictureDiv.style.backgroundSize = "cover";

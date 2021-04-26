@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "sass --watch ./styles/SCSS/main.scss:./styles/CSS/style.css",
@@ -31,3 +32,4 @@
     "tinify": "^1.6.0-beta.2"
   }
 }
+

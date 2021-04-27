@@ -152,6 +152,8 @@ export class ContactModal {
 
 }
 
+
+// ==== Méthode de validation du formulaire de contact =======
 export class ModalValidation {
 
         static inputValid() {
@@ -188,6 +190,9 @@ export class ModalValidation {
                         },
                         "message": {
                                 "statut": false,
+                                "data": null
+                        }, 
+                        "artistId": {
                                 "data": null
                         }
 
@@ -289,6 +294,12 @@ export class ModalValidation {
                         //============= validation de la date ======
                         missMessage.textContent = "Veuillez entrer une date de naissance valide";
                         validation(message, missMessage, nameValid);
+                        
+                        // ==== ajout de l'Id de l'artiste pour envoyer le formulaire à l'artiste concerné ======
+                        var urlCourante = window.location.href;
+                        var url = new URL(urlCourante);
+                        var artistId = url.searchParams.get("id");
+                        result.artistId.data = artistId;
 
                         // ========== validation du formulaire ======
                         let finalResult = inputValidation();

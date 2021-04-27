@@ -3,12 +3,25 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    height: 110vh;
+    height: fit-content;
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        height: fit-content;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    } 
 }
+
 
 .photographer {
     width: 30%;
     text-align: center;
+    margin: 25px auto;
+    @media screen and (max-width: 768px) {
+        margin: 25px auto;
+        width: 100%;
+    } 
 
     &__profil {
         height: 100%;

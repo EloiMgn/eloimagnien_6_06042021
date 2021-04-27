@@ -7,9 +7,6 @@ import {
     ModalValidation
 } from "../JS/contact_modal.js";
 
-import {
-    Lightbox
-} from "../JS/lightbox_modal.js"
 
 var requestURL = '../datas/datas.json';
 var request = new XMLHttpRequest();
@@ -35,7 +32,7 @@ window.onload = function () {
     const closeBtn = document.getElementById("close_modal");
     closeBtn.addEventListener("click", ContactModal.modalClose);
 
-    ModalValidation.firstValidation();
-    ModalValidation.secondValidation();
+    ModalValidation.inputValid();
+    // ModalValidation.secondValidation();
     
 }

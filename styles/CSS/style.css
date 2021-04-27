@@ -1,3 +1,13 @@
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .contact, .btn-submit {
   margin: 20px;
   background: #901C1C;
@@ -264,7 +274,7 @@
   width: 100%;
   max-width: 600px;
   animation-name: modalopen;
-  animation-duration: var(--modal-duration);
+  animation-duration: 0.8s;
   background: #DB8876;
   border-radius: 10px;
   overflow: hidden;
@@ -289,6 +299,17 @@
   border-radius: 8px;
   font-size: 20px;
   height: 48px;
+}
+
+.errorText {
+  display: block;
+  font-size: 100%;
+  font-family: DM Sans;
+  color: red;
+}
+
+.errorInput {
+  border: solid red 3px;
 }
 
 .close {
@@ -328,6 +349,129 @@ label {
 #message {
   height: 170px;
   width: 100%;
+}
+
+.lightbox__modal {
+  display: none;
+  background-color: #FAFAFA;
+  border-radius: 5px;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  z-index: 2;
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+}
+.lightbox__modal__content {
+  margin: 5% auto;
+  width: 80vw;
+  height: 80vh;
+  animation-name: modalopen;
+  animation-duration: 0.8s;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #ffffff;
+  padding-top: 10px;
+  z-index: 2;
+  background: #FAFAFA;
+}
+.lightbox__modal__content__body {
+  margin: 5% auto;
+  width: 70vw;
+  height: 70vh;
+  background: #D3573C;
+}
+
+.close_lightbox {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+.close_lightbox:before, .close_lightbox:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 45px;
+  width: 4px;
+  background-color: #901C1C;
+}
+.close_lightbox:before {
+  transform: rotate(45deg);
+}
+.close_lightbox:after {
+  transform: rotate(-45deg);
+}
+
+.previous {
+  position: absolute;
+  left: 0;
+  top: 290px;
+  width: 50px;
+  height: 70px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+.previous:before, .previous:after {
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  content: " ";
+  height: 35px;
+  width: 8px;
+  background-color: #901C1C;
+}
+.previous:before {
+  transform: rotate(45deg) translateY(-14px);
+}
+.previous:after {
+  transform: rotate(-45deg) translateY(14px);
+}
+
+.next {
+  position: absolute;
+  right: 0;
+  top: 290px;
+  width: 50px;
+  height: 70px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+.next:before, .next:after {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  content: " ";
+  height: 35px;
+  width: 8px;
+  background-color: #901C1C;
+}
+.next:before {
+  transform: rotate(45deg) translateY(14px);
+}
+.next:after {
+  transform: rotate(-45deg) translateY(-14px);
+}
+
+.image__title {
+  position: absolute;
+  bottom: 50px;
+  left: 170px;
+  font-family: DM Sans;
+  font-size: 120%;
+  color: #901C1C;
+  font-weight: normal;
 }
 
 header {

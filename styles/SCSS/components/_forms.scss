@@ -1,6 +1,6 @@
 .modal{
     display: none;
-    background-color: rgba(196, 196, 196, 0.4);;
+    background-color: rgba(196, 196, 196, 0.4);
     border-radius: 5px;
     position: fixed;
     z-index: 1;
@@ -18,7 +18,7 @@
         width: 100%;
         max-width: 600px;
         animation-name: modalopen;
-        animation-duration: var(--modal-duration);
+        animation-duration: 0.8s;
         background: $modal-color;
         border-radius: 10px;
         overflow: hidden;
@@ -46,6 +46,17 @@
         height: 48px;
     }
 }
+
+.errorText{
+    display: block;
+    font-size: 100%;
+    font-family: DM Sans;
+    color: red;
+}
+
+.errorInput {
+    border: solid red 3px;
+  } 
 
 .close {
     position: absolute;

@@ -1,4 +1,15 @@
-import { Pages, ContactModal } from "../JS/class.js";
+import {
+    Pages
+} from "../JS/class.js";
+
+import {
+    ContactModal,
+    ModalValidation
+} from "../JS/contact_modal.js";
+
+import {
+    Lightbox
+} from "../JS/lightbox_modal.js"
 
 var requestURL = '../datas/datas.json';
 var request = new XMLHttpRequest();
@@ -13,17 +24,18 @@ request.onload = function () {
     Pages.showSelection(medias);
     Pages.pageHeader(photographers);
     ContactModal.createModal();
-    ContactModal.modalOpen();
-    ContactModal.modalClose();
+    
+   //  Lightbox.createLightbox();
 }
 
+window.onload = function () {
+    const modalBtn = document.getElementById("modal-btn");
+    modalBtn.addEventListener("click", ContactModal.modalOpen);
 
+    const closeBtn = document.getElementById("close_modal");
+    closeBtn.addEventListener("click", ContactModal.modalClose);
 
-
-
-
-
-
-
-
-
+    ModalValidation.firstValidation();
+    ModalValidation.secondValidation();
+    
+}

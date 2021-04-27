@@ -1,0 +1,126 @@
+.lightbox__modal{
+    display: none;
+    background-color: $bg-color-light;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    z-index: 2;
+    border: 2px solid $border-color;
+    box-sizing: border-box;
+    &__content{
+        margin: 5% auto;
+        width: 80vw;   
+        height: 80vh; 
+        animation-name: modalopen;
+        animation-duration: 0.8s;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        color: $text-hover-color;
+        padding-top: 10px;
+        z-index: 2;
+        background: $bg-color-light;
+
+        &__body{
+            margin: 5% auto;
+            width: 70vw;   
+            height: 70vh;
+            background: $color-secondary;
+        }
+    }
+    
+}
+
+.close_lightbox {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 40px;
+    height: 40px;
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(0.7);
+    &:before, &:after{
+        position: absolute;
+        left: 15px;
+        content: " ";
+        height: 45px;
+        width: 4px;
+        background-color: $color-primary;
+    }
+    &:before{
+        transform: rotate(45deg);
+    }
+    &:after{
+        transform: rotate(-45deg);
+    }
+  }
+
+  .previous{
+    position: absolute;
+    left: 0;
+    top: 290px;
+    width: 50px;
+    height: 70px;
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(0.7);
+    &:before, &:after{
+        position: absolute;
+        left: 5px;
+        top: 10px;
+        content: " ";
+        height: 35px;
+        width: 8px;
+        background-color: $color-primary;
+    }
+    &:before{
+        transform: rotate(45deg) translateY(-14px);
+        ;
+    }
+    &:after{
+        transform: rotate(-45deg) translateY(14px);
+    }
+  }
+
+  .next{
+    position: absolute;
+    right: 0;
+    top: 290px;
+    width: 50px;
+    height: 70px;
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(0.7);
+    &:before, &:after{
+        position: absolute;
+        right: 0px;
+        top: 10px;
+        content: " ";
+        height: 35px;
+        width: 8px;
+        background-color: $color-primary;
+    }
+    &:before{
+        transform: rotate(45deg) translateY(14px);
+        ;
+    }
+    &:after{
+        transform: rotate(-45deg) translateY(-14px);
+    }
+  }
+
+  .image__title{
+      position: absolute;
+      bottom: 50px;
+      left: 170px;
+      font-family: DM Sans;
+      font-size: 120%;
+      color: $color-primary;
+      font-weight: normal;
+  }

@@ -1,38 +1,30 @@
-import {
-    Pages
-} from "../JS/class.js";
+import {CreateBanner} from "../JS/pagesBanner.js";
+import {CreateSelection} from "../JS/pagesSelection.js";
+import{ContactModal} from "../JS/contactModal.js";
+import{ModalValidation} from "../JS/modalValidation.js"
+import {data} from "../datas/datas.js";
 
-import {
-    ContactModal,
-    ModalValidation
-} from "../JS/contact_modal.js";
+CreateBanner.showBanner(data);
+CreateBanner.pageHeader(data);
+CreateSelection.showSelection(data);
+ContactModal.createModal();
 
+var Lscreen = screen.width;
 
-var requestURL = '../datas/datas.json';
-var request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
+ if (768 < Lscreen){
 
-request.onload = function () {
-    var photographers = request.response;
-    var medias = request.response;
-    Pages.showBanner(photographers);
-    Pages.showSelection(medias);
-    Pages.pageHeader(photographers);
-    ContactModal.createModal();
-    
-   //  Lightbox.createLightbox();
-}
-
-window.onload = function () {
     const modalBtn = document.getElementById("modal-btn");
     modalBtn.addEventListener("click", ContactModal.modalOpen);
+         
+ } else {
+     const modalBtn = document.getElementById("contact__responsive");
+     modalBtn.addEventListener("click", ContactModal.modalOpen);
 
-    const closeBtn = document.getElementById("close_modal");
-    closeBtn.addEventListener("click", ContactModal.modalClose);
+ }
 
-    ModalValidation.inputValid();
-    // ModalValidation.secondValidation();
-    
-}
+
+const closeBtn = document.getElementById("close_modal");
+closeBtn.addEventListener("click", ContactModal.modalClose);
+
+ModalValidation.inputValid();
+

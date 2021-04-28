@@ -1,14 +1,9 @@
-var requestURL = 'datas/datas.json';
-var request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
+import {Index} from "./JS/indexClass.js";
+import { data } from "./datas/datas.js";
 
-request.onload = function () {
-    var photographers = request.response;
-    ShowPhotographer.showPhotographerRow(photographers);
-}
+Index.showPhotographers(data);
 
-import { ShowPhotographer } from "./JS/class.js";
+
+
 
 

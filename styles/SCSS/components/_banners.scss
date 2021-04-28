@@ -25,6 +25,7 @@
             font-size: 36px;
             margin-left: 10px;
             line-height: 47px;
+            max-width: 50vw;
             } 
     }
 
@@ -69,9 +70,9 @@
     }
 }
 
-#photographer__profil__responsive{
+#photographer__profil__responsive {
     position: absolute;
-    top: 170px;
+    top: 180px;
     right: -20px;
     background-size: cover;
     background-position: center;

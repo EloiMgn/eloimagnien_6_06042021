@@ -70,3 +70,22 @@
         }
     }
 }
+
+#contact__responsive{
+
+    margin: auto;
+    position: sticky;
+    bottom: 25px;
+    padding: 5px;
+    background: $color-primary;
+    border-radius: 7px;
+    border: none;
+    width: 60vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $text-hover-color;
+}

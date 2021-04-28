@@ -1,6 +1,6 @@
-{
-  "photographers": [
-    {
+export const data = {
+  
+  "photographers": [{
       "name": "Mimi Keel",
       "id": 243,
       "city": "London",
@@ -61,8 +61,7 @@
       "portrait": "Travel_Tower.jpg"
     }
   ],
-  "media": [
-    {
+  "media": [{
       "id": 342550,
       "photographerId": 82,
       "image": "Fashion_Yellow_Beach.jpg",

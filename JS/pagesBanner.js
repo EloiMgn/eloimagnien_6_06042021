@@ -11,6 +11,7 @@ export class CreateBanner {
 
             const url = new URL(window.location.href);
             const artistName = url.searchParams.get("name");
+            console.log(url);
 
             photographers.forEach(photographer => {
 

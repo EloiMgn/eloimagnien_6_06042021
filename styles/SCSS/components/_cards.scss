@@ -124,7 +124,7 @@
 
         &__description {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             margin: 5px;
             align-items: center;
             &:nth-child(0){
@@ -176,9 +176,14 @@
         }
 
         &__icon {
+            cursor: pointer;
             color: $color-primary;
             font-size: 20px;
             margin: 3px;
+            &:hover{
+                color: $color-secondary;
+                transform: scale(1.2);
+            }
         }
     }
 }

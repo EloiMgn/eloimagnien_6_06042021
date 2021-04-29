@@ -2,13 +2,44 @@ import {DomElement} from "./domElement.js";
 
 export class Index {
 
+        static tagLinks(){
+                const portraits = document.getElementById("#Portraits");
+                const art = document.getElementById("#Art");
+                const architecture = document.getElementById("#Architecture");
+                const fashion = document.getElementById("#Fashion");
+                const travel = document.getElementById("#Travel");
+                const sport = document.getElementById("#Sport");
+                const animals = document.getElementById("#Animals");
+                const events = document.getElementById("#Events");
+
+                portraits.setAttribute("href", "./index.html" + `?tag=portrait`);
+                art.setAttribute("href", "./index.html" + `?tag=art`);
+                architecture.setAttribute("href", "./index.html" + `?tag=architecture`);
+                fashion.setAttribute("href", "./index.html" + `?tag=fashion`);
+                travel.setAttribute("href", "./index.html" + `?tag=travel`);
+                sport.setAttribute("href", "./index.html" + `?tag=sport`);
+                animals.setAttribute("href", "./index.html" + `?tag=animals`);
+                events.setAttribute("href", "./index.html" + `?tag=events`);
+
+
+        }
+
        static showPhotographers(datas) {
 
                 var section = document.getElementById('photographers__selection');
                 var photographers = datas['photographers'];
-
+                const url = new URL(window.location.href);
+                const tagValue = url.searchParams.get("tag");
+                
                 photographers.forEach(photographer => {
+                        
 
+                        const tagsArray = photographer.tags;
+                        const foundTag = tagsArray.find(element => element == tagValue);
+                        console.log(tagsArray);
+
+                                if(foundTag){
+                                
                         //=== création de la carte ===
                         const card = new DomElement("div");
                         DomElement.addClass(card, "photographer");
@@ -76,6 +107,21 @@ export class Index {
                                 DomElement.addText(tag, "#" + `${tags}`);
                                 tagsList.appendChild(tag);
                         });
+                } 
+                        
+                });
+
+
+        }
+
+        static modificationPhotographersSelection (datas){
+
+
+
+                const photographers = datas['photographers'];
+
+                photographers.forEach(photographer => {
+
 
                 });
 

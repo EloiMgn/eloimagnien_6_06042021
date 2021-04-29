@@ -290,7 +290,7 @@
 }
 .selection__card__description {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 5px;
   align-items: center;
 }
@@ -332,9 +332,14 @@
   margin: 3px;
 }
 .card__likes__icon {
+  cursor: pointer;
   color: #901C1C;
   font-size: 20px;
   margin: 3px;
+}
+.card__likes__icon:hover {
+  color: #D3573C;
+  transform: scale(1.2);
 }
 
 .modal {
@@ -657,6 +662,14 @@ header {
     padding-right: 10px;
     font-size: 14px;
   }
+}
+
+.navigation__tag__input {
+  display: none;
+}
+.navigation__tag__input:checked + label {
+  color: #ffffff;
+  background-color: #901C1C;
 }
 
 main {

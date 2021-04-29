@@ -64,14 +64,22 @@ export class CreateSelection {
                 DomElement.addClass(likesNumber, `card__likes__number`);
                 DomElement.addText(likesNumber, `${medias.likes}`);
                 cardLike.appendChild(likesNumber);
-
                 
+                
+                var like = medias.likes;
                 const likeIcon = new DomElement("i");
                 DomElement.addClass(likeIcon, `fas`);
                 DomElement.addClass(likeIcon, `fa-heart`);
                 DomElement.addClass(likeIcon, `card__likes__icon`);
                 cardLike.appendChild(likeIcon);
 
+                // ==== fonction d'ajout du like au clic ===== 
+                
+                likeIcon.addEventListener("click", function addLike(){
+                    like++;
+                    console.log(like);
+                    DomElement.addText(likesNumber, `${like}`);
+                })
                 }
 
         });

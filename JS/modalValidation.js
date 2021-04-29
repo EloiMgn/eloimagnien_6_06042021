@@ -1,9 +1,9 @@
+import {ContactModal} from "./contactModal.js";
+
 // ==== Méthode de validation du formulaire de contact =======
 export class ModalValidation {
 
     // ===== Fonction générale de validation =====
-
-
 
     static inputValid() {
 

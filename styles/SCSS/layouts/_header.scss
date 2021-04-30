@@ -1,0 +1,109 @@
+header {
+    height: 20vh;
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @media screen and (max-width: 768px) {
+
+        height: fit-content;
+    } 
+
+
+}
+
+.header__logo {
+    width: 200px;
+    height: 50px;
+    margin: 20px 20px 20px 0;
+    padding-left: 100px;
+
+    @media screen and (max-width: 768px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-left: 10px;
+        width: 120px;
+        height: auto;
+    } 
+}
+
+.hidden {
+    display: none;
+}
+
+.navigation__tag {
+    text-decoration: none;
+    padding: 4px 10px;
+    margin: 0 2px;
+    border: 0.5px solid $border-color;
+    box-sizing: border-box;
+    border-radius: 15px;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: $color-primary;
+    @media screen and (max-width: 768px) {
+        margin: 4px 1px;
+    } 
+
+    &:hover {
+        color: $text-hover-color;
+        background-color: $color-primary;
+    }
+
+
+}
+
+.header__navigation {
+    display: flex;
+    justify-content: space-around;
+    height: 20vh;
+
+    @media screen and (max-width: 768px) {
+        display: block;
+
+    }
+
+    nav {
+        line-height: 47px;
+        margin: 20px;
+
+        @media screen and (max-width: 768px) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 60px;
+        } 
+    }
+
+    h1 {
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 47px;
+        color: $color-primary;
+        margin: 20px;
+        @media screen and (max-width: 768px) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding-right: 10px;
+            font-size: 14px;
+        } 
+    }
+}
+
+.navigation__tag__input{
+        display: none;
+    &:checked + label{
+        color: $text-hover-color;
+        background-color: $color-primary;
+    }
+}

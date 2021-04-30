@@ -1,0 +1,189 @@
+.photographers__selection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    height: fit-content;
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        height: fit-content;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    } 
+}
+
+
+.photographer {
+    width: 30%;
+    text-align: center;
+    margin: 25px auto;
+    @media screen and (max-width: 768px) {
+        margin: 25px auto;
+        width: 100%;
+    } 
+
+    &__profil {
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
+        text-align: center;
+
+
+
+        &__portrait {
+            background-size: cover;
+            background-position: center;
+            width: 200px;
+            height: 200px;
+            border-radius: 10em;
+        }
+
+        &__img {
+            display: none;
+        }
+
+        &__name {
+            margin: auto;
+            width: fit-content;
+            text-decoration: none;
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 36px;
+            line-height: 47px;
+            /* identical to box height */
+
+            text-align: center;
+
+            color: $color-secondary;
+        }
+    }
+
+}
+
+.description {
+    &__location {
+        margin: 10px 0;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 17px;
+        /* identical to box height */
+
+        text-align: center;
+
+        color: $color-secondary;
+    }
+
+    &__citation {
+        margin: 10px 0;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 80%;
+        line-height: 13px;
+        /* identical to box height */
+
+        text-align: center;
+
+        color: $text-color;
+    }
+
+    &__price {
+        margin: 10px 0;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 70%;
+        line-height: 12px;
+        /* identical to box height */
+
+        text-align: center;
+    }
+}
+
+.selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 70px;
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+
+        &__div {
+            border-radius: 5px;
+            width: 350px;
+            height: 300px;
+        }
+
+        &__description {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px;
+            align-items: center;
+            &:nth-child(0){
+                justify-self: flex-start;
+            }
+        }
+
+    }
+}
+
+.card {
+
+    &__title {
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 31px;
+        color: $color-primary;
+        
+    }
+
+    &__price {
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 31px;
+        text-align: right;
+        color: $color-primary;
+        
+    }
+
+    &__likes {
+        width: fit-content;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        &__number {
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 31px;
+            text-align: right;
+            color: $color-primary;
+            margin: 3px;
+        }
+
+        &__icon {
+            cursor: pointer;
+            color: $color-primary;
+            font-size: 20px;
+            margin: 3px;
+            &:hover{
+                color: $color-secondary;
+                transform: scale(1.2);
+            }
+        }
+    }
+}

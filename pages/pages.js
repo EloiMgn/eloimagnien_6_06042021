@@ -1,30 +1,28 @@
 import {CreateBanner} from "../JS/pagesBanner.js";
 import {CreateSelection} from "../JS/pagesSelection.js";
 import{ContactModal} from "../JS/contactModal.js";
-import{ModalValidation} from "../JS/modalValidation.js"
+import {Lightbox} from "../JS/lightbox_modal.js";
+import{ModalValidation} from "../JS/modalValidation.js";
 import {data} from "../datas/datas.js";
 
+
+// ======== Création des éléments de la page =====
 CreateBanner.showBanner(data);
 CreateBanner.pageHeader(data);
 CreateSelection.showSelection(data);
 ContactModal.createModal();
+Lightbox.createLightbox(data);
 
-var Lscreen = screen.width;
+// ====== Contact Modal Opening/Closing ======
 
- if (768 < Lscreen){
+ContactModal.modalOpen();
+ContactModal.modalClose();
 
-    const modalBtn = document.getElementById("modal-btn");
-    modalBtn.addEventListener("click", ContactModal.modalOpen);
-         
- } else {
-     const modalBtn = document.getElementById("contact__responsive");
-     modalBtn.addEventListener("click", ContactModal.modalOpen);
-
- }
-
-
-const closeBtn = document.getElementById("close_modal");
-closeBtn.addEventListener("click", ContactModal.modalClose);
-
+// ===== Validation de la modale ======
 ModalValidation.inputValid();
+
+// ====== Lightbox Opening/Closing ======
+
+Lightbox.lightboxOpen(data);
+Lightbox.lightboxClose();
 

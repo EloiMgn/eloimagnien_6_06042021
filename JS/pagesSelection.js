@@ -5,13 +5,14 @@ export class CreateSelection {
     static showSelection(data) {
 
         const medias = data['media'];
+        const photographers = data["photographers"];
         const selection = document.getElementById("selection");
         
         const url = new URL(window.location.href);
         const artistName = url.searchParams.get("name");
         const artistId = url.searchParams.get("id");
         
-        medias.forEach(medias => {
+        medias.forEach((medias) => {
             
             if (medias.photographerId == artistId && medias.image) {
                 
@@ -21,15 +22,17 @@ export class CreateSelection {
                 selection.appendChild(selectionCard);
                 
                 //=== création de la div photo ===
-                const pictureDiv = new DomElement('a');
+                const pictureLink = new DomElement('a');
                 const artistFirst = artistName.substring(0, artistName.lastIndexOf(" "));
                 const pictureUrl = "../images/" + artistFirst + "/tinified/" + medias.image;
-                DomElement.addClass(pictureDiv, `selection__card__div`);
-                DomElement.addClass(pictureDiv, `image`);
-                pictureDiv.style.backgroundImage = `url("${pictureUrl}")`;
-                pictureDiv.style.backgroundSize = "cover";
-                DomElement.addLink(pictureDiv, `#`);
-                selectionCard.appendChild(pictureDiv);
+                DomElement.addClass(pictureLink, `selection__card__div`);
+                DomElement.addClass(pictureLink, `image`);
+                DomElement.addAttribute(pictureLink, "aria-label", `${medias.image.substring(medias.image.lastIndexOf( "_" )+1).replace(".jpg", "")}`)
+                pictureLink.style.backgroundImage = `url("${pictureUrl}")`;
+                pictureLink.style.backgroundSize = "cover";
+                DomElement.addLink(pictureLink, `#&image=${medias.image}`);
+                selectionCard.appendChild(pictureLink);
+
                 
                 
                 // === insertion de l'image cachée ===    
@@ -74,10 +77,9 @@ export class CreateSelection {
                 cardLike.appendChild(likeIcon);
 
                 // ==== fonction d'ajout du like au clic ===== 
-                
+
                 likeIcon.addEventListener("click", function addLike(){
                     like++;
-                    console.log(like);
                     DomElement.addText(likesNumber, `${like}`);
                 })
                 }

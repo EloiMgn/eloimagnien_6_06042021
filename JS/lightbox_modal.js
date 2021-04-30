@@ -1,53 +1,84 @@
-import { ElementsFactory } from "./class.js";
+import {
+        DomElement
+} from "./domElement.js";
 
 export class Lightbox {
 
-    static createLightbox(jsonObj){
+        static lightboxOpen() {
 
-            var lightboxSection = document.getElementById("lightbox__modal");
+                const images = document.querySelectorAll(".selection__card__div");
 
-    // === création de la div modale ===
-            var lightboxContent = document.createElement("div");
-            ElementsFactory.addClass(lightboxContent, "lightbox__modal__content");
-            lightboxSection.appendChild(lightboxContent);
 
-    // === création du bouton de fermeture ====
-            var lightboxClose = document.createElement("span");
-            ElementsFactory.addClass(lightboxClose, "close_lightbox");
-            ElementsFactory.addAttribut(lightboxClose, "id", "close__lightbox");
-            lightboxContent.appendChild(lightboxClose);
+                images.forEach(image => {
 
-    // === création du corp de la modale ====
-            var lightboxBody = document.createElement("div");
-            ElementsFactory.addClass(lightboxBody, "lightbox__modal__content__body");
-            lightboxContent.appendChild(lightboxBody);
+                        image.addEventListener("click", () => {
 
-    // === création de la fléche photo suivante ====
-            var lightboxNext = document.createElement("span");
-            ElementsFactory.addClass(lightboxNext, "next");
-            ElementsFactory.addAttribut(lightboxNext, "id", "next");
-            lightboxContent.appendChild(lightboxNext);
+                                var lightboxSection = document.getElementById("lightbox__modal");
+                                lightboxSection.style.display = "block";
+                                
+                        });
 
-    // === création de la fléche photo suivante ====
-            var lightboxPrevious = document.createElement("span");
-            ElementsFactory.addClass(lightboxPrevious, "previous");
-            ElementsFactory.addAttribut(lightboxPrevious, "id", "previous");
-            lightboxContent.appendChild(lightboxPrevious);
+                        
+                });
 
-    // === création du titre de la photo ====
-            var lightboxtitle = document.createElement("span");
-            var medias = jsonObj['media'];
-            medias.forEach(medias => {
-            ElementsFactory.addClass(lightboxtitle, "image__title");
-            ElementsFactory.addText(lightboxtitle, `${medias.image.substring(medias.image.lastIndexOf( "_" )+1).replace(".jpg", "")}`);
-            lightboxSection.appendChild(lightboxtitle);
-            });
+        }
 
-    }
-    static lightboxOpen (){
+        static createLightbox() {
 
-        var lightboxSection = document.getElementById("lightbox__modal");
-        lightboxSection.style.display = "block";
-    }
-    
+                const url2 = window.location.hash;
+                const imageId = url2.replace("#&image=", "");
+                console.log(imageId);
+
+
+                var lightboxSection = document.getElementById("lightbox__modal");
+
+                // === création de la div modale ===
+                var lightboxContent = new DomElement("div");
+                DomElement.addClass(lightboxContent, "lightbox__modal__content");
+                lightboxSection.appendChild(lightboxContent);
+
+                // === création du bouton de fermeture ====
+                var lightboxClose = new DomElement("span");
+                DomElement.addClass(lightboxClose, "close_lightbox");
+                DomElement.addAttribute(lightboxClose, "id", "close__lightbox");
+                lightboxContent.appendChild(lightboxClose);
+
+
+                // === création du corp de la modale ====
+
+                var lightboxBody = new DomElement("div");
+                DomElement.addClass(lightboxBody, "lightbox__modal__content__body");
+                lightboxContent.appendChild(lightboxBody);
+
+                // === création de la fléche photo suivante ====
+                var lightboxNext = new DomElement("span");
+                DomElement.addClass(lightboxNext, "next");
+                DomElement.addAttribute(lightboxNext, "id", "next");
+                lightboxContent.appendChild(lightboxNext);
+
+                // === création de la fléche photo précédente ====
+                var lightboxPrevious = new DomElement("span");
+                DomElement.addClass(lightboxPrevious, "previous");
+                DomElement.addAttribute(lightboxPrevious, "id", "previous");
+                lightboxContent.appendChild(lightboxPrevious);
+
+                // === création du titre de la photo ====
+                var lightboxTitle = new DomElement("span");
+                DomElement.addClass(lightboxTitle, "image__title");
+                DomElement.addText(lightboxTitle, `${imageId.substring(imageId.lastIndexOf( "_" )+1).replace(".jpg", "")}`);
+                lightboxSection.appendChild(lightboxTitle);
+
+
+        }
+
+        static lightboxClose() {
+
+                const lightboxCloseBtn = document.getElementById("close__lightbox");
+                lightboxCloseBtn.addEventListener("click", () => {
+                        var lightboxSection = document.getElementById("lightbox__modal");
+                        lightboxSection.style.display = "none";
+                });
+        }
+
+
 }

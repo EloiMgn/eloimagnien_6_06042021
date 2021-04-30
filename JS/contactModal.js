@@ -136,14 +136,37 @@ export class ContactModal {
 
         static modalOpen() {
 
-                var modal = document.getElementById("contact__modal");
-                modal.style.display = "block";
+
+
+                var Lscreen = screen.width;
+
+ if (768 < Lscreen){
+
+    const modalBtn = document.getElementById("modal-btn");
+    modalBtn.addEventListener("click", ()=>{
+        var modal = document.getElementById("contact__modal");
+        modal.style.display = "block";
+    });
+         
+ } else {
+     const modalBtn = document.getElementById("contact__responsive");
+     modalBtn.addEventListener("click", ()=>{
+        var modal = document.getElementById("contact__modal");
+        modal.style.display = "block";
+    });
+
+ }
         }
 
         static modalClose() {
 
-                var modal = document.getElementById("contact__modal");
-                modal.style.display = "none";
+
+
+                const closeBtn = document.getElementById("close_modal");
+                closeBtn.addEventListener("click", ()=>{
+                        var modal = document.getElementById("contact__modal");
+                        modal.style.display = "none";
+                });
         }
 
 }

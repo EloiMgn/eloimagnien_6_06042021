@@ -11,7 +11,6 @@ export class CreateBanner {
 
             const url = new URL(window.location.href);
             const artistName = url.searchParams.get("name");
-            console.log(url);
 
             photographers.forEach(photographer => {
 
@@ -56,7 +55,7 @@ export class CreateBanner {
                             tags.forEach(tags => {
                                     const tag = new DomElement("a");
                                     // tag.textContent = "#";
-                                    DomElement.addAttribute(tag, "href", "#");
+                                    DomElement.addAttribute(tag, "href", "../../index.html" + `?tag=${tags}`);
                                     DomElement.addClass(tag,"navigation__tag");
                                     DomElement.addClass(tag, `${tags}`);
                                     DomElement.addText(tag, "#"+`${tags}`);

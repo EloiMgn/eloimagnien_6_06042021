@@ -11,6 +11,7 @@ export class Index {
                 const sport = document.getElementById("#Sport");
                 const animals = document.getElementById("#Animals");
                 const events = document.getElementById("#Events");
+                const all = document.getElementById("#All");
 
                 portraits.setAttribute("href", "./index.html" + `?tag=portrait`);
                 art.setAttribute("href", "./index.html" + `?tag=art`);
@@ -20,6 +21,7 @@ export class Index {
                 sport.setAttribute("href", "./index.html" + `?tag=sport`);
                 animals.setAttribute("href", "./index.html" + `?tag=animals`);
                 events.setAttribute("href", "./index.html" + `?tag=events`);
+                all.setAttribute("href", "./index.html" + `?tag=all`);
 
 
         }
@@ -36,9 +38,9 @@ export class Index {
 
                         const tagsArray = photographer.tags;
                         const foundTag = tagsArray.find(element => element == tagValue);
-                        console.log(tagsArray);
+                        console.log(foundTag);
 
-                                if(foundTag){
+                                if(foundTag === "travel" || foundTag === "art" || foundTag === "portrait" || foundTag === "sport" || foundTag === "architecture" || foundTag === "animals" || foundTag === "fashion" || foundTag === "all"){
                                 
                         //=== création de la carte ===
                         const card = new DomElement("div");
@@ -103,7 +105,7 @@ export class Index {
                         tags.forEach(tags => {
                                 const tag = new DomElement("a");
                                 DomElement.addClass(tag, "navigation__tag");
-                                DomElement.addLink(tag, "#");
+                                DomElement.addLink(tag, "./index.html" + `?tag=${tags}`);
                                 DomElement.addText(tag, "#" + `${tags}`);
                                 tagsList.appendChild(tag);
                         });

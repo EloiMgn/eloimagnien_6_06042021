@@ -5,7 +5,7 @@ export const data = {
       "id": 243,
       "city": "London",
       "country": "UK",
-      "tags": ["portrait", "events", "travel", "animals"],
+      "tags": ["portrait", "events", "travel", "animals", "all"],
       "tagline": "Voir le beau dans le quotidien",
       "price": 400,
       "portrait": "Portrait_Nora.jpg"
@@ -15,7 +15,7 @@ export const data = {
       "id": 930,
       "city": "Paris",
       "country": "France",
-      "tags": ["sports", "architecture"],
+      "tags": ["sports", "architecture", "all"],
       "tagline": "Capturer des compositions complexes",
       "price": 250,
       "portrait": "Architecture_horseshoe.jpg"
@@ -25,7 +25,7 @@ export const data = {
       "id": 82,
       "city": "Montreal",
       "country": "Canada",
-      "tags": ["art", "fashion", "events"],
+      "tags": ["art", "fashion", "events", "all"],
       "tagline": "Photographe freelance",
       "price": 500,
       "portrait": "Fashion_Urban_Jungle.jpg"
@@ -35,7 +35,7 @@ export const data = {
       "id": 527,
       "city": "Mexico City",
       "country": "Mexico",
-      "tags": ["travel", "portrait"],
+      "tags": ["travel", "portrait", "all"],
       "tagline": "Toujours aller de l'avant",
       "price": 350,
       "portrait": "Travel_Outdoor_Baths.jpg"
@@ -45,7 +45,7 @@ export const data = {
       "id": 925,
       "city": "Barcelona",
       "country": "Spain",
-      "tags": ["sport", "fashion", "events", "animals"],
+      "tags": ["sport", "fashion", "events", "animals", "all"],
       "tagline": "Je crée des souvenirs",
       "price": 275,
       "portrait": "Fashion_Melody_Red_on_Stripes.jpg"
@@ -55,7 +55,7 @@ export const data = {
       "id": 195,
       "city": "Berlin",
       "country": "Germany",
-      "tags": ["travel", "architecture"],
+      "tags": ["travel", "architecture", "all"],
       "tagline": "Toujours à la recherche de LA photo",
       "price": 300,
       "portrait": "Travel_Tower.jpg"

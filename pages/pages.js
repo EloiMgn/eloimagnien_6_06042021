@@ -11,7 +11,7 @@ CreateBanner.showBanner(data);
 CreateBanner.pageHeader(data);
 CreateSelection.showSelection(data);
 ContactModal.createModal();
-Lightbox.createLightbox(data);
+// Lightbox.createLightbox(data);
 
 // ====== Contact Modal Opening/Closing ======
 
@@ -24,5 +24,5 @@ ModalValidation.inputValid();
 // ====== Lightbox Opening/Closing ======
 
 Lightbox.lightboxOpen(data);
-Lightbox.lightboxClose();
+// Lightbox.lightboxClose();
 

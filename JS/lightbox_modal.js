@@ -4,31 +4,15 @@ import {
 
 export class Lightbox {
 
-        static lightboxOpen() {
-
-                const images = document.querySelectorAll(".selection__card__div");
-
-
-                images.forEach(image => {
-
-                        image.addEventListener("click", () => {
-
-                                var lightboxSection = document.getElementById("lightbox__modal");
-                                lightboxSection.style.display = "block";
-                                
-                        });
-
-                        
-                });
-
-        }
+       
 
         static createLightbox() {
 
+                const url = new URL(window.location.href);
+                const artistName = url.searchParams.get("name");
                 const url2 = window.location.hash;
                 const imageId = url2.replace("#&image=", "");
                 console.log(imageId);
-
 
                 var lightboxSection = document.getElementById("lightbox__modal");
 
@@ -48,6 +32,11 @@ export class Lightbox {
 
                 var lightboxBody = new DomElement("div");
                 DomElement.addClass(lightboxBody, "lightbox__modal__content__body");
+                const artistFirst = artistName.substring(0, artistName.lastIndexOf(" "));
+                const pictureUrl = "../images/" + artistFirst +"/"+ imageId;
+                lightboxBody.style.backgroundImage = `url("${pictureUrl}")`;
+                lightboxBody.style.backgroundSize = "cover";
+                lightboxBody.style.backgroundPosition = "center";
                 lightboxContent.appendChild(lightboxBody);
 
                 // === création de la fléche photo suivante ====
@@ -65,20 +54,42 @@ export class Lightbox {
                 // === création du titre de la photo ====
                 var lightboxTitle = new DomElement("span");
                 DomElement.addClass(lightboxTitle, "image__title");
-                DomElement.addText(lightboxTitle, `${imageId.substring(imageId.lastIndexOf( "_" )+1).replace(".jpg", "")}`);
+                // DomElement.addText(lightboxTitle, `${imageId.substring(imageId.lastIndexOf( "_" )+1).replace(".jpg", "")}`);
                 lightboxSection.appendChild(lightboxTitle);
 
 
         }
-
+        
+        
         static lightboxClose() {
-
+                
                 const lightboxCloseBtn = document.getElementById("close__lightbox");
                 lightboxCloseBtn.addEventListener("click", () => {
                         var lightboxSection = document.getElementById("lightbox__modal");
                         lightboxSection.style.display = "none";
                 });
         }
+        
+        static lightboxOpen() {
 
+                const images = document.querySelectorAll(".selection__card__div");
+                var lightboxSection = document.getElementById("lightbox__modal");
+
+
+                images.forEach(image => {
+
+                        image.addEventListener("click", () => {
+
+                                lightboxSection.style.display = "block";
+                                this.createLightbox();
+                                this.lightboxClose();
+                                
+                                
+                        });
+
+                        
+                });
+
+        }
 
 }

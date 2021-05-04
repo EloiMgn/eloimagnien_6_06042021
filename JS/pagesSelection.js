@@ -28,6 +28,7 @@ export class CreateSelection {
                 DomElement.addClass(pictureLink, `selection__card__div`);
                 DomElement.addClass(pictureLink, `image`);
                 DomElement.addAttribute(pictureLink, "aria-label", `${medias.image.substring(medias.image.lastIndexOf( "_" )+1).replace(".jpg", "")}`)
+                DomElement.addAttribute(pictureLink, "id", `${medias.image}`);
                 pictureLink.style.backgroundImage = `url("${pictureUrl}")`;
                 pictureLink.style.backgroundSize = "cover";
                 DomElement.addLink(pictureLink, `#&image=${medias.image}`);

@@ -11,6 +11,7 @@ export class Lightbox {
 
 
                 const medias = data['media'];
+                console.log(medias);
 
                 const url = new URL(window.location.href);
                 const artistId = url.searchParams.get("id");
@@ -39,16 +40,16 @@ export class Lightbox {
 
                                 //=== ajout de la class à la photo séléctionnée ===
 
-                                const pics = document.querySelectorAll(`div.selection__card a`);
-                                const selectedPic = document.getElementById(`${imageId}`);
-                                DomElement.addClass(selectedPic, "selected"); 
-                                console.log(pics);
-                                for (let pic of pics){
-                                        const nextPicId = pic;
-                                        if (picId == imageId){
+                                // const pics = document.querySelectorAll(`div.selection__card a`);
+                                // const selectedPic = document.getElementById(`${imageId}`);
+                                // DomElement.addClass(selectedPic, "selected"); 
+                                // console.log(pics);
+                                // for (let pic of pics){
+                                //         const nextPicId = pic;
+                                //         if (picId == imageId){
 
-                                        }
-                                }
+                                //         }
+                                // }
                                 // === création du corp de la modale ====
 
                                 var lightboxBody = new DomElement("div");

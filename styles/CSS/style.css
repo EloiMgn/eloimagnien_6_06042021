@@ -215,14 +215,14 @@
   text-align: center;
 }
 .photographer__profil__portrait {
-  background-size: cover;
-  background-position: center;
   width: 200px;
   height: 200px;
+  overflow: hidden;
   border-radius: 10em;
+  margin: auto;
 }
 .photographer__profil__img {
-  display: none;
+  display: block;
 }
 .photographer__profil__name {
   margin: auto;

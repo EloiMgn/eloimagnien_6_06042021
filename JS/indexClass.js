@@ -40,12 +40,14 @@ export class Index {
                         const foundTag = tagsArray.find(element => element == tagValue);
                         console.log(foundTag);
 
-                                if(foundTag === "travel" || foundTag === "art" || foundTag === "portrait" || foundTag === "sport" || foundTag === "architecture" || foundTag === "animals" || foundTag === "fashion" || foundTag === "all"){
+                                if(foundTag === "travel" || foundTag === "art" || foundTag === "portrait" || foundTag === "sport" || foundTag === "architecture" || foundTag === "animals" || foundTag === "fashion"){
                                 
                         //=== création de la carte ===
                         const card = new DomElement("div");
                         DomElement.addClass(card, "photographer");
                         section.appendChild(card);
+
+                        console.log(photographer);
 
                         // === création du lien ===   
                         const cardLink = new DomElement("a");
@@ -53,19 +55,18 @@ export class Index {
                         DomElement.addLink(cardLink, "pages/photographers.html" + `?name=${photographer.name}&id=${photographer.id}`);
                         card.appendChild(cardLink);
 
+                        
+                        // === création div photo de profil === 
+                        const photographerProfil = new DomElement("div");
+                        DomElement.addClass(photographerProfil, "photographer__profil__portrait");
+                        cardLink.appendChild(photographerProfil);
+                        
                         // === insertion de l'image cachée === 
                         const imageHtml = new DomElement("img");
                         DomElement.addClass(imageHtml, "photographer__profil__img");
                         DomElement.addImg(imageHtml, `./images/Photographers_profil_img/` + `${photographer.portrait}`, `${photographer.name}` + " profil");
-                        cardLink.appendChild(imageHtml);
-
-                        // === création div photo de profil === 
-                        const photographerProfil = new DomElement("div");
-                        DomElement.addClass(photographerProfil, "photographer__profil__portrait");
-                        photographerProfil.style.backgroundImage = `url(${"./images/Photographers_profil_img/"+ photographer.portrait})`;
-                        photographerProfil.style.margin = "auto";
-                        cardLink.appendChild(photographerProfil);
-
+                        photographerProfil.appendChild(imageHtml);
+                        
                         // === insertion du Nom de l'artiste ===     
                         const photographerName = new DomElement("h2")
                         DomElement.addClass(photographerName, "photographer__profil__name");
@@ -114,18 +115,7 @@ export class Index {
                 });
 
 
-        }
-
-        static modificationPhotographersSelection (datas){
-
-
-
-                const photographers = datas['photographers'];
-
-                photographers.forEach(photographer => {
-
-
-                });
 
         }
+
 }

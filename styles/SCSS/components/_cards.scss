@@ -32,15 +32,15 @@
 
 
         &__portrait {
-            background-size: cover;
-            background-position: center;
             width: 200px;
             height: 200px;
+            overflow: hidden;
             border-radius: 10em;
+            margin: auto;
         }
 
         &__img {
-            display: none;
+            display: block;
         }
 
         &__name {

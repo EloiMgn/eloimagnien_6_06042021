@@ -51,7 +51,7 @@ export class CreateSelection {
                 // === insertion des elts de la description de l'image ====
                 const cardTitle = new DomElement("span");
                 DomElement.addClass(cardTitle, `card__title`);
-                DomElement.addText(cardTitle, `${medias.image.substring(medias.image.lastIndexOf( "_" )+1).replace(".jpg", "")}`);
+                DomElement.addText(cardTitle, `${medias.title}`);
                 pictureDescription.appendChild(cardTitle);
                 
                 const cardPrice = new DomElement("span");

@@ -89,19 +89,19 @@ export class CreateBanner {
                             // === création div photo de profil === 
                             const photographerProfil = new DomElement('div');
                             DomElement.addClass(photographerProfil, `photographer__profil__portrait`);
-                            photographerProfil.style.backgroundImage = `url("${"../images/Photographers_ID_Photos/tinified/" + artistName.replace(" ", "") + ".jpg"}")`;
                             photographerProfil.style.marginLeft = "auto";
                             photographerProfil.style.marginRight = "50px";
                             if (768 > Lscreen) {
                                 DomElement.addAttribute(photographerProfil, "id", "photographer__profil__responsive");
                             }
+                            banner.appendChild(photographerProfil);
 
 
                             // === insertion de l'image cachée ===    
                             const imageHtml = new DomElement('img');
                             DomElement.addClass(imageHtml, `photographer__profil__img`);
                             DomElement.addImg(imageHtml, `${"../images/Photographers_ID_Photos/tinified/" + artistName.replace(" ", "") + ".jpg"}`, `${artistName + "profil"}`);
-                            banner.appendChild(photographerProfil);
+                            photographerProfil.appendChild(imageHtml);
                             
                     }
             });

@@ -22,17 +22,13 @@ export class CreateSelection {
                 selection.appendChild(selectionCard);
                 
                 //=== création de la div photo ===
-                const pictureLink = new DomElement('a');
+                const pictureContainer = new DomElement('div');
                 const artistFirst = artistName.substring(0, artistName.lastIndexOf(" "));
-                const pictureUrl = "../images/" + artistFirst + "/tinified/" + medias.image;
-                DomElement.addClass(pictureLink, `selection__card__div`);
-                DomElement.addClass(pictureLink, `image`);
-                DomElement.addAttribute(pictureLink, "aria-label", `${medias.image.substring(medias.image.lastIndexOf( "_" )+1).replace(".jpg", "")}`)
-                DomElement.addAttribute(pictureLink, "id", `${medias.image}`);
-                pictureLink.style.backgroundImage = `url("${pictureUrl}")`;
-                pictureLink.style.backgroundSize = "cover";
-                DomElement.addLink(pictureLink, `#&image=${medias.image}`);
-                selectionCard.appendChild(pictureLink);
+                DomElement.addClass(pictureContainer, `selection__card__div`);
+                DomElement.addClass(pictureContainer, `image`);
+                DomElement.addAttribute(pictureContainer, "aria-label", `${medias.title}`)
+                DomElement.addAttribute(pictureContainer, "id", `${medias.image}`);
+                selectionCard.appendChild(pictureContainer);
 
                 
                 
@@ -40,7 +36,7 @@ export class CreateSelection {
                 const imageHtml = new DomElement('img');
                 DomElement.addClass(imageHtml, `photographer__profil__img`);
                 DomElement.addImg(imageHtml, `${"../images/" + artistFirst + "/tinified/" + medias.image}`, `${artistName + " profil"}`);
-                selectionCard.appendChild(imageHtml);
+                pictureContainer.appendChild(imageHtml);
                 
                 // === création de la description ====
                 

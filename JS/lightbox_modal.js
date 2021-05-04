@@ -11,10 +11,7 @@ export class Lightbox {
 
 
                 const medias = data['media'];
-                console.log(medias);
-
                 const url = new URL(window.location.href);
-                const artistId = url.searchParams.get("id");
                 const artistName = url.searchParams.get("name");
                 let params = new URLSearchParams(document.location.hash.substring(1));
                 const imageId = params.get("image");    

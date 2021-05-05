@@ -1,7 +1,7 @@
 import {CreateBanner} from "./pagesBanner.js";
 import {CreateSelection} from "./pagesSelection.js";
 import {ContactModal} from "./contactModal.js";
-import {Lightbox} from "./lightbox_modal.js";
+import {Lightbox} from "./lightboxModal.js";
 import {ModalValidation} from "./modalValidation.js";
 
 export const init = data => { 

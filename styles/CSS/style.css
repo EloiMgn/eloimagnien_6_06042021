@@ -222,7 +222,7 @@
   margin: auto;
 }
 .photographer__profil__img {
-  display: block;
+  display: none;
 }
 .photographer__profil__name {
   margin: auto;

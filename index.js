@@ -6,13 +6,13 @@ if (sessionStorage.getItem('photo') === null) {
     .then(datasObj => {
         sessionStorage.setItem('photo', JSON.stringify(datasObj))
             Index.showPhotographers(datasObj);
-            console.log(datasObj);
+            // console.log(datasObj);
             Index.tagLinks();
         })
 } else {
     const storage = JSON.parse(sessionStorage.getItem('photo')) 
     Index.showPhotographers(storage);
-    console.log(storage);
+    // console.log(storage);
     Index.tagLinks();
 }
 

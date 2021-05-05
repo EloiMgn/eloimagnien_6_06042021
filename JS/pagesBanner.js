@@ -11,9 +11,10 @@ export class CreateBanner {
 
             const url = new URL(window.location.href);
             const artistName = url.searchParams.get("name");
+            
 
             photographers.forEach(photographer => {
-
+                    
 
                     if (artistName === photographer.name) {
 

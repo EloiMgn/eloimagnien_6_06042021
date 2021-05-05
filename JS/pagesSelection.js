@@ -11,10 +11,20 @@ export class CreateSelection {
         const url = new URL(window.location.href);
         const artistName = url.searchParams.get("name");
         const artistId = url.searchParams.get("id");
+
+        if (artistId == medias.photographerId) {
+
+            
+           
+
+
+        }
         
         medias.forEach((medias) => {
             
+            
             if (medias.photographerId == artistId && medias.image) {
+                
                 
                 //=== création de la carte ===
                 const selectionCard = new DomElement('div');

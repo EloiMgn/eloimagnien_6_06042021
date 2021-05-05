@@ -1,14 +1,10 @@
-import {
-        DomElement
-} from "./domElement.js";
+import {DomElement} from "./domElement.js";
 
 export class Lightbox {
 
 
 
         static createLightbox(data) {
-
-
 
                 const medias = data['media'];
                 const url = new URL(window.location.href);
@@ -18,8 +14,6 @@ export class Lightbox {
 
                 for (let media of medias){
                         if (media.image == imageId){
-
-
 
                                 var lightboxSection = document.getElementById("lightbox__modal");
 
@@ -47,6 +41,8 @@ export class Lightbox {
 
                                 //         }
                                 // }
+
+                                
                                 // === création du corp de la modale ====
 
                                 var lightboxBody = new DomElement("div");

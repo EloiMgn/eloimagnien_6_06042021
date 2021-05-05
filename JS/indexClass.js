@@ -11,7 +11,7 @@ export class Index {
                 const sport = document.getElementById("#Sport");
                 const animals = document.getElementById("#Animals");
                 const events = document.getElementById("#Events");
-                const all = document.getElementById("#All");
+
 
                 portraits.setAttribute("href", "./index.html" + `?tag=portrait`);
                 art.setAttribute("href", "./index.html" + `?tag=art`);
@@ -21,33 +21,20 @@ export class Index {
                 sport.setAttribute("href", "./index.html" + `?tag=sport`);
                 animals.setAttribute("href", "./index.html" + `?tag=animals`);
                 events.setAttribute("href", "./index.html" + `?tag=events`);
-                all.setAttribute("href", "./index.html" + `?tag=all`);
 
 
         }
 
-       static showPhotographers(datas) {
+        static indexInit(photographer){
 
                 var section = document.getElementById('photographers__selection');
-                var photographers = datas['photographers'];
-                const url = new URL(window.location.href);
-                const tagValue = url.searchParams.get("tag");
-                
-                photographers.forEach(photographer => {
-                        
 
-                        const tagsArray = photographer.tags;
-                        const foundTag = tagsArray.find(element => element == tagValue);
-                        console.log(foundTag);
-
-                                if(foundTag === "travel" || foundTag === "art" || foundTag === "portrait" || foundTag === "sport" || foundTag === "architecture" || foundTag === "animals" || foundTag === "fashion"){
-                                
                         //=== création de la carte ===
                         const card = new DomElement("div");
                         DomElement.addClass(card, "photographer");
                         section.appendChild(card);
 
-                        console.log(photographer);
+                        // console.log(photographer);
 
                         // === création du lien ===   
                         const cardLink = new DomElement("a");
@@ -59,9 +46,11 @@ export class Index {
                         // === création div photo de profil === 
                         const photographerProfil = new DomElement("div");
                         DomElement.addClass(photographerProfil, "photographer__profil__portrait");
+                        photographerProfil.style.backgroundImage = `Url(${"./images/Photographers_profil_img/" + `${photographer.portrait}`})`;
+                        photographerProfil.style.backgroundSize = "cover";
                         cardLink.appendChild(photographerProfil);
                         
-                        // === insertion de l'image cachée === 
+                        // === insertion de l'image de profil=== 
                         const imageHtml = new DomElement("img");
                         DomElement.addClass(imageHtml, "photographer__profil__img");
                         DomElement.addImg(imageHtml, `./images/Photographers_profil_img/` + `${photographer.portrait}`, `${photographer.name}` + " profil");
@@ -110,11 +99,37 @@ export class Index {
                                 DomElement.addText(tag, "#" + `${tags}`);
                                 tagsList.appendChild(tag);
                         });
-                } 
-                        
-                });
+
+        }
+
+        // ==== Modification de la page d'accueil en focntion du tag sélectionné ====
+
+       static showPhotographers(datas) {
+
+                var photographers = datas['photographers'];
+                const url = new URL(window.location.href);
+                const tagValue = url.searchParams.get("tag");
 
 
+                if (tagValue === null){
+                        photographers.forEach(photographer => {
+                                
+                                this.indexInit(photographer)    
+                        });
+                } else{
+
+                        photographers.forEach(photographer => {
+
+                                const tagsArray = photographer.tags;
+                                const foundTag = tagsArray.find(element => element == tagValue);
+
+                                if(foundTag){
+                                        this.indexInit(photographer);
+                                }
+
+                        });
+
+                }
 
         }
 

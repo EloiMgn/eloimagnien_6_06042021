@@ -42,9 +42,9 @@ export class CreateSelection {
 
                 
                 
-                // === insertion de l'image cachée ===    
+                // === insertion de l'image ===    
                 const imageHtml = new DomElement('img');
-                DomElement.addClass(imageHtml, `photographer__profil__img`);
+                DomElement.addClass(imageHtml, `photographer__profil__img__selection`);
                 DomElement.addImg(imageHtml, `${"../images/" + artistFirst + "/tinified/" + medias.image}`, `${artistName + " profil"}`);
                 pictureContainer.appendChild(imageHtml);
                 

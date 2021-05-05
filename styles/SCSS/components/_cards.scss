@@ -37,10 +37,22 @@
             overflow: hidden;
             border-radius: 10em;
             margin: auto;
-        }
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }   
 
         &__img {
-            display: none;
+            display: block;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            object-position: top;
+            &__selection{
+               height: 100%;
+                
+            }
         }
 
         &__name {
@@ -125,6 +137,10 @@
             width: 350px;
             height: 300px;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         &__description {
@@ -193,4 +209,7 @@
             }
         }
     }
+}
+img{
+    max-width: none;
 }

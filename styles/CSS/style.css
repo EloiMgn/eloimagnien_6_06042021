@@ -220,9 +220,20 @@
   overflow: hidden;
   border-radius: 10em;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .photographer__profil__img {
-  display: none;
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.photographer__profil__img__selection {
+  height: 100%;
 }
 .photographer__profil__name {
   margin: auto;
@@ -292,6 +303,10 @@
   width: 350px;
   height: 300px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .selection__card__description {
   display: flex;
@@ -347,6 +362,10 @@
 .card__likes__icon:hover {
   color: #D3573C;
   transform: scale(1.2);
+}
+
+img {
+  max-width: none;
 }
 
 .modal {

@@ -1,12 +1,13 @@
-import {
-        DomElement
-} from "./domElement.js";
+import { DomElement} from "./domElement.js";
 
 export class Lightbox {
 
 
 
-        static createLightbox(url) {
+        static createLightbox(data, url, imageId, imageTitle) {
+
+                const medias = data['media']; 
+                const urlLightbox = url.replace("/tinified", "");
 
                 var lightboxSection = document.getElementById("lightbox__modal");
 
@@ -25,7 +26,8 @@ export class Lightbox {
 
                 var lightboxBody = new DomElement("img");
                 DomElement.addClass(lightboxBody, "lightbox__modal__content__body");
-                DomElement.addImg(lightboxBody, `${url}`, `${"frfrfr"}`)
+                DomElement.addImg(lightboxBody, `${urlLightbox}`, `${"frfrfr"}`)
+                DomElement.addAttribute(lightboxBody, "id", `${imageId}`);
                 lightboxContent.appendChild(lightboxBody);
 
                 // === création de la fléche photo suivante ====
@@ -43,24 +45,17 @@ export class Lightbox {
                 // === création du titre de la photo ====
                 var lightboxTitle = new DomElement("span");
                 DomElement.addClass(lightboxTitle, "image__title");
-                DomElement.addText(lightboxTitle, `${"medias.title"}`);
+                DomElement.addText(lightboxTitle, `${imageTitle}`);
                 lightboxSection.appendChild(lightboxTitle);
+
+                // this.searchImage(data, imageId);
 
         };
 
-
-        static initLightbox(data, url) {
-
-                const medias = data['media'];
-                const url1 = new URL(window.location.href);
-                const artistName = url1.searchParams.get("name");
-                const urlLightbox = url.replace("/tinified", "");
-
-
-                for (let media of medias) {
-                        this.createLightbox(urlLightbox);
-                }
-        }
+        // static searchImage(data, imageId){
+                
+        //         // console.log(imageId)
+        // }
 
 
 
@@ -99,14 +94,17 @@ export class Lightbox {
                                 // === création de la section lightbox ==== 
                                 const body = document.getElementById("main");
                                 const lightboxSection = new DomElement("section");
+                                const nextImage = document.querySelector(`div[name='${image.id}']`);
+                                console.log(nextImage);
                                 DomElement.addClass(image, "selected");
+                                // DomElement.addClass(image, "next");
+                                // DomElement.addClass(image, "previous");
                                 DomElement.addAttribute(lightboxSection, "id", "lightbox__modal");
                                 DomElement.addClass(lightboxSection, "lightbox__modal");
                                 body.appendChild(lightboxSection);
                                 // === ouverture de la section =====
-                                console.log(image.src);
                                 lightboxSection.style.display = "block";
-                                this.initLightbox(data, image.src);
+                                this.createLightbox(data, image.src, image.id, image.title);
                                 this.lightboxClose();
 
 

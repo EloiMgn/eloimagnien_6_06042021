@@ -5,7 +5,6 @@ export class CreateSelection {
     static showSelection(data) {
 
         const medias = data['media'];
-        const photographers = data["photographers"];
         const selection = document.getElementById("selection");
         
         const url = new URL(window.location.href);
@@ -36,8 +35,9 @@ export class CreateSelection {
                 const artistFirst = artistName.substring(0, artistName.lastIndexOf(" "));
                 DomElement.addClass(pictureContainer, `selection__card__div`);
                 DomElement.addClass(pictureContainer, `image`);
-                DomElement.addAttribute(pictureContainer, "aria-label", `${medias.title}`)
-                DomElement.addAttribute(pictureContainer, "id", `${medias.image}`);
+                DomElement.addAttribute(pictureContainer, "aria-label", `${medias.title}`);
+                DomElement.addAttribute(pictureContainer, "name", `${medias.id}`);
+                
                 selectionCard.appendChild(pictureContainer);
 
                 
@@ -45,7 +45,9 @@ export class CreateSelection {
                 // === insertion de l'image ===    
                 const imageHtml = new DomElement('img');
                 DomElement.addClass(imageHtml, `photographer__profil__img__selection`);
-                DomElement.addImg(imageHtml, `${"../images/" + artistFirst + "/tinified/" + medias.image}`, `${artistName + " profil"}`);
+                DomElement.addImg(imageHtml, `${"../images/" + artistFirst + "/tinified/" + medias.image}`, `${medias.title}`);
+                DomElement.addAttribute(imageHtml, "id", `${medias.id}`);
+                DomElement.addAttribute(imageHtml, "title", `${medias.title}`)
                 pictureContainer.appendChild(imageHtml);
                 
                 // === création de la description ====

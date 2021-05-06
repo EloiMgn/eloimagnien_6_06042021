@@ -18,6 +18,7 @@ export const init = data => {
     // ===== Validation de la modale ======        
     ModalValidation.inputValid();                
     // ====== Lightbox Opening/Closing ======        
-    Lightbox.lightboxOpen(data);        
+    Lightbox.lightboxOpen(data);
+    // Lightbox.goNext();        
     // Lightbox.lightboxClose();
 }

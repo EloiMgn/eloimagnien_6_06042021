@@ -12,10 +12,13 @@
     z-index: 2;
     border: 2px solid $border-color;
     box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     &__content{
         margin: 5% auto;
         width: 90vw;   
-        height: 80vh; 
+        height: 70vh; 
         animation-name: modalopen;
         animation-duration: 0.8s;
         border-radius: 10px;
@@ -31,7 +34,7 @@
         align-items: center;
 
         &__body{
-            margin: auto;
+            margin: 0 auto;
             max-width: 80vw;   
             max-height: 65vh;
 
@@ -43,7 +46,7 @@
 .close_lightbox {
     position: absolute;
     right: 0;
-    top: 50px;
+    top: 30px;
     width: 40px;
     height: 40px;
     opacity: 1;
@@ -68,7 +71,7 @@
   .previous{
     position: absolute;
     left: 0;
-    top: 290px;
+    top: 240px;
     width: 50px;
     height: 70px;
     opacity: 1;
@@ -95,7 +98,7 @@
   .next{
     position: absolute;
     right: 0;
-    top: 290px;
+    top: 240px;
     width: 50px;
     height: 70px;
     opacity: 1;
@@ -121,7 +124,7 @@
 
   .image__title{
       position: absolute;
-      bottom: 50px;
+      bottom: 80px;
       left: 170px;
       font-family: DM Sans;
       font-size: 120%;

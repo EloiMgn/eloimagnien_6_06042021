@@ -28,6 +28,9 @@ export class CreateSelection {
                 //=== création de la carte ===
                 const selectionCard = new DomElement('div');
                 DomElement.addClass(selectionCard, `selection__card`);
+                DomElement.addAttribute(selectionCard, "id", `${medias.id}`);
+                // DomElement.addAttribute(selectionCard, "name", `${medias.id}`);
+                DomElement.addAttribute(selectionCard, "title", `${medias.id}`);
                 selection.appendChild(selectionCard);
                 
                 //=== création de la div photo ===
@@ -36,8 +39,6 @@ export class CreateSelection {
                 DomElement.addClass(pictureContainer, `selection__card__div`);
                 DomElement.addClass(pictureContainer, `image`);
                 DomElement.addAttribute(pictureContainer, "aria-label", `${medias.title}`);
-                DomElement.addAttribute(pictureContainer, "name", `${medias.id}`);
-                
                 selectionCard.appendChild(pictureContainer);
 
                 

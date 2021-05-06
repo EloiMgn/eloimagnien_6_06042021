@@ -14,7 +14,7 @@
     box-sizing: border-box;
     &__content{
         margin: 5% auto;
-        width: 80vw;   
+        width: 90vw;   
         height: 80vh; 
         animation-name: modalopen;
         animation-duration: 0.8s;
@@ -25,11 +25,15 @@
         padding-top: 10px;
         z-index: 2;
         background: $bg-color-light;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         &__body{
-            margin: 5% auto;
-            width: 75vw;   
-            height: 80vh;
+            margin: auto;
+            max-width: 80vw;   
+            max-height: 65vh;
 
         }
     }

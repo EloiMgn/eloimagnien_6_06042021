@@ -482,7 +482,7 @@ label {
 }
 .lightbox__modal__content {
   margin: 5% auto;
-  width: 80vw;
+  width: 90vw;
   height: 80vh;
   animation-name: modalopen;
   animation-duration: 0.8s;
@@ -493,11 +493,15 @@ label {
   padding-top: 10px;
   z-index: 2;
   background: #FAFAFA;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .lightbox__modal__content__body {
-  margin: 5% auto;
-  width: 75vw;
-  height: 80vh;
+  margin: auto;
+  max-width: 80vw;
+  max-height: 65vh;
 }
 
 .close_lightbox {

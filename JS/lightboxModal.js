@@ -33,16 +33,28 @@ export class Lightbox {
                 lightboxContent.appendChild(lightboxBody);
 
                 // === création de la fléche photo suivante ====
-                var lightboxNext = new DomElement("span");
+                var lightboxNext = new DomElement("i");
                 DomElement.addClass(lightboxNext, "next");
+                DomElement.addClass(lightboxNext, "fas");
+                DomElement.addClass(lightboxNext, "fa-chevron-right");
                 DomElement.addAttribute(lightboxNext, "id", "next");
                 lightboxContent.appendChild(lightboxNext);
 
                 // === création de la fléche photo précédente ====
-                var lightboxPrevious = new DomElement("span");
+                var lightboxPrevious = new DomElement("i");
                 DomElement.addClass(lightboxPrevious, "previous");
+                DomElement.addClass(lightboxPrevious, "fas");
+                DomElement.addClass(lightboxPrevious, "fa-chevron-left");
                 DomElement.addAttribute(lightboxPrevious, "id", "previous");
                 lightboxContent.appendChild(lightboxPrevious);
+
+                const currentDiv = document.getElementById(`selected`);
+                const previousDiv = currentDiv.previousElementSibling;
+                if (previousDiv){
+                        DomElement.addAttribute(previousDiv, "id", "previousDiv");
+                        const previousImage = document.querySelector(`div[id='${previousDiv.id}'] img`);
+                        DomElement.addAttribute(previousImage, "id", `previousImage`);
+                }
                 
                 this.goNext();
                 this.goPrevious();
@@ -109,6 +121,7 @@ export class Lightbox {
                                 const previousImage = document.querySelector(`div[id='${previousDiv.id}'] img`);
                                 const previousDiv2 = currentDiv.previousElementSibling;
                                 DomElement.addAttribute(previousImage, "id", `previousImage`);
+
                                 if(nextDiv){
                                         DomElement.addAttribute(previousDiv2, "id", `${previousDiv2.title}`);
                                         const previousImage2 = document.querySelector(`div[id='${previousDiv2.id}'] img`);

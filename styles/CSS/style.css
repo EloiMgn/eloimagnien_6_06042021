@@ -517,6 +517,14 @@ label {
   cursor: pointer;
   transform: scale(0.7);
 }
+@media screen and (max-width: 768px) {
+  .close_lightbox {
+    right: 0;
+    top: -5px;
+    width: 40px;
+    height: 40px;
+  }
+}
 .close_lightbox:before, .close_lightbox:after {
   position: absolute;
   left: 15px;
@@ -524,6 +532,11 @@ label {
   height: 45px;
   width: 4px;
   background-color: #901C1C;
+}
+@media screen and (max-width: 768px) {
+  .close_lightbox:before, .close_lightbox:after {
+    height: 30px;
+  }
 }
 .close_lightbox:before {
   transform: rotate(45deg);
@@ -540,48 +553,32 @@ label {
   height: 70px;
   opacity: 1;
   cursor: pointer;
-  transform: scale(0.7);
+  font-size: 50px;
+  color: #901C1C;
 }
-.previous:before, .previous:after {
-  position: absolute;
-  left: 5px;
-  top: 10px;
-  content: " ";
-  height: 35px;
-  width: 8px;
-  background-color: #901C1C;
-}
-.previous:before {
-  transform: rotate(45deg) translateY(-14px);
-}
-.previous:after {
-  transform: rotate(-45deg) translateY(14px);
+@media screen and (max-width: 768px) {
+  .previous {
+    font-size: 35px;
+    right: -2px;
+  }
 }
 
 .next {
   position: absolute;
-  right: 0;
+  right: -15px;
   top: 240px;
   width: 50px;
   height: 70px;
   opacity: 1;
   cursor: pointer;
-  transform: scale(0.7);
+  font-size: 50px;
+  color: #901C1C;
 }
-.next:before, .next:after {
-  position: absolute;
-  right: 0px;
-  top: 10px;
-  content: " ";
-  height: 35px;
-  width: 8px;
-  background-color: #901C1C;
-}
-.next:before {
-  transform: rotate(45deg) translateY(14px);
-}
-.next:after {
-  transform: rotate(-45deg) translateY(-14px);
+@media screen and (max-width: 768px) {
+  .next {
+    font-size: 35px;
+    right: -30px;
+  }
 }
 
 .image__title {
@@ -592,6 +589,12 @@ label {
   font-size: 120%;
   color: #901C1C;
   font-weight: normal;
+}
+@media screen and (max-width: 768px) {
+  .image__title {
+    bottom: 50px;
+    left: 70px;
+  }
 }
 
 header {

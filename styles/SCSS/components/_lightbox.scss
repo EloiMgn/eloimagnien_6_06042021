@@ -52,6 +52,12 @@
     opacity: 1;
     cursor: pointer;
     transform: scale(0.7);
+    @media screen and (max-width: 768px) {
+        right: 0;
+        top: -5px;
+        width: 40px;
+        height: 40px;
+    } 
     &:before, &:after{
         position: absolute;
         left: 15px;
@@ -59,6 +65,9 @@
         height: 45px;
         width: 4px;
         background-color: $color-primary;
+        @media screen and (max-width: 768px) {
+            height: 30px;
+        } 
     }
     &:before{
         transform: rotate(45deg);
@@ -68,7 +77,7 @@
     }
   }
 
-  .previous{
+.previous{
     position: absolute;
     left: 0;
     top: 240px;
@@ -76,50 +85,28 @@
     height: 70px;
     opacity: 1;
     cursor: pointer;
-    transform: scale(0.7);
-    &:before, &:after{
-        position: absolute;
-        left: 5px;
-        top: 10px;
-        content: " ";
-        height: 35px;
-        width: 8px;
-        background-color: $color-primary;
-    }
-    &:before{
-        transform: rotate(45deg) translateY(-14px);
-        ;
-    }
-    &:after{
-        transform: rotate(-45deg) translateY(14px);
-    }
-  }
+    font-size: 50px;
+    color: $color-primary;
+    @media screen and (max-width: 768px) {
+        font-size: 35px;
+        right: -2px;
+    } 
+}
 
   .next{
     position: absolute;
-    right: 0;
+    right: -15px;
     top: 240px;
     width: 50px;
     height: 70px;
     opacity: 1;
     cursor: pointer;
-    transform: scale(0.7);
-    &:before, &:after{
-        position: absolute;
-        right: 0px;
-        top: 10px;
-        content: " ";
-        height: 35px;
-        width: 8px;
-        background-color: $color-primary;
-    }
-    &:before{
-        transform: rotate(45deg) translateY(14px);
-        ;
-    }
-    &:after{
-        transform: rotate(-45deg) translateY(-14px);
-    }
+    font-size: 50px;
+    color: $color-primary;
+    @media screen and (max-width: 768px) {
+        font-size: 35px;
+        right: -30px;
+    } 
   }
 
   .image__title{
@@ -130,4 +117,10 @@
       font-size: 120%;
       color: $color-primary;
       font-weight: normal;
+
+      @media screen and (max-width: 768px) {
+        bottom: 50px;
+        left: 70px;
+
+    } 
   }

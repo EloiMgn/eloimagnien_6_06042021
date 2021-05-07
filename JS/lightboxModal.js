@@ -53,6 +53,7 @@ export class Lightbox {
                 // === création du titre de la photo ====
                 var lightboxTitle = new DomElement("span");
                 DomElement.addClass(lightboxTitle, "image__title");
+                DomElement.addAttribute(lightboxTitle, "id","image__title");
                 DomElement.addText(lightboxTitle, `${title}`);
                 lightboxSection.appendChild(lightboxTitle);
         }
@@ -91,12 +92,14 @@ export class Lightbox {
                         const nextDiv = currentDiv.nextElementSibling;
                         const previousDiv = currentDiv.previousElementSibling;
                         const currentImage = document.querySelector(`#selected img`);
-                        const nextImage = document.querySelector(`div[id='${nextDiv.id}'] img`);
+                        const Title = document.getElementById("image__title");
                         
                         if(nextDiv){
                                 
                                 // lightboxBody.removeAttribute("src");
-                                DomElement.addImg(lightboxBody, `${nextImage.src}`, `${"textAlt"}`);
+                                const nextImage = document.querySelector(`div[id='${nextDiv.id}'] img`);
+                                DomElement.addImg(lightboxBody, `${nextImage.src}`, `${nextImage.title}`);
+                                DomElement.addText(Title, `${nextImage.title}`);
                                 DomElement.addAttribute(currentDiv, "id", "previousDiv");
                                 DomElement.addAttribute(nextDiv, "id", "selected");
                                 DomElement.addAttribute(currentImage, "id", "previousImage");
@@ -105,8 +108,13 @@ export class Lightbox {
                         if (previousDiv){
                                 const previousImage = document.querySelector(`div[id='${previousDiv.id}'] img`);
                                 const previousDiv2 = currentDiv.previousElementSibling;
-                                DomElement.addAttribute(previousImage, "id", `${previousDiv2.title}`);
-                                DomElement.addAttribute(previousDiv2, "id", `${previousDiv2.title}`);
+                                DomElement.addAttribute(previousImage, "id", `previousImage`);
+                                if(nextDiv){
+                                        DomElement.addAttribute(previousDiv2, "id", `${previousDiv2.title}`);
+                                        const previousImage2 = document.querySelector(`div[id='${previousDiv2.id}'] img`);
+                                        DomElement.addAttribute(previousImage2, "id", `${previousDiv2.title}`);
+
+                                }
 
                         }
 
@@ -126,17 +134,26 @@ export class Lightbox {
                                 const nextDiv = currentDiv.nextElementSibling;
                                 const previousDiv = currentDiv.previousElementSibling;  
                                 const previousImage =  document.getElementById(`previousImage`);
-
+                                const Title = document.getElementById("image__title");
                                 
                                 if(previousDiv){
                                         
-                                        DomElement.addImg(lightboxBody, `${previousImage.src}`, `${"textAlt"}`);
-                                        DomElement.addAttribute(currentDiv, "id", "nextDiv");
+                                        DomElement.addAttribute(currentDiv, "id", `${currentDiv.title}`);
                                         DomElement.addAttribute(previousDiv, "id", "selected");
                                         DomElement.addAttribute(currentImage, "id", "nextImage");
+                                        DomElement.addAttribute(currentImage, "id", "nextImage");
                                         
-                                        const previousDiv2 = currentDiv.previousElementSibling;
-                                        DomElement.addAttribute(previousDiv2, "id", `previousImage`);
+                                        
+                                        const previousDiv2 = previousDiv.previousElementSibling;
+                                        DomElement.addImg(lightboxBody, `${previousImage.src}`, `${previousImage.title}`);
+                                        DomElement.addText(Title, `${previousImage.title}`);
+                                        
+                                        if(previousDiv2){
+                                                const previousImage2 = document.querySelector(`div[id='${previousDiv2.id}'] img`);
+                                                DomElement.addAttribute(previousDiv2, "id", `previousDiv`);
+                                                DomElement.addAttribute(previousImage2, "id", `previousImage`);  
+
+                                        }
                                 }
                                 // const currentDiv = document.getElementById("selected");
                                 // const lightboxBody = document.getElementById("lightboxBody");

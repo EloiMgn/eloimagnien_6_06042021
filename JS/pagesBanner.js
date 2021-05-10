@@ -132,5 +132,11 @@ export class CreateBanner {
             });
 
     }
-
+        static removeBanner(){
+                const myNode = document.getElementById("banner");
+                while (myNode.firstChild) {
+                    myNode.removeChild(myNode.lastChild);
+                }
+        }
 }
+

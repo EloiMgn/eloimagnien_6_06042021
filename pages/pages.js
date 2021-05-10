@@ -1,5 +1,6 @@
 
-import {init} from "../JS/pagesInit.js";
+import {Init} from "../JS/pagesInit.js";
+import {SortSelection} from "../JS/sortSelection.js";
 
         if (sessionStorage.getItem('datas') === null) {
             fetch('../datas/datas.json') // return qql    
@@ -11,10 +12,11 @@ import {init} from "../JS/pagesInit.js";
                     //     'id': 123
                     // }
                     // sessionStorage.setItem('query') 
-                    init(obj)
+                        // ==== Tri des photos en fonction de la valeur sélectionnée ====== 
+                Init(obj);
 
                 })
         } else {
             const storage = JSON.parse(sessionStorage.getItem('datas')) 
-            init(storage)
+            Init(storage)
         }

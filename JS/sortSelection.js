@@ -1,5 +1,7 @@
 
 import { CreateSelection} from "./pagesSelection.js";
+import{CreateBanner} from "./pagesBanner.js";
+import {Init} from "./pagesInit.js";
 
 export class SortSelection {
 
@@ -27,7 +29,8 @@ export class SortSelection {
 
         listbox.addEventListener("input", () => {
 
-            this.removeSelection();
+            
+            CreateBanner.removeBanner();
 
             if (listbox.value === "popularité") {
 
@@ -35,7 +38,10 @@ export class SortSelection {
                     return b.likes - a.likes;
                 }
                 const mediasArrayLikes = [...mediasArray].sort(sortPopularity);
+                this.removeSelection();
                 CreateSelection.showSelection(mediasArrayLikes);
+                CreateBanner.showBanner(data);
+                CreateBanner.pageHeader(data);
             }
 
             if (listbox.value === "date") {
@@ -46,7 +52,10 @@ export class SortSelection {
                     else return -1;
                 }
                 const mediasArrayDate = [...mediasArray].sort(sortDate);
+                this.removeSelection();
                 CreateSelection.showSelection(mediasArrayDate);
+                CreateBanner.showBanner(data);
+                CreateBanner.pageHeader(data);
             }
 
             if (listbox.value === "titre") {
@@ -57,7 +66,10 @@ export class SortSelection {
                 }
 
                 const mediasArrayTitle = [...mediasArray].sort(sortTitle);
+                this.removeSelection();
                 CreateSelection.showSelection(mediasArrayTitle);
+                CreateBanner.showBanner(data);
+                CreateBanner.pageHeader(data);
             }
 
         });

@@ -24,6 +24,15 @@ export class Index {
                 animals.setAttribute("href", "./index.html" + `?tag=animals`);
                 events.setAttribute("href", "./index.html" + `?tag=events`);
 
+                portraits.setAttribute("aria-label", "Tag");
+                art.setAttribute("aria-label", "Tag");
+                architecture.setAttribute("aria-label", "Tag");
+                fashion.setAttribute("aria-label", "Tag");
+                travel.setAttribute("aria-label", "Tag");
+                sport.setAttribute("aria-label", "Tag");
+                animals.setAttribute("aria-label", "Tag");
+                events.setAttribute("aria-label", "Tag");
+
 
         }
 
@@ -99,6 +108,7 @@ export class Index {
                         DomElement.addClass(tag, "navigation__tag");
                         DomElement.addLink(tag, "./index.html" + `?tag=${tags}`);
                         DomElement.addText(tag, "#" + `${tags}`);
+                        DomElement.addAttribute(tag, "aria-label", "Tag");
                         tagsList.appendChild(tag);
                 });
 

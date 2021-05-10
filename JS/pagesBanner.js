@@ -73,11 +73,13 @@ export class CreateBanner {
                                     if (768 < Lscreen){
                                         DomElement.addClass(button, `contact`);
                                         DomElement.addAttribute(button, "id", `modal-btn`);
+                                        DomElement.addAttribute(button, "aria-label", `Contact Me`);
                                         banner.appendChild(button);
                                             
                                     } else {
                                         DomElement.addClass(button, `contact`);
                                         DomElement.addAttribute(button, "id", "contact__responsive");
+                                        DomElement.addAttribute(button, "aria-label", `Contact Me`);
                                         body.appendChild(button);
                                     }
                             
@@ -98,10 +100,10 @@ export class CreateBanner {
                             banner.appendChild(photographerProfil);
 
 
-                            // === insertion de l'image cachée ===    
+                            // === insertion de l'image ===    
                             const imageHtml = new DomElement('img');
                             DomElement.addClass(imageHtml, `photographer__profil__img`);
-                            DomElement.addImg(imageHtml, `${"../images/Photographers_ID_Photos/tinified/" + artistName.replace(" ", "") + ".jpg"}`, `${artistName + "profil"}`);
+                            DomElement.addImg(imageHtml, `${"../images/Photographers_ID_Photos/tinified/" + artistName.replace(" ", "") + ".jpg"}`, `${artistName}`);
                             photographerProfil.appendChild(imageHtml);
                             
                     }

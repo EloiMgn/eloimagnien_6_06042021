@@ -114,6 +114,7 @@ export class CreateSelection {
                 const sourceVideo = new DomElement('source');
 
                 DomElement.addAttribute(videoHtml, "controls", ""); 
+                DomElement.addText(videoHtml, "Votre navigateur ne permet pas de lire les vidéos.");
                 DomElement.addAttribute(videoHtml, "height", "100%"); 
                 DomElement.addAttribute(videoHtml, "width", "100%"); 
                 const posterUrl = medias.video.replace("mp4", "jpg"); 
@@ -160,14 +161,20 @@ export class CreateSelection {
                 
                 var like = medias.likes;
                 const likeIcon = new DomElement("i");
+                
                 DomElement.addClass(likeIcon, `fas`);
                 DomElement.addClass(likeIcon, `fa-heart`);
                 DomElement.addClass(likeIcon, `card__likes__icon`);
+                likeIcon.setAttribute("aria-label", "likes");
                 cardLike.appendChild(likeIcon);
 
+                const likes = document.querySelectorAll(".card__likes__icon");
+                likes.forEach((like)=>{
+                    like.setAttribute("aria-label", "likes");
+                });
                 // ==== fonction d'ajout du like au clic ===== 
 
-                likeIcon.addEventListener("click", function addLike(){
+                likeIcon.addEventListener("click", ()=>{
                     like++;
                     DomElement.addText(likesNumber, `${like}`);
                 })

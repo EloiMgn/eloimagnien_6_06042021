@@ -22,7 +22,7 @@ export class DomElement {
     }
 
     static addText(element, text) {
-            element.textContent = text;
+            element.textContent = `${text}`;
     }
 
 }

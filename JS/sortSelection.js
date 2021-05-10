@@ -1,9 +1,5 @@
-import {
-    DomElement
-} from "./domElement.js";
-import {
-    CreateSelection
-} from "./pagesSelection.js";
+
+import { CreateSelection} from "./pagesSelection.js";
 
 export class SortSelection {
 

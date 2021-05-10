@@ -4,22 +4,16 @@ export class CreateSelection {
     // ==== méthode de modifictaion de la sélection d'images de la page en focntion de l'artiste ====
     static showSelection(data) {
 
-        const medias = data['media'];
+        // const medias = data['media'];
         const selection = document.getElementById("selection");
         
         const url = new URL(window.location.href);
         const artistName = url.searchParams.get("name");
         const artistId = url.searchParams.get("id");
 
-        if (artistId == medias.photographerId) {
 
-            
-           
-
-
-        }
         
-        medias.forEach((medias) => {
+        data.forEach((medias) => {
             
             
             if (medias.photographerId == artistId && medias.image) {

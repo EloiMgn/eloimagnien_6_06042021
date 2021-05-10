@@ -3,12 +3,13 @@ import {CreateSelection} from "./pagesSelection.js";
 import {ContactModal} from "./contactModal.js";
 import {Lightbox} from "./lightboxModal.js";
 import {ModalValidation} from "./modalValidation.js";
+import {SortSelection} from "./sortSelection.js";
 
 export const init = data => { 
     // ======== Création des éléments de la page =====        
     CreateBanner.showBanner(data);
     CreateBanner.pageHeader(data);
-    CreateSelection.showSelection(data);
+    // CreateSelection.showSelection(data);
     ContactModal.createModal(); 
     // Lightbox.createLightbox(data);  
 
@@ -21,4 +22,6 @@ export const init = data => {
     Lightbox.lightboxOpen(data);
     // Lightbox.goNext();        
     // Lightbox.lightboxClose();
+
+    SortSelection.sort(data);
 }

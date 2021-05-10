@@ -113,20 +113,22 @@ export class CreateSelection {
                 const videoHtml = new DomElement('video');
                 const sourceVideo = new DomElement('source');
 
-                DomElement.addAttribute(videoHtml, "controls", null); 
+                DomElement.addAttribute(videoHtml, "controls", ""); 
                 DomElement.addAttribute(videoHtml, "height", "100%"); 
                 DomElement.addAttribute(videoHtml, "width", "100%"); 
                 const posterUrl = medias.video.replace("mp4", "jpg"); 
                 DomElement.addAttribute(videoHtml, "poster", `${"../images/" + artistFirst + "/tinified/" + posterUrl}`); 
+                DomElement.addAttribute(videoHtml, "id", `${medias.id}`);
+                DomElement.addClass(videoHtml, `photographer__profil__img__selection`);
+                DomElement.addAttribute(videoHtml, "title", `${medias.title}`)
+                
                 DomElement.addAttribute(sourceVideo, "src", `${"../images/" + artistFirst +"/"+ medias.video}`); 
                 DomElement.addAttribute(sourceVideo, "type", "video/mp4"); 
-
-                // DomElement.addClass(imageHtml, `photographer__profil__img__selection`);
-                // DomElement.addImg(imageHtml, `${"../images/" + artistFirst + "/tinified/" + medias.video}`, `${medias.title}`);
-                // DomElement.addAttribute(imageHtml, "id", `${medias.id}`);
-                // DomElement.addAttribute(imageHtml, "title", `${medias.title}`)
+                
                 videoHtml.appendChild(sourceVideo);
                 pictureContainer.appendChild(videoHtml);
+
+                // DomElement.addImg(imageHtml, `${"../images/" + artistFirst + "/tinified/" + medias.video}`, `${medias.title}`);
                 
                 // === création de la description ====
                 

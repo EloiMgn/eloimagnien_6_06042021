@@ -113,11 +113,22 @@ export class Lightbox {
 
                                         // lightboxBody.removeAttribute("src");
                                         const nextImage = document.querySelector(`div[id='${nextDiv.id}'] img`);
-                                        DomElement.addImg(lightboxBody, `${nextImage.src}`, `${nextImage.title}`);
-                                        DomElement.addText(Title, `${nextImage.title}`);
-                                        DomElement.addAttribute(currentDiv, "id", "previousDiv");
-                                        DomElement.addAttribute(nextDiv, "id", "selected");
-                                        DomElement.addAttribute(currentImage, "id", "previousImage");
+                                        if (nextImage){
+
+                                                DomElement.addImg(lightboxBody, `${nextImage.src}`, `${nextImage.title}`);
+                                                DomElement.addText(Title, `${nextImage.title}`);
+                                                DomElement.addAttribute(currentDiv, "id", "previousDiv");
+                                                DomElement.addAttribute(nextDiv, "id", "selected");
+                                                DomElement.addAttribute(currentImage, "id", "previousImage");
+                                                
+                                        } else {
+                                                const nextVideo = document.querySelector(`div[id='${nextDiv.id}'] video`);
+                                                DomElement.addImg(lightboxBody, `${nextVideo.src}`, `${nextVideo.title}`);
+                                                DomElement.addText(Title, `${nextVideo.title}`);
+                                                DomElement.addAttribute(currentDiv, "id", "previousDiv");
+                                                DomElement.addAttribute(nextDiv, "id", "selected");
+                                                DomElement.addAttribute(currentImage, "id", "previousImage");
+                                        }
 
 
                                 }
@@ -159,7 +170,6 @@ export class Lightbox {
                                         const previousDiv = currentDiv.previousElementSibling;
                                         const previousImage = document.getElementById(`previousImage`);
                                         const Title = document.getElementById("image__title");
-                                        const nextDiv = currentDiv.nextElementSibling;
 
                                         if (previousDiv) {
 
@@ -204,21 +214,12 @@ export class Lightbox {
 
                 const currentDiv = document.getElementById(`selected`);
                 const previousDiv = currentDiv.previousElementSibling;
-                const nextDiv = currentDiv.nextElementSibling;
                 
                 if (previousDiv) {
                         DomElement.addAttribute(previousDiv, "id", "previousDiv");
                         const previousImage = document.querySelector(`div[id='${previousDiv.id}'] img`);
                         DomElement.addAttribute(previousImage, "id", `previousImage`);
                 }
-                
-                // if (nextDiv) {
-                //         this.createNextBtn();
-                // }
-                // if (previousDiv) {
-                //         this.createPreviousBtn();
-                // }
-                
 
 
         }

@@ -99,7 +99,7 @@ export class CreateSelection {
                 DomElement.addAttribute(selectionCard, "title", `${medias.id}`);
                 selection.appendChild(selectionCard);
                 
-                //=== création de la div photo ===
+                //=== création de la div video ===
                 const pictureContainer = new DomElement('div');
                 const artistFirst = artistName.substring(0, artistName.lastIndexOf(" "));
                 DomElement.addClass(pictureContainer, `selection__card__div`);

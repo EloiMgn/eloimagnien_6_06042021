@@ -111,7 +111,6 @@ export class Lightbox {
 
                                 if (nextDiv) {
 
-                                        // lightboxBody.removeAttribute("src");
                                         const nextImage = document.querySelector(`div[id='${nextDiv.id}'] img`);
                                         if (nextImage){
 
@@ -191,9 +190,6 @@ export class Lightbox {
 
                                                 }
 
-                                                // if(nextDiv){
-                                                //         this.createNextBtn();
-                                                // }
                                         }
 
                                 }

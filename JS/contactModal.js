@@ -130,13 +130,9 @@ export class ContactModal {
                 DomElement.addAttribute(submitBtn, "type", "submit");
                 modalForm.appendChild(submitBtn);
 
-
-
         }
 
         static modalOpen() {
-
-
 
                 var Lscreen = screen.width;
 

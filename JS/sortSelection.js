@@ -1,8 +1,5 @@
 
 import { CreateSelection} from "./pagesSelection.js";
-import{CreateBanner} from "./pagesBanner.js";
-import {Init} from "./pagesInit.js";
-
 export class SortSelection {
 
     static removeSelection() {
@@ -19,31 +16,31 @@ export class SortSelection {
         const artistId = url.searchParams.get("id");
         var mediasArray = [];
 
+        // === création sélecion de photo par artiste ===
         medias.forEach(media => {
             if (media.photographerId == artistId) {
                 mediasArray.push(media);
             }
         });
+        // ==== tri par défaut par popularité =====
 
-        CreateSelection.showSelection(mediasArray);
+        const sortPopularity = (a, b) => {
+            return b.likes - a.likes;
+        }
+        const mediasArrayLikes = [...mediasArray].sort(sortPopularity);
+        CreateSelection.showSelection(mediasArrayLikes);
 
+        // === écoute des évènements de la listbox ====
         listbox.addEventListener("input", () => {
-
             
-            CreateBanner.removeBanner();
-
+            // === tri par popularité =====
             if (listbox.value === "popularité") {
 
-                const sortPopularity = (a, b) => {
-                    return b.likes - a.likes;
-                }
-                const mediasArrayLikes = [...mediasArray].sort(sortPopularity);
-                this.removeSelection();
-                CreateSelection.showSelection(mediasArrayLikes);
-                CreateBanner.showBanner(data);
-                CreateBanner.pageHeader(data);
+                this.removeSelection(); // efface la précédente sélection
+                CreateSelection.showSelection(mediasArrayLikes); // créé la nouvelle sélection a partir de la liste triée  
             }
 
+            // ==== tri par date ====
             if (listbox.value === "date") {
 
                 const sortDate = (a, b) => {
@@ -54,9 +51,9 @@ export class SortSelection {
                 const mediasArrayDate = [...mediasArray].sort(sortDate);
                 this.removeSelection();
                 CreateSelection.showSelection(mediasArrayDate);
-                CreateBanner.showBanner(data);
-                CreateBanner.pageHeader(data);
             }
+
+            // ==== tri par titre ====
 
             if (listbox.value === "titre") {
                 const sortTitle = (a, b) => {
@@ -68,10 +65,9 @@ export class SortSelection {
                 const mediasArrayTitle = [...mediasArray].sort(sortTitle);
                 this.removeSelection();
                 CreateSelection.showSelection(mediasArrayTitle);
-                CreateBanner.showBanner(data);
-                CreateBanner.pageHeader(data);
             }
 
+            
         });
     }
 }

@@ -14,7 +14,7 @@ export class Index {
                 const animals = document.getElementById("#Animals");
                 const events = document.getElementById("#Events");
 
-
+                // === ajout du tag dans l'url ===
                 portraits.setAttribute("href", "./index.html" + `?tag=portrait`);
                 art.setAttribute("href", "./index.html" + `?tag=art`);
                 architecture.setAttribute("href", "./index.html" + `?tag=architecture`);
@@ -23,16 +23,6 @@ export class Index {
                 sport.setAttribute("href", "./index.html" + `?tag=sport`);
                 animals.setAttribute("href", "./index.html" + `?tag=animals`);
                 events.setAttribute("href", "./index.html" + `?tag=events`);
-
-                portraits.setAttribute("aria-label", "Tag");
-                art.setAttribute("aria-label", "Tag");
-                architecture.setAttribute("aria-label", "Tag");
-                fashion.setAttribute("aria-label", "Tag");
-                travel.setAttribute("aria-label", "Tag");
-                sport.setAttribute("aria-label", "Tag");
-                animals.setAttribute("aria-label", "Tag");
-                events.setAttribute("aria-label", "Tag");
-
 
         }
 
@@ -57,8 +47,6 @@ export class Index {
                 // === création div photo de profil === 
                 const photographerProfil = new DomElement("div");
                 DomElement.addClass(photographerProfil, "photographer__profil__portrait");
-                // photographerProfil.style.backgroundImage = `Url(${"./images/Photographers_profil_img/" + `${photographer.portrait}`})`;
-                // photographerProfil.style.backgroundSize = "cover";
                 cardLink.appendChild(photographerProfil);
 
                 // === insertion de l'image de profil=== 

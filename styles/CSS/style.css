@@ -282,6 +282,10 @@
   text-align: center;
 }
 
+.links {
+  height: fit-content;
+}
+
 .selection {
   display: flex;
   flex-wrap: wrap;
@@ -649,7 +653,9 @@ header {
 }
 @media screen and (max-width: 768px) {
   .navigation__tag {
-    margin: 4px 1px;
+    margin: 5px 3px;
+    font-size: 15px;
+    line-height: 18px;
   }
 }
 .navigation__tag:hover {
@@ -665,6 +671,7 @@ header {
 @media screen and (max-width: 768px) {
   .header__navigation {
     display: block;
+    height: fit-content;
   }
 }
 .header__navigation nav {
@@ -695,7 +702,7 @@ header {
     top: 0;
     right: 0;
     padding-right: 10px;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 

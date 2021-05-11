@@ -48,7 +48,9 @@ header {
     text-align: center;
     color: $color-primary;
     @media screen and (max-width: 768px) {
-        margin: 4px 1px;
+        margin: 5px 3px;
+        font-size: 15px;
+        line-height: 18px;
     } 
 
     &:hover {
@@ -66,7 +68,7 @@ header {
 
     @media screen and (max-width: 768px) {
         display: block;
-
+        height: fit-content;
     }
 
     nav {
@@ -95,7 +97,7 @@ header {
             top: 0;
             right: 0;
             padding-right: 10px;
-            font-size: 14px;
+            font-size: 16px;
         } 
     }
 }

@@ -91,11 +91,11 @@ export class CreateSelection {
                 }
 
                 if (medias.photographerId == artistId && medias.video){
-                                    //=== création de la carte ===
+                                    
+                //=== création de la carte ===
                 const selectionCard = new DomElement('div');
                 DomElement.addClass(selectionCard, `selection__card`);
                 DomElement.addAttribute(selectionCard, "id", `${medias.id}`);
-                // DomElement.addAttribute(selectionCard, "name", `${medias.id}`);
                 DomElement.addAttribute(selectionCard, "title", `${medias.id}`);
                 selection.appendChild(selectionCard);
                 
@@ -128,8 +128,6 @@ export class CreateSelection {
                 
                 videoHtml.appendChild(sourceVideo);
                 pictureContainer.appendChild(videoHtml);
-
-                // DomElement.addImg(imageHtml, `${"../images/" + artistFirst + "/tinified/" + medias.video}`, `${medias.title}`);
                 
                 // === création de la description ====
                 

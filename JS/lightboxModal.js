@@ -1,4 +1,5 @@
 import { DomElement} from "./domElement.js";
+import {NavigateLightbox} from "./lightboxNavigation.js"
 
 export class Lightbox {
 
@@ -24,7 +25,8 @@ export class Lightbox {
         }
 
         static createLightboxBodyImage(url){
-                this.removeLightboxModalBody()
+
+                this.removeLightboxModalBody();
                 const lightboxContent = document.getElementById("lightbox__modal__content");
                 const urlLightbox = url.replace("/tinified", "");
                 // === création du corp de la modale ====
@@ -34,8 +36,12 @@ export class Lightbox {
                 DomElement.addAttribute(lightboxBody, "id", `lightboxBody`);
                 lightboxContent.appendChild(lightboxBody);
         }
+
+
         static createLightboxBodyVideo(url, imagePoster){
-                this.removeLightboxModalBody()
+
+                console.log(url);
+                this.removeLightboxModalBody();
                 const lightboxContent = document.getElementById("lightbox__modal__content");
                 var lightboxBody = new DomElement("video");
                 lightboxContent.appendChild(lightboxBody);
@@ -137,158 +143,7 @@ export class Lightbox {
 
         }
 
-        // === navigation vers l'image suivante ==== 
-
-        static goNext(url) {
-
-                const nextBtn = document.getElementById("next");
-
-                if (nextBtn) {
-
-                        nextBtn.addEventListener("click", () => {
-                                
-                                
-                                const currentDiv = document.getElementById(`selected`);
-                                const nextDiv = currentDiv.nextElementSibling;
-                                const previousDiv = currentDiv.previousElementSibling;
-                                const currentImage = document.querySelector(`#selected img`);
-                                const currentVideo = document.querySelector(`#selected video`);
-                                const title = document.getElementById("image__title");
-                                
-
-                                if (nextDiv) {
-                                        this.removeLightboxModalBody();
-                                        const nextImage = document.querySelector(`div[id='${nextDiv.id}'] img`);
-                                        
-
-                                        if (nextImage){
-                                                const nextImageSource = document.querySelector(`div[id='${nextDiv.id}'] img`).src;
-                                                this.createLightboxBodyImage(nextImageSource);
-                                                DomElement.addImg(lightboxBody, `${nextImage.src}`, `${nextImage.title}`);
-                                                DomElement.addText(title, `${nextImage.title}`);
-                                                DomElement.addAttribute(currentDiv, "id", "previousDiv");
-                                                DomElement.addAttribute(nextDiv, "id", "selected");
-                                                
-                                                if (currentImage){
-                                                        DomElement.addAttribute(currentImage, "id", "previousImage");
-                                                }
-                                                if (currentVideo){
-                                                        DomElement.addAttribute(currentVideo, "id", "previousImage");
-                                                }
-                                                
-                                        } else {
-                                                const nextVideoSource = document.querySelector(`div[id='${nextDiv.id}'] video > source`).src;
-                                                const nextVideoPoster = document.querySelector(`div[id='${nextDiv.id}'] video`).poster;
-                                                this.createLightboxBodyVideo(nextVideoSource, nextVideoPoster);
-                                                const nextVideo = document.querySelector(`div[id='${nextDiv.id}'] video`);
-                                                DomElement.addImg(lightboxBody, `${nextVideo.src}`, `${nextVideo.title}`);
-                                                DomElement.addText(title, `${nextVideo.title}`);
-                                                DomElement.addAttribute(currentDiv, "id", "previousDiv");
-                                                DomElement.addAttribute(nextDiv, "id", "selected");
-                                                
-                                                if (currentImage){
-                                                        DomElement.addAttribute(currentImage, "id", "previousImage");
-                                                }
-                                                if (currentVideo){
-                                                        DomElement.addAttribute(currentVideo, "id", "previousImage");
-                                                }
-                                        }
-
-
-                                }
-                                if (previousDiv) {
-                                        const previousImage = document.querySelector(`div[id='${previousDiv.id}'] img`);
-                                        const previousVideo = document.querySelector(`div[id='${previousDiv.id}'] video`);
-                                        const previousDiv2 = currentDiv.previousElementSibling;
-                                        if (previousImage){
-                                                DomElement.addAttribute(previousImage, "id", `previousImage`);
-                                        }
-                                        if(previousVideo){
-                                                DomElement.addAttribute(previousVideo, "id", `previousImage`);
-                                        }
-
-                                        // this.createPreviousBtn();
-
-                                        if (nextDiv) {
-                                                DomElement.addAttribute(previousDiv2, "id", `${previousDiv2.title}`);
-                                                const previousImage2 = document.querySelector(`div[id='${previousDiv2.id}'] img`);
-                                                const previousVideo2 = document.querySelector(`div[id='${previousDiv2.id}'] video`);
-                                                if (previousImage2){
-                                                        DomElement.addAttribute(previousImage2, "id", `${previousDiv2.title}`);
-                                                }
-                                                if (previousVideo2){
-                                                        DomElement.addAttribute(previousVideo2, "id", `${previousDiv2.title}`);
-                                                }
-
-                                        }
-
-                                }
-
-                        });
-                }
-
-        }
-
-        // === navigation vers l'image précédente ==== 
-
-        static goPrevious(url, imagePoster) {
-                const previousBtn = document.getElementById("previous");
-
-
-                if (previousBtn) {
-
-                        previousBtn.addEventListener("click", () => {
-                                this.removeLightboxModalBody();
-                        
-                                const currentDiv = document.getElementById(`selected`);
-
-                                if (currentDiv) {
-                                        this.createLightboxBodyImage(url);
-                                        const currentImage = document.querySelector(`#selected img`);
-                                        const currentVideo = document.querySelector(`#selected video`);
-                                        const previousDiv = currentDiv.previousElementSibling;
-                                        const previousImage = document.getElementById(`previousImage`);
-                                        const Title = document.getElementById("image__title");
-
-                                        if (previousDiv) {
-                                                const previousVideo = document.querySelector(`div[id='${previousDiv.id}'] video`);
-                                                console.log(previousVideo);
-                                                        DomElement.addAttribute(currentDiv, "id", `${currentDiv.title}`);
-                                                        DomElement.addAttribute(previousDiv, "id", "selected");
-                                                        if (currentImage){
-                                                                DomElement.addAttribute(currentImage, "id", "nextImage");
-                                                        }
-                                                        if (currentVideo){
-                                                                DomElement.addAttribute(currentVideo, "id", "nextImage");
-                                                        }
-                                
-                                                        const previousDiv2 = previousDiv.previousElementSibling;
-                                                        DomElement.addImg(lightboxBody, `${previousImage.src}`, `${previousImage.title}`);
-                                                        DomElement.addText(Title, `${previousImage.title}`);
-        
-        
-                                                        if (previousDiv2) {
-                                                                const previousImage2 = document.querySelector(`div[id='${previousDiv2.id}'] img`);
-                                                                const previousVideo2 = document.querySelector(`div[id='${previousDiv2.id}'] video`);
-                                                                DomElement.addAttribute(previousDiv2, "id", `previousDiv`);
-
-                                                                if (previousImage2){
-                                                                        DomElement.addAttribute(previousImage2, "id", `previousImage`);
-                                                                }
-                                                                if (previousVideo2){
-                                                                        DomElement.addAttribute(previousVideo2, "id", `previousImage`);
-                                                                }
-        
-                                                }
-
-                                        }
-
-                                }
-
-                        });
-                }
-        }
-
+ 
         static createLightbox(url, imageType, imagePoster) {
 
                 this.createLightboxContent();
@@ -296,8 +151,8 @@ export class Lightbox {
                 this.createLightboxModalContent(url, imageType, imagePoster);
                 this.createNextBtn();
                 this.createPreviousBtn();
-                this.goNext(url, imagePoster);
-                this.goPrevious(url, imagePoster);
+                NavigateLightbox.goNext(url, imagePoster);
+                NavigateLightbox.goPrevious(url, imagePoster);
 
                 const currentDiv = document.getElementById(`selected`);
                 const previousDiv = currentDiv.previousElementSibling;
@@ -340,7 +195,7 @@ export class Lightbox {
                         images.forEach(image => {
 
                                 image.addEventListener("click", () => {
-                                        // console.log(image);
+                                       
                                         if(image.tagName === "IMG"){
                                                 
                                                 this.lightboxSectionCreate(image); // === création section lightbox 
@@ -365,6 +220,37 @@ export class Lightbox {
                                         } 
                                 });
         
+
+                                image.addEventListener("keypress", (event) => {
+                                        
+                                                                                     
+                                        if (event.key == "Enter"){
+
+                                                if(image.tagName === "IMG"){
+                                                        
+                                                        this.lightboxSectionCreate(image); // === création section lightbox 
+                                                        this.createLightbox(image.src, image.tagName); // === création élements lightbox
+                                                        this.lightboxClose(); // === fonction fermeture lightbox
+                                                        this.createTitle(image.title); // === modification du titre de la photo
+                                                        
+                                                        // === ouverture de la section =====
+                                                        const lightboxSection = document.getElementById("lightbox__modal");
+                                                        lightboxSection.style.display = "flex";
+                                                } 
+                                                if(image.tagName === "VIDEO"){
+                                                        event.preventDefault();
+                                                        const urlVideo = document.querySelector(`video[id='${image.id}'] > source`).src;
+                                                        this.lightboxSectionCreate(image); // === création section lightbox 
+                                                        this.createLightbox(urlVideo, image.tagName, image.poster); // === création élements lightbox
+                                                        this.lightboxClose(); // === fonction fermeture lightbox
+                                                        this.createTitle(image.title); // === modification du titre de la photo
+                                                        
+                                                        // === ouverture de la section =====
+                                                        const lightboxSection = document.getElementById("lightbox__modal");
+                                                        lightboxSection.style.display = "flex";
+                                                } 
+                                        }
+                                        });
         
                         });
                 

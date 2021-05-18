@@ -19,7 +19,7 @@ export class CreateSelection {
                 
                 
                 //=== création de la carte ===
-                const selectionCard = new DomElement('div');
+                const selectionCard = new DomElement('li');
                 DomElement.addClass(selectionCard, `selection__card`);
                 DomElement.addAttribute(selectionCard, "id", `${medias.id}`);
                 // DomElement.addAttribute(selectionCard, "name", `${medias.id}`);
@@ -32,6 +32,7 @@ export class CreateSelection {
                 DomElement.addClass(pictureContainer, `selection__card__div`);
                 DomElement.addClass(pictureContainer, `image`);
                 DomElement.addAttribute(pictureContainer, "aria-label", `${medias.title}`);
+                DomElement.addAttribute(pictureContainer, "tabindex", "0");
                 selectionCard.appendChild(pictureContainer);
 
                 
@@ -41,7 +42,8 @@ export class CreateSelection {
                 DomElement.addClass(imageHtml, `photographer__profil__img__selection`);
                 DomElement.addImg(imageHtml, `${"../images/" + artistFirst + "/tinified/" + medias.image}`, `${medias.title}`);
                 DomElement.addAttribute(imageHtml, "id", `${medias.id}`);
-                DomElement.addAttribute(imageHtml, "title", `${medias.title}`)
+                DomElement.addAttribute(imageHtml, "title", `${medias.title}`);
+                
                 pictureContainer.appendChild(imageHtml);
                 
                 // === création de la description ====
@@ -93,7 +95,7 @@ export class CreateSelection {
                 if (medias.photographerId == artistId && medias.video){
                                     
                 //=== création de la carte ===
-                const selectionCard = new DomElement('div');
+                const selectionCard = new DomElement('li');
                 DomElement.addClass(selectionCard, `selection__card`);
                 DomElement.addAttribute(selectionCard, "id", `${medias.id}`);
                 DomElement.addAttribute(selectionCard, "title", `${medias.id}`);

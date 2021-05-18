@@ -1,5 +1,4 @@
-
-import { CreateSelection} from "./pagesSelection.js";
+import {CreateSelection} from "./pagesSelection.js";
 export class SortSelection {
 
     static removeSelection() {
@@ -16,7 +15,7 @@ export class SortSelection {
         const artistId = url.searchParams.get("id");
         var mediasArray = [];
 
-        // === création sélecion de photo par artiste ===
+        // === création sélection de photo par artiste ===
         medias.forEach(media => {
             if (media.photographerId == artistId) {
                 mediasArray.push(media);
@@ -30,14 +29,23 @@ export class SortSelection {
         const mediasArrayLikes = [...mediasArray].sort(sortPopularity);
         CreateSelection.showSelection(mediasArrayLikes);
 
+         sessionStorage.setItem('mediasArray', JSON.stringify(mediasArrayLikes))  
+       
+
+
         // === écoute des évènements de la listbox ====
         listbox.addEventListener("input", () => {
-            
+
             // === tri par popularité =====
             if (listbox.value === "popularité") {
 
                 this.removeSelection(); // efface la précédente sélection
                 CreateSelection.showSelection(mediasArrayLikes); // créé la nouvelle sélection a partir de la liste triée  
+
+                // ==== stockage du résultat ==== 
+                
+                sessionStorage.setItem('mediasArray', JSON.stringify(mediasArrayLikes))  
+               
             }
 
             // ==== tri par date ====
@@ -51,6 +59,9 @@ export class SortSelection {
                 const mediasArrayDate = [...mediasArray].sort(sortDate);
                 this.removeSelection();
                 CreateSelection.showSelection(mediasArrayDate);
+               
+                sessionStorage.setItem('mediasArray', JSON.stringify(mediasArrayDate))  
+               
             }
 
             // ==== tri par titre ====
@@ -65,9 +76,11 @@ export class SortSelection {
                 const mediasArrayTitle = [...mediasArray].sort(sortTitle);
                 this.removeSelection();
                 CreateSelection.showSelection(mediasArrayTitle);
+                
+                sessionStorage.setItem('mediasArray', JSON.stringify(mediasArrayTitle))  
             }
 
-            
         });
     }
+
 }

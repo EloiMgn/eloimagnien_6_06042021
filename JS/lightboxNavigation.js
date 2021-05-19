@@ -168,6 +168,7 @@ export class NavigateLightbox {
                         if (event.key == "Escape"){
                                 Lightbox.lightboxClose();  
                         }
+
                 };
 
         }

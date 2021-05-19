@@ -141,6 +141,7 @@ export class Lightbox {
                 var lightboxSection = document.getElementById("lightbox__modal");
                 lightboxSection.style.display = "none";
                 this.lightboxDeletion();
+                this.addSelection();
         }
 
         static lightboxCloseClic() {
@@ -152,7 +153,24 @@ export class Lightbox {
 
         }
 
+        static removeSelection(){
+                const banner = document.getElementById("banner");
+                const selection = document.getElementById("selection");
+                const listbox = document.getElementById("listbox"); 
 
+                banner.style.display="none";
+                selection.style.display="none";
+                listbox.style.display="none";
+        }
+        static addSelection(){
+                const banner = document.getElementById("banner");
+                const selection = document.getElementById("selection");
+                const listbox = document.getElementById("listbox"); 
+
+                banner.style.display="flex";
+                selection.style.display="flex";
+                listbox.style.display="block";
+        }
 
         static initLightbox(url, imageType, image) {
 
@@ -166,7 +184,7 @@ export class Lightbox {
                 NavigateLightbox.keyboardNavigation()
                 this.lightboxCloseClic(); // === fonction fermeture lightbox
                 this.createTitle(image.title); // === modification du titre de la photo
-
+                this.removeSelection();
         }
 
 

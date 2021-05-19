@@ -377,7 +377,7 @@ img {
 }
 
 .modal {
-  display: none;
+  display: block;
   background-color: rgba(196, 196, 196, 0.4);
   border-radius: 5px;
   position: fixed;

@@ -72,8 +72,7 @@ export class ModalValidation {
 
 
         //====== Validation du Prénom ======
-
-
+        
         first.addEventListener("input", function () {
             missFirst.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
             validation(first, missFirst, nameValid);

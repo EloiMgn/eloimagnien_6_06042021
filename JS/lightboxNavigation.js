@@ -1,168 +1,175 @@
-import {Lightbox } from "./lightboxModal.js"
-import {DomElement} from "./domElement.js";
+import {
+        Lightbox
+} from "./lightboxModal.js"
+import {
+        DomElement
+} from "./domElement.js";
 
-export class NavigateLightbox{
+export class NavigateLightbox {
 
 
-           // === navigation vers l'image suivante ==== 
+        // === navigation vers l'image suivante ==== 
+        static goNext(){
+                const url = new URL(window.location.href);
+                const artistName = url.searchParams.get("name");
+                const artistFirst = artistName.substring(0, artistName.lastIndexOf(" "));
 
-           static goNext(url) {
 
                 const mediasArray = JSON.parse(sessionStorage.getItem("mediasArray"));
 
+                const selection = document.querySelectorAll("li");
+                const firstElement = selection[0];
+
+                let currentDiv = document.getElementById(`selected`);
+                let nextDiv = currentDiv.nextElementSibling;
+                const title = document.getElementById("image__title");
+
                 for (let i = 0; i < mediasArray.length; i++) {
-                        mediasArray[i].index = i;
-                        nextBtn.addEventListener("click", () => {
+
+                        if (mediasArray[i].id == currentDiv.title) {
                                 
-                        });
-                        
+                                if (i == mediasArray.length-1) {
+                                        
+                                        if (mediasArray[0].image) {
+                                                Lightbox.createLightboxBodyImage(`${"../images/" + artistFirst +"/"+ mediasArray[0].image}`);
+                                        }
+                                        if (mediasArray[0].video) {
+
+                                                Lightbox.createLightboxBodyVideo(`${"../images/" + artistFirst +"/"+ mediasArray[0].video}`);
+                                        }
+                                        
+                                        if (nextDiv){
+                                                DomElement.addAttribute(nextDiv, "id", `selected`);
+                                        } else {
+                                                DomElement.addAttribute(firstElement, "id", `selected`);
+                                        }
+                                        DomElement.addAttribute(currentDiv, "id", `${currentDiv.title}`);
+                                        DomElement.addText(title, `${mediasArray[0].title}`);
+
+                                } else {
+                                        
+                                        if (mediasArray[i + 1].image) {
+
+                                                Lightbox.createLightboxBodyImage(`${"../images/" + artistFirst +"/"+ mediasArray[i+1].image}`);
+                                        }
+                                        if (mediasArray[i + 1].video) {
+
+                                                Lightbox.createLightboxBodyVideo(`${"../images/" + artistFirst +"/"+ mediasArray[i+1].video}`);
+                                        }
+
+                                        if (nextDiv){
+                                                DomElement.addAttribute(nextDiv, "id", `selected`);
+                                        } else {
+                                                DomElement.addAttribute(firstElement, "id", `selected`);
+                                        }
+
+                                        DomElement.addAttribute(currentDiv, "id", `${currentDiv.title}`);
+                                        DomElement.addText(title, `${mediasArray[i+1].title}`);
+
+                                }
+                        }
                 }
 
-            const nextBtn = document.getElementById("next");
+                
+        }
+        static goNextClic() {
+                const nextBtn = document.getElementById("next");
+                
+                nextBtn.addEventListener("click", () => {
+                        this.goNext();
+                });
 
-            if (nextBtn) {
+        }
 
-                    nextBtn.addEventListener("click", () => {
-                            
-                            
-                            const currentDiv = document.getElementById(`selected`);
-                            const nextDiv = currentDiv.nextElementSibling;
-                            const previousDiv = currentDiv.previousElementSibling;
-                            const currentImage = document.querySelector(`#selected img`);
-                            const currentVideo = document.querySelector(`#selected video`);
-                            const title = document.getElementById("image__title");
-                            
+        // === navigation vers l'image précédente ==== 
 
-                            if (nextDiv) {
-                                    Lightbox.removeLightboxModalBody();
-                                     const nextImage = document.querySelector(`div[id='${nextDiv.id}'] img`);
-                                    
+        static goPrevious(){
 
-                                    if (nextImage){
-                                            const nextImageSource = document.querySelector(`div[id='${nextDiv.id}'] img`).src;
-                                            Lightbox.createLightboxBodyImage(nextImageSource);
-                                            DomElement.addImg(lightboxBody, `${nextImage.src}`, `${nextImage.title}`);
-                                            DomElement.addText(title, `${nextImage.title}`);
-                                            DomElement.addAttribute(currentDiv, "id", "previousDiv");
-                                            DomElement.addAttribute(nextDiv, "id", "selected");
-                                            
-                                            if (currentImage){
-                                                    DomElement.addAttribute(currentImage, "id", "previousImage");
-                                            }
-                                            if (currentVideo){
-                                                    DomElement.addAttribute(currentVideo, "id", "previousImage");
-                                            }
-                                            
-                                    } else {
-                                            const nextVideoSource = document.querySelector(`div[id='${nextDiv.id}'] video > source`).src;
-                                            const nextVideoPoster = document.querySelector(`div[id='${nextDiv.id}'] video`).poster;
-                                            Lightbox.createLightboxBodyVideo(nextVideoSource, nextVideoPoster);
-                                            const nextVideo = document.querySelector(`div[id='${nextDiv.id}'] video`);
-                                            DomElement.addText(title, `${nextVideo.title}`);
-                                            DomElement.addAttribute(currentDiv, "id", "previousDiv");
-                                            DomElement.addAttribute(nextDiv, "id", "selected");
-                                            
-                                            if (currentImage){
-                                                    DomElement.addAttribute(currentImage, "id", "previousImage");
-                                            }
-                                            if (currentVideo){
-                                                    DomElement.addAttribute(currentVideo, "id", "previousImage");
-                                            }
-                                    }
+                const url = new URL(window.location.href);
+                const artistName = url.searchParams.get("name");
+                const artistFirst = artistName.substring(0, artistName.lastIndexOf(" "));
+                const mediasArray = JSON.parse(sessionStorage.getItem("mediasArray"));
 
+                const selection = document.querySelectorAll("li");
+                const lastElement = selection[selection.length-1];
 
-                            }
-                            if (previousDiv) {
-                                    const previousImage = document.querySelector(`div[id='${previousDiv.id}'] img`);
-                                    const previousVideo = document.querySelector(`div[id='${previousDiv.id}'] video`);
-                                    const previousDiv2 = currentDiv.previousElementSibling;
-                                    if (previousImage){
-                                            DomElement.addAttribute(previousImage, "id", `previousImage`);
-                                    }
-                                    if(previousVideo){
-                                            DomElement.addAttribute(previousVideo, "id", `previousImage`);
-                                    }
+                let currentDiv = document.getElementById(`selected`);
+                let previousDiv = currentDiv.previousElementSibling;
+                const title = document.getElementById("image__title");
+                let mediaLengthLast = mediasArray.length - 1;
 
-                                    // this.createPreviousBtn();
+                for (let i = 0; i < mediasArray.length; i++) {
+                        if (mediasArray[i].id == currentDiv.title) {
+                                
+                                if (i == 0) {
+                                        
+                                        if (mediasArray[mediaLengthLast].image) {
 
-                                    if (nextDiv) {
-                                            DomElement.addAttribute(previousDiv2, "id", `${previousDiv2.title}`);
-                                            const previousImage2 = document.querySelector(`div[id='${previousDiv2.id}'] img`);
-                                            const previousVideo2 = document.querySelector(`div[id='${previousDiv2.id}'] video`);
-                                            if (previousImage2){
-                                                    DomElement.addAttribute(previousImage2, "id", `${previousDiv2.title}`);
-                                            }
-                                            if (previousVideo2){
-                                                    DomElement.addAttribute(previousVideo2, "id", `${previousDiv2.title}`);
-                                            }
+                                                Lightbox.createLightboxBodyImage(`${"../images/" + artistFirst +"/"+ mediasArray[mediaLengthLast].image}`);
+                                        }
+                                        if (mediasArray[mediaLengthLast].video) {
 
-                                    }
+                                                Lightbox.createLightboxBodyVideo(`${"../images/" + artistFirst +"/"+ mediasArray[mediaLengthLast].video}`);
+                                        }
+                                        
+                                        if (previousDiv){
+                                                DomElement.addAttribute(previousDiv, "id", `selected`);
+                                        } else {
+                                                DomElement.addAttribute(lastElement, "id", `selected`);
+                                        }
+                                        
+                                        DomElement.addAttribute(currentDiv, "id", `${currentDiv.title}`);
+                                        DomElement.addText(title, `${mediasArray[mediaLengthLast].title}`);
+                                       
+                                } else {
+                                        if (mediasArray[i - 1].image) {
 
-                            }
+                                                Lightbox.createLightboxBodyImage(`${"../images/" + artistFirst +"/"+ mediasArray[i-1].image}`);
+                                        }
+                                        if (mediasArray[i - 1].video) {
 
-                    });
-            }
+                                                Lightbox.createLightboxBodyVideo(`${"../images/" + artistFirst +"/"+ mediasArray[i-1].video}`);
+                                        }
 
-    }
+                                        if (previousDiv){
+                                                DomElement.addAttribute(previousDiv, "id", `selected`);
+                                        } else {
+                                                DomElement.addAttribute(lastElement, "id", `selected`);
+                                        }
 
-    // === navigation vers l'image précédente ==== 
+                                        DomElement.addAttribute(currentDiv, "id", `${currentDiv.title}`);
+                                        DomElement.addText(title, `${mediasArray[i-1].title}`);
+                                        
+                                }
+                        }
+                }  
+        }
+        static goPreviousClic() {
 
-    static goPrevious(url, imagePoster) {
-            const previousBtn = document.getElementById("previous");
+                const previousBtn = document.getElementById("previous");
+                previousBtn.addEventListener("click", () => {
+                        this.goPrevious();
+                });
 
+        }
 
-            if (previousBtn) {
+        static keyboardNavigation(){
 
-                    previousBtn.addEventListener("click", () => {
-                            Lightbox.removeLightboxModalBody();
-                    
-                            const currentDiv = document.getElementById(`selected`);
+                document.onkeydown = (event)=>{
 
-                            if (currentDiv) {
-                                    Lightbox.createLightboxBodyImage(url);
-                                    const currentImage = document.querySelector(`#selected img`);
-                                    const currentVideo = document.querySelector(`#selected video`);
-                                    const previousDiv = currentDiv.previousElementSibling;
-                                    const previousImage = document.getElementById(`previousImage`);
-                                    const Title = document.getElementById("image__title");
+                        console.log(event.key);
 
-                                    if (previousDiv) {
-                                            const previousVideo = document.querySelector(`div[id='${previousDiv.id}'] video`);
+                        if (event.key == "ArrowRight"){
+                                this.goNext();    
+                        }
+                        if (event.key == "ArrowLeft"){
+                                this.goPrevious();  
+                        }
+                        if (event.key == "Escape"){
+                                Lightbox.lightboxClose();  
+                        }
+                };
 
-                                                    DomElement.addAttribute(currentDiv, "id", `${currentDiv.title}`);
-                                                    DomElement.addAttribute(previousDiv, "id", "selected");
-                                                    if (currentImage){
-                                                            DomElement.addAttribute(currentImage, "id", "nextImage");
-                                                    }
-                                                    if (currentVideo){
-                                                            DomElement.addAttribute(currentVideo, "id", "nextImage");
-                                                    }
-                            
-                                                    const previousDiv2 = previousDiv.previousElementSibling;
-                                                    DomElement.addImg(lightboxBody, `${previousImage.src}`, `${previousImage.title}`);
-                                                    DomElement.addText(Title, `${previousImage.title}`);
-    
-    
-                                                    if (previousDiv2) {
-                                                            const previousImage2 = document.querySelector(`div[id='${previousDiv2.id}'] img`);
-                                                            const previousVideo2 = document.querySelector(`div[id='${previousDiv2.id}'] video`);
-                                                            DomElement.addAttribute(previousDiv2, "id", `previousDiv`);
-
-                                                            if (previousImage2){
-                                                                    DomElement.addAttribute(previousImage2, "id", `previousImage`);
-                                                            }
-                                                            if (previousVideo2){
-                                                                    DomElement.addAttribute(previousVideo2, "id", `previousImage`);
-                                                            }
-    
-                                            }
-
-                                    }
-
-                            }
-
-                    });
-            }
-    }
+        }
 
 }

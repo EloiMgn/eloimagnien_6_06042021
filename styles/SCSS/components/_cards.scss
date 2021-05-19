@@ -214,6 +214,10 @@
                 color: $color-secondary;
                 transform: scale(1.2);
             }
+            &:focus{
+                color: $color-secondary;
+                transform: scale(1.2);
+            }
         }
     }
 }

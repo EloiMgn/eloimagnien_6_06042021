@@ -367,6 +367,10 @@
   color: #D3573C;
   transform: scale(1.2);
 }
+.card__likes__icon:focus {
+  color: #D3573C;
+  transform: scale(1.2);
+}
 
 img {
   max-width: none;

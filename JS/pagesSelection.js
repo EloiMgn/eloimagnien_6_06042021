@@ -22,7 +22,6 @@ export class CreateSelection {
                 const selectionCard = new DomElement('li');
                 DomElement.addClass(selectionCard, `selection__card`);
                 DomElement.addAttribute(selectionCard, "id", `${medias.id}`);
-                // DomElement.addAttribute(selectionCard, "name", `${medias.id}`);
                 DomElement.addAttribute(selectionCard, "title", `${medias.id}`);
                 selection.appendChild(selectionCard);
                 
@@ -43,7 +42,7 @@ export class CreateSelection {
                 DomElement.addImg(imageHtml, `${"../images/" + artistFirst + "/tinified/" + medias.image}`, `${medias.title}`);
                 DomElement.addAttribute(imageHtml, "id", `${medias.id}`);
                 DomElement.addAttribute(imageHtml, "title", `${medias.title}`);
-                
+                DomElement.addAttribute(imageHtml, "tabindex", "0");
                 pictureContainer.appendChild(imageHtml);
                 
                 // === création de la description ====
@@ -79,16 +78,29 @@ export class CreateSelection {
                 DomElement.addClass(likeIcon, `fas`);
                 DomElement.addClass(likeIcon, `fa-heart`);
                 DomElement.addClass(likeIcon, `card__likes__icon`);
+                DomElement.addAttribute(likeIcon, "tabindex", "0");
                 cardLike.appendChild(likeIcon);
+
 
                 // ==== fonction d'ajout du like au clic ===== 
 
-                likeIcon.addEventListener("click", function addLike(){
-                    like++;
-                    DomElement.addText(likesNumber, `${like}`);
+                likeIcon.addEventListener("click", ()=>{
+                    if (!likeIcon.classList.contains("liked")){
+                        like++;
+                        DomElement.addText(likesNumber, `${like}`);
+                        DomElement.addClass(likeIcon, `liked`);
+                    }
                 })
 
-
+                likeIcon.addEventListener("keypress", (event)=>{
+                    if (event.key == "Enter"){
+                        if (!likeIcon.classList.contains("liked")){
+                            like++;
+                            DomElement.addText(likesNumber, `${like}`);
+                            DomElement.addClass(likeIcon, `liked`);
+                        }
+                    }
+                });
 
                 }
 
@@ -165,6 +177,7 @@ export class CreateSelection {
                 DomElement.addClass(likeIcon, `fas`);
                 DomElement.addClass(likeIcon, `fa-heart`);
                 DomElement.addClass(likeIcon, `card__likes__icon`);
+                DomElement.addAttribute(likeIcon, "tabindex", "0");
                 likeIcon.setAttribute("aria-label", "likes");
                 cardLike.appendChild(likeIcon);
 
@@ -175,9 +188,23 @@ export class CreateSelection {
                 // ==== fonction d'ajout du like au clic ===== 
 
                 likeIcon.addEventListener("click", ()=>{
-                    like++;
-                    DomElement.addText(likesNumber, `${like}`);
-                })
+                    if (!likeIcon.classList.contains("liked")){
+                        like++;
+                        DomElement.addText(likesNumber, `${like}`);
+                        DomElement.addClass(likeIcon, `liked`);
+                    }
+                });
+
+                likeIcon.addEventListener("keypress", (event)=>{
+                    if (event.key == "Enter"){
+                        if (!likeIcon.classList.contains("liked")){
+                            like++;
+                            DomElement.addText(likesNumber, `${like}`);
+                            DomElement.addClass(likeIcon, `liked`);
+                        }
+                    }
+                });
+
                 }
         });
     // ====== Lightbox Opening/Closing ======        

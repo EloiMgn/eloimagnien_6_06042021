@@ -1,9 +1,13 @@
-import { DomElement} from "./domElement.js";
-import {NavigateLightbox} from "./lightboxNavigation.js"
+import {
+        DomElement
+} from "./domElement.js";
+import {
+        NavigateLightbox
+} from "./lightboxNavigation.js"
 
 export class Lightbox {
 
-        static createLightboxContent(){
+        static createLightboxContent() {
 
                 var lightboxSection = document.getElementById("lightbox__modal");
 
@@ -15,16 +19,17 @@ export class Lightbox {
                 lightboxSection.appendChild(lightboxContent);
         }
 
-        static createLightboxCloseBtn(){
+        static createLightboxCloseBtn() {
                 // === création du bouton de fermeture ====
                 const lightboxContent = document.getElementById("lightbox__modal__content");
                 var lightboxClose = new DomElement("span");
                 DomElement.addClass(lightboxClose, "close_lightbox");
                 DomElement.addAttribute(lightboxClose, "id", "close__lightbox");
+                DomElement.addAttribute(lightboxClose, "tabindex", "0");
                 lightboxContent.appendChild(lightboxClose);
         }
 
-        static createLightboxBodyImage(url){
+        static createLightboxBodyImage(url) {
 
                 this.removeLightboxModalBody();
                 const lightboxContent = document.getElementById("lightbox__modal__content");
@@ -38,50 +43,48 @@ export class Lightbox {
         }
 
 
-        static createLightboxBodyVideo(url, imagePoster){
+        static createLightboxBodyVideo(url, imagePoster) {
 
-                console.log(url);
                 this.removeLightboxModalBody();
                 const lightboxContent = document.getElementById("lightbox__modal__content");
                 var lightboxBody = new DomElement("video");
                 lightboxContent.appendChild(lightboxBody);
                 DomElement.addClass(lightboxBody, "lightbox__modal__content__body");
                 DomElement.addAttribute(lightboxBody, "id", `lightboxBody`);
-                DomElement.addAttribute(lightboxBody, "controls", ""); 
+                DomElement.addAttribute(lightboxBody, "controls", "");
                 DomElement.addText(lightboxBody, "Votre navigateur ne permet pas de lire les vidéos.");
-                DomElement.addAttribute(lightboxBody, "height", "100%"); 
-                DomElement.addAttribute(lightboxBody, "width", "100%"); 
-                DomElement.addAttribute(lightboxBody, "poster", `${imagePoster}`);
+                DomElement.addAttribute(lightboxBody, "height", "100%");
+                DomElement.addAttribute(lightboxBody, "width", "100%");
 
                 var sourceVideo = new DomElement("source");
                 lightboxBody.appendChild(sourceVideo);
 
-                DomElement.addAttribute(sourceVideo, "src", `${url}`); 
-                DomElement.addAttribute(sourceVideo, "type", "video/mp4"); 
+                DomElement.addAttribute(sourceVideo, "src", `${url}`);
+                DomElement.addAttribute(sourceVideo, "type", "video/mp4");
         }
 
-        static createLightboxModalContent(url, imageType, imagePoster){
+        static createLightboxModalContent(url, imageType, imagePoster) {
 
-                if (imageType == "IMG"){
+                if (imageType == "IMG") {
                         this.createLightboxBodyImage(url);
                 }
-                if (imageType == "VIDEO"){
+                if (imageType == "VIDEO") {
                         this.createLightboxBodyVideo(url, imagePoster);
                 }
 
         }
 
-        static removeLightboxModalBody(){
+        static removeLightboxModalBody() {
 
                 const lightboxContentBodyVideo = document.querySelector("#lightbox__modal__content > video");
                 const lightboxContentBodyImage = document.querySelector("#lightbox__modal__content > img");
-                if(lightboxContentBodyVideo) {
+                if (lightboxContentBodyVideo) {
                         lightboxContentBodyVideo.remove();
                 }
-                if(lightboxContentBodyImage){
+                if (lightboxContentBodyImage) {
                         lightboxContentBodyImage.remove();
                 }
-                    
+
 
         }
 
@@ -94,6 +97,7 @@ export class Lightbox {
                 DomElement.addClass(lightboxNext, "fas");
                 DomElement.addClass(lightboxNext, "fa-chevron-right");
                 DomElement.addAttribute(lightboxNext, "id", "next");
+                DomElement.addAttribute(lightboxNext, "tabindex", "0");
                 lightboxContent.appendChild(lightboxNext);
 
         }
@@ -107,6 +111,7 @@ export class Lightbox {
                 DomElement.addClass(lightboxPrevious, "fas");
                 DomElement.addClass(lightboxPrevious, "fa-chevron-left");
                 DomElement.addAttribute(lightboxPrevious, "id", "previous");
+                DomElement.addAttribute(lightboxPrevious, "tabindex", "0");
                 lightboxContent.appendChild(lightboxPrevious);
         }
 
@@ -132,45 +137,35 @@ export class Lightbox {
 
         }
 
-        static lightboxClose() {
+        static lightboxClose(){
+                var lightboxSection = document.getElementById("lightbox__modal");
+                lightboxSection.style.display = "none";
+                this.lightboxDeletion();
+        }
+
+        static lightboxCloseClic() {
 
                 const lightboxCloseBtn = document.getElementById("close__lightbox");
                 lightboxCloseBtn.addEventListener("click", () => {
-                        var lightboxSection = document.getElementById("lightbox__modal");
-                        lightboxSection.style.display = "none";
-                        this.lightboxDeletion();
+                        this.lightboxClose();
                 });
 
         }
 
- 
-        static createLightbox(url, imageType, imagePoster) {
+
+
+        static initLightbox(url, imageType, image) {
 
                 this.createLightboxContent();
                 this.createLightboxCloseBtn();
-                this.createLightboxModalContent(url, imageType, imagePoster);
+                this.createLightboxModalContent(url, imageType);
                 this.createNextBtn();
                 this.createPreviousBtn();
-                NavigateLightbox.goNext(url, imagePoster);
-                NavigateLightbox.goPrevious(url, imagePoster);
-
-                const currentDiv = document.getElementById(`selected`);
-                const previousDiv = currentDiv.previousElementSibling;
-
-
-                if (previousDiv) {
-                        DomElement.addAttribute(previousDiv, "id", "previousDiv");
-                        const previousImage = document.querySelector(`div[id='${previousDiv.id}'] img`);
-                        const previousVideo = document.querySelector(`div[id='${previousDiv.id}'] video`);
-                        if (previousImage){
-
-                                DomElement.addAttribute(previousImage, "id", `previousImage`);
-                        }
-                        if (previousVideo){
-                                DomElement.addAttribute(previousVideo, "id", `previousImage`);
-                        }
-                }
-
+                NavigateLightbox.goNextClic();   
+                NavigateLightbox.goPreviousClic();
+                NavigateLightbox.keyboardNavigation()
+                this.lightboxCloseClic(); // === fonction fermeture lightbox
+                this.createTitle(image.title); // === modification du titre de la photo
 
         }
 
@@ -187,77 +182,72 @@ export class Lightbox {
                 body.appendChild(lightboxSection);
         }
 
+        static initVideo(video){
+                const urlVideo = document.querySelector(`video[id='${video.id}'] > source`).src;
+                this.lightboxSectionCreate(video); // === création section lightbox 
+                this.initLightbox(urlVideo, video.tagName, video); // === création élements lightbox
+
+                // === ouverture de la section =====
+                const lightboxSection = document.getElementById("lightbox__modal");
+                lightboxSection.style.display = "flex";
+        }
+        static initImage(image){
+                this.lightboxSectionCreate(image); // === création section lightbox 
+                this.initLightbox(image.src, image.tagName, image); // === création élements lightbox
+
+                // === ouverture de la section =====
+                const lightboxSection = document.getElementById("lightbox__modal");
+                lightboxSection.style.display = "flex";
+        }
+
         static lightboxOpen() {
 
-                const images = document.querySelectorAll(".photographer__profil__img__selection");
-                
+                const imagesLi = document.querySelectorAll(".selection__card__div");
 
-                        images.forEach(image => {
+                imagesLi.forEach(element => {
+                        // ==== clic de la souris 
+                        element.addEventListener("click", () => {
+                                
+                                // === si l'élément cliqué est une image :
+                                if (element.firstChild.tagName == "IMG"){
+                                        this.initImage(element.firstChild);
+                                }
+                                // === si l'élément cliqué est une vidéo :
 
-                                image.addEventListener("click", () => {
-                                       
-                                        if(image.tagName === "IMG"){
-                                                
-                                                this.lightboxSectionCreate(image); // === création section lightbox 
-                                                this.createLightbox(image.src, image.tagName); // === création élements lightbox
-                                                this.lightboxClose(); // === fonction fermeture lightbox
-                                                this.createTitle(image.title); // === modification du titre de la photo
-                                                
-                                                // === ouverture de la section =====
-                                                const lightboxSection = document.getElementById("lightbox__modal");
-                                                lightboxSection.style.display = "flex";
-                                        } 
-                                        if(image.tagName === "VIDEO"){
-                                                const urlVideo = document.querySelector(`video[id='${image.id}'] > source`).src;
-                                                this.lightboxSectionCreate(image); // === création section lightbox 
-                                                this.createLightbox(urlVideo, image.tagName, image.poster); // === création élements lightbox
-                                                this.lightboxClose(); // === fonction fermeture lightbox
-                                                this.createTitle(image.title); // === modification du titre de la photo
-                                                
-                                                // === ouverture de la section =====
-                                                const lightboxSection = document.getElementById("lightbox__modal");
-                                                lightboxSection.style.display = "flex";
-                                        } 
-                                });
-        
-
-                                image.addEventListener("keypress", (event) => {
-                                        
-                                                                                     
-                                        if (event.key == "Enter"){
-
-                                                if(image.tagName === "IMG"){
-                                                        
-                                                        this.lightboxSectionCreate(image); // === création section lightbox 
-                                                        this.createLightbox(image.src, image.tagName); // === création élements lightbox
-                                                        this.lightboxClose(); // === fonction fermeture lightbox
-                                                        this.createTitle(image.title); // === modification du titre de la photo
-                                                        
-                                                        // === ouverture de la section =====
-                                                        const lightboxSection = document.getElementById("lightbox__modal");
-                                                        lightboxSection.style.display = "flex";
-                                                } 
-                                                if(image.tagName === "VIDEO"){
-                                                        event.preventDefault();
-                                                        const urlVideo = document.querySelector(`video[id='${image.id}'] > source`).src;
-                                                        this.lightboxSectionCreate(image); // === création section lightbox 
-                                                        this.createLightbox(urlVideo, image.tagName, image.poster); // === création élements lightbox
-                                                        this.lightboxClose(); // === fonction fermeture lightbox
-                                                        this.createTitle(image.title); // === modification du titre de la photo
-                                                        
-                                                        // === ouverture de la section =====
-                                                        const lightboxSection = document.getElementById("lightbox__modal");
-                                                        lightboxSection.style.display = "flex";
-                                                } 
-                                        }
-                                        });
-        
+                                if (element.firstChild.tagName === "VIDEO") {
+                                        this.initVideo(element.firstChild);
+                                }
                         });
-                
+
+                        // ==== touche entrée du clavier 
+
+                        element.addEventListener("keypress", (event) => {
+                                
+                                const lightboxSection = document.getElementById("lightbox__modal");
 
 
+                                if (event.key == "Enter" && !lightboxSection) {
+                                        
+                                        // === si l'élément cliqué est une image :
+                                        if (element.firstChild.tagName == "IMG"){
+                                                this.initImage(element.firstChild);
+                                        }
+                                        // === si l'élément cliqué est une vidéo :
+        
+                                        if (element.firstChild.tagName === "VIDEO") {
+                                                event.preventDefault();
+                                                this.initVideo(element.firstChild);
+                                        }
+
+                                }
+
+                        })
+                })
 
 
         }
+
+
+
 
 }

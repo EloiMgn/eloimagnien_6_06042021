@@ -45,7 +45,7 @@ export class SortSelection {
                 // ==== stockage du résultat ==== 
                 
                 sessionStorage.setItem('mediasArray', JSON.stringify(mediasArrayLikes))  
-               
+               let sortedPhotos = mediasArrayLikes;
             }
 
             // ==== tri par date ====

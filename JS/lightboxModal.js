@@ -1,9 +1,5 @@
-import {
-        DomElement
-} from "./domElement.js";
-import {
-        NavigateLightbox
-} from "./lightboxNavigation.js"
+import {DomElement} from "./domElement.js";
+import { NavigateLightbox} from "./lightboxNavigation.js"
 
 export class Lightbox {
 
@@ -31,6 +27,7 @@ export class Lightbox {
 
         static createLightboxBodyImage(url) {
 
+
                 this.removeLightboxModalBody();
                 const lightboxContent = document.getElementById("lightbox__modal__content");
                 const urlLightbox = url.replace("/tinified", "");
@@ -43,7 +40,7 @@ export class Lightbox {
         }
 
 
-        static createLightboxBodyVideo(url, imagePoster) {
+        static createLightboxBodyVideo(url) {
 
                 this.removeLightboxModalBody();
                 const lightboxContent = document.getElementById("lightbox__modal__content");
@@ -63,13 +60,13 @@ export class Lightbox {
                 DomElement.addAttribute(sourceVideo, "type", "video/mp4");
         }
 
-        static createLightboxModalContent(url, imageType, imagePoster) {
+        static createLightboxModalContent(url, imageType) {
 
                 if (imageType == "IMG") {
                         this.createLightboxBodyImage(url);
                 }
                 if (imageType == "VIDEO") {
-                        this.createLightboxBodyVideo(url, imagePoster);
+                        this.createLightboxBodyVideo(url);
                 }
 
         }
@@ -138,10 +135,11 @@ export class Lightbox {
         }
 
         static lightboxClose(){
-                var lightboxSection = document.getElementById("lightbox__modal");
+
                 lightboxSection.style.display = "none";
                 this.lightboxDeletion();
                 this.addSelection();
+                
         }
 
         static lightboxCloseClic() {
@@ -185,6 +183,7 @@ export class Lightbox {
                 this.lightboxCloseClic(); // === fonction fermeture lightbox
                 this.createTitle(image.title); // === modification du titre de la photo
                 this.removeSelection();
+        
         }
 
 

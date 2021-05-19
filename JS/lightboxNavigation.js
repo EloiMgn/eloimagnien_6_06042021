@@ -1,9 +1,5 @@
-import {
-        Lightbox
-} from "./lightboxModal.js"
-import {
-        DomElement
-} from "./domElement.js";
+import {Lightbox} from "./lightboxModal.js"
+import { DomElement} from "./domElement.js";
 
 export class NavigateLightbox {
 
@@ -155,21 +151,25 @@ export class NavigateLightbox {
 
         static keyboardNavigation(){
 
-                document.onkeydown = (event)=>{
+                var lightboxSection = document.getElementById("lightbox__modal");
 
-                        console.log(event.key);
+                if (lightboxSection){
 
-                        if (event.key == "ArrowRight"){
-                                this.goNext();    
-                        }
-                        if (event.key == "ArrowLeft"){
-                                this.goPrevious();  
-                        }
-                        if (event.key == "Escape"){
-                                Lightbox.lightboxClose();  
-                        }
+                        document.onkeydown = (event)=>{
+        
+                                if (event.key == "ArrowRight"){
+                                        this.goNext();    
+                                }
+                                if (event.key == "ArrowLeft"){
+                                        this.goPrevious();  
+                                }
+                                if (event.key == "Escape"){
+                                        Lightbox.lightboxClose();  
+                                }
+        
+                        };
 
-                };
+                }
 
         }
 

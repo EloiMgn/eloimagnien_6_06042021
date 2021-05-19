@@ -42,7 +42,6 @@ export class CreateSelection {
                 DomElement.addImg(imageHtml, `${"../images/" + artistFirst + "/tinified/" + medias.image}`, `${medias.title}`);
                 DomElement.addAttribute(imageHtml, "id", `${medias.id}`);
                 DomElement.addAttribute(imageHtml, "title", `${medias.title}`);
-                DomElement.addAttribute(imageHtml, "tabindex", "0");
                 pictureContainer.appendChild(imageHtml);
                 
                 // === création de la description ====

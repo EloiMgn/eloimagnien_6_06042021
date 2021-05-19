@@ -1,6 +1,4 @@
-import {
-        DomElement
-} from "./domElement.js";
+import {DomElement} from "./domElement.js";
 
 export class Index {
 
@@ -96,7 +94,7 @@ export class Index {
                         DomElement.addClass(tag, "navigation__tag");
                         DomElement.addLink(tag, "./index.html" + `?tag=${tags}`);
                         DomElement.addText(tag, "#" + `${tags}`);
-                        DomElement.addAttribute(tag, "aria-label", "Tag");
+                        DomElement.addAttribute(tag, "aria-label", `Tag ${tags}`);
                         tagsList.appendChild(tag);
                 });
 

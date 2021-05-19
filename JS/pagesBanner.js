@@ -60,6 +60,7 @@ export class CreateBanner {
                                     DomElement.addClass(tag,"navigation__tag");
                                     DomElement.addClass(tag, `${tags}`);
                                     DomElement.addText(tag, "#"+`${tags}`);
+                                    DomElement.addAttribute(tag, "aria-label", `Tag ${tags}`);
 
                                     tagsList.appendChild(tag);
                             });

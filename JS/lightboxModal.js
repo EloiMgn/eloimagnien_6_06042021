@@ -135,7 +135,7 @@ export class Lightbox {
         }
 
         static lightboxClose(){
-
+                const lightboxSection = document.getElementById("lightbox__modal");
                 lightboxSection.style.display = "none";
                 this.lightboxDeletion();
                 this.addSelection();

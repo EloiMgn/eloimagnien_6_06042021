@@ -66,6 +66,7 @@
   color: #ffffff;
   border: none;
   padding: 10px;
+  margin: auto 15px;
 }
 .listbox__select__option {
   padding: 10px;
@@ -96,14 +97,18 @@
   background: #FAFAFA;
   border-radius: 5px;
   padding: 30px;
+  height: fit-content;
 }
 @media screen and (max-width: 768px) {
   .banner {
     display: block;
-    margin: auto;
+    margin: 15px auto;
     padding: 0;
     width: 100%;
   }
+}
+.banner__profil {
+  height: fit-content;
 }
 .banner h1 {
   font-family: DM Sans;
@@ -171,7 +176,7 @@
 
 #photographer__profil__responsive {
   position: absolute;
-  top: 180px;
+  top: 40px;
   right: -20px;
   background-size: cover;
   background-position: center;
@@ -626,7 +631,7 @@ header {
 }
 @media screen and (max-width: 768px) {
   header {
-    height: fit-content;
+    height: 50px;
   }
 }
 
@@ -645,6 +650,9 @@ header {
     width: 120px;
     height: auto;
   }
+}
+.header__logo__profil {
+  height: 50px;
 }
 
 .hidden {

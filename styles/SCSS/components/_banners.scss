@@ -5,12 +5,13 @@
     background: $bg-color-light;
     border-radius: 5px;
     padding: 30px;
-    height: fit-content;
+    height: 190px;
     @media screen and (max-width: 768px) {
         display: block;
         margin: 15px auto;
         padding: 0;
         width: 100%;
+        height: 190px;
     } 
 
     &__profil{
@@ -77,11 +78,11 @@
 
 #photographer__profil__responsive {
     position: absolute;
-    top: 40px;
+    top: 60px;
     right: -20px;
     background-size: cover;
     background-position: center;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     border-radius: 10em;
 }

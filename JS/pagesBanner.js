@@ -6,7 +6,7 @@ export class CreateBanner {
 
     static showBanner(datas) {
 
-            const photographers = datas['photographers'];
+            const photographers =datas['photographers'];
             const banner = document.getElementById("banner");
 
             const url = new URL(window.location.href);

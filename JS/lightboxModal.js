@@ -52,6 +52,7 @@ export class Lightbox {
                 DomElement.addText(lightboxBody, "Votre navigateur ne permet pas de lire les vidéos.");
                 DomElement.addAttribute(lightboxBody, "height", "100%");
                 DomElement.addAttribute(lightboxBody, "width", "100%");
+                DomElement.addAttribute(lightboxBody, "autoplay");
 
                 var sourceVideo = new DomElement("source");
                 lightboxBody.appendChild(sourceVideo);
@@ -146,6 +147,10 @@ export class Lightbox {
 
                 const lightboxCloseBtn = document.getElementById("close__lightbox");
                 lightboxCloseBtn.addEventListener("click", () => {
+                        this.lightboxClose();
+                });
+                lightboxCloseBtn.addEventListener("keypress", (event) => {
+                        if(event.key == "Enter")
                         this.lightboxClose();
                 });
 

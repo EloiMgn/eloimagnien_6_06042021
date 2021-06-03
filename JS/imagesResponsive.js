@@ -10,6 +10,6 @@ export class ResizeImagesSelection{
             // console.log(media.clientHeight);
         })
  
-        console.log(medias);
+        // console.log(medias);
     }
 }

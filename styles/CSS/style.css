@@ -222,9 +222,13 @@
 }
 
 .photographer {
-  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
   text-align: center;
-  margin: 25px auto;
+  margin: 25px;
 }
 @media screen and (max-width: 768px) {
   .photographer {
@@ -306,6 +310,12 @@
 
 .links {
   height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .selection {
@@ -671,7 +681,7 @@ label {
 }
 @media screen and (max-width: 768px) {
   .image__title {
-    bottom: 50px;
+    bottom: 30px;
     left: 70px;
   }
 }
@@ -696,6 +706,11 @@ header {
   margin: 20px 20px 20px 0;
   padding-left: 100px;
 }
+@media screen and (max-width: 1180px) {
+  .header__logo {
+    padding-left: 10px;
+  }
+}
 @media screen and (max-width: 768px) {
   .header__logo {
     position: absolute;
@@ -717,7 +732,7 @@ header {
 .navigation__tag {
   text-decoration: none;
   padding: 4px 10px;
-  margin: 0 2px;
+  margin: 2px;
   border: 0.5px solid #C4C4C4;
   box-sizing: border-box;
   border-radius: 15px;

@@ -45,9 +45,6 @@ export class CreateSelection {
                 // DomElement.addAttribute(imageHtml, "height", "100%"); 
                 DomElement.addAttribute(imageHtml, "width", "100%"); 
                 pictureContainer.appendChild(imageHtml);
-
-                let width = window.innerWidth;
-                console.log(width);
                 
                 // === création de la description ====
                 

@@ -25,7 +25,7 @@ export class Lightbox {
                 lightboxContent.appendChild(lightboxClose);
         }
 
-        static createLightboxBodyImage(url) {
+        static createLightboxBodyImage(url, title) {
 
 
                 this.removeLightboxModalBody();
@@ -34,7 +34,7 @@ export class Lightbox {
                 // === création du corp de la modale ====
                 var lightboxBody = new DomElement("img");
                 DomElement.addClass(lightboxBody, "lightbox__modal__content__body");
-                DomElement.addImg(lightboxBody, `${urlLightbox}`, `${"textAlt"}`);
+                DomElement.addImg(lightboxBody, `${urlLightbox}`, `${title}`);
                 DomElement.addAttribute(lightboxBody, "id", `lightboxBody`);
                 lightboxContent.appendChild(lightboxBody);
         }
@@ -49,7 +49,7 @@ export class Lightbox {
                 DomElement.addClass(lightboxBody, "lightbox__modal__content__body");
                 DomElement.addAttribute(lightboxBody, "id", `lightboxBody`);
                 DomElement.addAttribute(lightboxBody, "controls", "");
-                DomElement.addText(lightboxBody, "Votre navigateur ne permet pas de lire les vidéos.");
+                DomElement.addText(lightboxBody, `Votre navigateur ne permet pas de lire les vidéos.`);
                 DomElement.addAttribute(lightboxBody, "height", "100%");
                 DomElement.addAttribute(lightboxBody, "width", "100%");
                 DomElement.addAttribute(lightboxBody, "autoplay");
@@ -61,10 +61,10 @@ export class Lightbox {
                 DomElement.addAttribute(sourceVideo, "type", "video/mp4");
         }
 
-        static createLightboxModalContent(url, imageType) {
+        static createLightboxModalContent(url, imageType, title) {
 
                 if (imageType == "IMG") {
-                        this.createLightboxBodyImage(url);
+                        this.createLightboxBodyImage(url, title);
                 }
                 if (imageType == "VIDEO") {
                         this.createLightboxBodyVideo(url);
@@ -160,26 +160,30 @@ export class Lightbox {
                 const banner = document.getElementById("banner");
                 const selection = document.getElementById("selection");
                 const listbox = document.getElementById("listbox"); 
+                const footer = document.getElementById("footer");
 
                 banner.style.display="none";
                 selection.style.display="none";
                 listbox.style.display="none";
+                footer.style.display="none";
         }
         static addSelection(){
                 const banner = document.getElementById("banner");
                 const selection = document.getElementById("selection");
                 const listbox = document.getElementById("listbox"); 
+                const footer = document.getElementById("footer");
 
                 banner.style.display="flex";
                 selection.style.display="flex";
                 listbox.style.display="block";
+                footer.style.display="block";
         }
 
         static initLightbox(url, imageType, image) {
 
                 this.createLightboxContent();
                 this.createLightboxCloseBtn();
-                this.createLightboxModalContent(url, imageType);
+                this.createLightboxModalContent(url, imageType, image.title);
                 this.createNextBtn();
                 this.createPreviousBtn();
                 NavigateLightbox.goNextClic();   
@@ -225,11 +229,12 @@ export class Lightbox {
         static lightboxOpen() {
 
                 const imagesLi = document.querySelectorAll(".selection__card__div");
+                // console.log(imagesLi);
 
                 imagesLi.forEach(element => {
                         // ==== clic de la souris 
-                        element.addEventListener("click", () => {
-                                
+                        element.addEventListener("click", (event) => {
+                                console.log(event);
                                 // === si l'élément cliqué est une image :
                                 if (element.firstChild.tagName == "IMG"){
                                         this.initImage(element.firstChild);
@@ -238,6 +243,7 @@ export class Lightbox {
 
                                 if (element.firstChild.tagName === "VIDEO") {
                                         this.initVideo(element.firstChild);
+                                        
                                 }
                         });
 

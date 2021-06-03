@@ -16,9 +16,13 @@
 
 
 .photographer {
-    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     text-align: center;
-    margin: 25px auto;
+    margin: 25px;
     @media screen and (max-width: 768px) {
         margin: 25px auto;
         width: 100%;
@@ -119,6 +123,12 @@
 
 .links{
     height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 .selection {

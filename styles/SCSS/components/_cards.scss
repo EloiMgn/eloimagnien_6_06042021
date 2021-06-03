@@ -52,7 +52,6 @@
             object-fit: cover;
             object-position: top;
             &__selection{
-               height: 100%;
                
             }
         }
@@ -128,28 +127,44 @@
     justify-content: space-around;
     align-items: center;
     margin: 10px 70px;
+    height: fit-content;
+    @media screen and (max-width: 768px) {
+        margin: 10px 10px;
+    } 
+    @media screen and (max-width: 320px) {
+        margin: 10px 5px;
+    } 
 
     &__card {
         display: flex;
         flex-direction: column;
         margin: 10px;
         padding: 8px;
-        border-radius: 1em;
-        background-color: $bg-color-light;
+        height: 300px;
         cursor: pointer;
+        @media screen and (max-width: 768px) {
+            margin: 15px auto;
+            padding: 0;
+            height: fit-content;
+        } 
 
         &__div {
-            border-radius: 5px;
+            border-radius: 1em;
             width: 350px;
-            height: 300px;
+            height: 235px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            // &:focus{
-            //     border: solid red 3px;
-            // }
+            @media screen and (max-width: 768px) {
+                width: 350px;
+                height: 197px;
+            } 
+            @media screen and (max-width: 320px) {
+                width: 310px;
+                height: 172px;
+            } 
         }
 
         &__description {
@@ -187,6 +202,7 @@
         line-height: 31px;
         text-align: right;
         color: $color-primary;
+        min-width: 50px;
         
     }
 
@@ -224,10 +240,6 @@
         }
     }
 }
-img{
-    max-width: none;
-}
-
 
 @keyframes heart {
     

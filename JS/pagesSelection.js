@@ -42,7 +42,12 @@ export class CreateSelection {
                 DomElement.addImg(imageHtml, `${"../images/" + artistFirst + "/tinified/" + medias.image}`, `${medias.title}`);
                 DomElement.addAttribute(imageHtml, "id", `${medias.id}`);
                 DomElement.addAttribute(imageHtml, "title", `${medias.title}`);
+                // DomElement.addAttribute(imageHtml, "height", "100%"); 
+                DomElement.addAttribute(imageHtml, "width", "100%"); 
                 pictureContainer.appendChild(imageHtml);
+
+                let width = window.innerWidth;
+                console.log(width);
                 
                 // === création de la description ====
                 

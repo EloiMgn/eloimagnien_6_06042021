@@ -67,7 +67,7 @@ export class CreateBanner {
 
                             
                             // === création du bouton ===   
-                                   var Lscreen = screen.width;
+                                   var Lscreen = window.innerWidth;
                                    const button = new DomElement('button');
                                    const body = document.getElementById('main');
 
@@ -92,7 +92,7 @@ export class CreateBanner {
 
                             // === création div photo de profil === 
                             const photographerProfil = new DomElement('div');
-                            DomElement.addClass(photographerProfil, `photographer__profil__portrait`);
+                            DomElement.addClass(photographerProfil, `photographer__profil__responsive`);
                             photographerProfil.style.marginLeft = "auto";
                             photographerProfil.style.marginRight = "50px";
                             if (768 > Lscreen) {

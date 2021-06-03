@@ -1,6 +1,4 @@
-import {
-    DomElement
-} from "./domElement.js";
+import {DomElement} from "./domElement.js";
 
 export class CreateFooter {
 

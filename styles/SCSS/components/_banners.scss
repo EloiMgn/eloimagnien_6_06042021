@@ -5,14 +5,14 @@
     background: $bg-color-light;
     border-radius: 5px;
     padding: 30px;
-    height: 190px;
+    height: fit-content;
     @media screen and (max-width: 768px) {
         display: block;
         margin: 15px auto;
         padding: 0;
         width: 100%;
-        height: 190px;
-    } 
+        height: fit-content;
+    }   
 
     &__profil{
         height: fit-content;
@@ -69,6 +69,8 @@
         }
     }
     &__links{
+        display: flex;
+        flex-wrap: wrap;
         margin-left: 20px;
         @media screen and (max-width: 768px) {
         margin-left: 10px;
@@ -76,13 +78,38 @@
     }
 }
 
-#photographer__profil__responsive {
-    position: absolute;
-    top: 60px;
-    right: -20px;
-    background-size: cover;
-    background-position: center;
-    width: 90px;
-    height: 90px;
+// #photographer__profil__responsive {
+//     position: absolute;
+//     top: 60px;
+//     right: -20px;
+//     background-size: cover;
+//     background-position: center;
+//     width: 90px;
+//     height: 90px;
+//     border-radius: 10em;
+// }
+
+.photographer__profil__responsive{
+    width: 200px;
+    min-width: 200px;
+    height: 200px;
+    overflow: hidden;
     border-radius: 10em;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+        position: absolute;
+        top: 60px;
+        right: -20px;
+        background-size: cover;
+        background-position: center;
+        width: 90px;
+        height: 90px;
+        border-radius: 10em;
+        min-width: unset;
+        } 
 }

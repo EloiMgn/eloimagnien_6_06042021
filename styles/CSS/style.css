@@ -97,7 +97,7 @@
   background: #FAFAFA;
   border-radius: 5px;
   padding: 30px;
-  height: 190px;
+  height: fit-content;
 }
 @media screen and (max-width: 768px) {
   .banner {
@@ -105,7 +105,7 @@
     margin: 15px auto;
     padding: 0;
     width: 100%;
-    height: 190px;
+    height: fit-content;
   }
 }
 .banner__profil {
@@ -167,6 +167,8 @@
   }
 }
 .banner__links {
+  display: flex;
+  flex-wrap: wrap;
   margin-left: 20px;
 }
 @media screen and (max-width: 768px) {
@@ -175,15 +177,30 @@
   }
 }
 
-#photographer__profil__responsive {
-  position: absolute;
-  top: 60px;
-  right: -20px;
-  background-size: cover;
-  background-position: center;
-  width: 90px;
-  height: 90px;
+.photographer__profil__responsive {
+  width: 200px;
+  min-width: 200px;
+  height: 200px;
+  overflow: hidden;
   border-radius: 10em;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .photographer__profil__responsive {
+    position: absolute;
+    top: 60px;
+    right: -20px;
+    background-size: cover;
+    background-position: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 10em;
+    min-width: unset;
+  }
 }
 
 .photographers__selection {
@@ -239,9 +256,6 @@
   min-height: 100%;
   object-fit: cover;
   object-position: top;
-}
-.photographer__profil__img__selection {
-  height: 100%;
 }
 .photographer__profil__name {
   margin: auto;
@@ -300,25 +314,54 @@
   justify-content: space-around;
   align-items: center;
   margin: 10px 70px;
+  height: fit-content;
+}
+@media screen and (max-width: 768px) {
+  .selection {
+    margin: 10px 10px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .selection {
+    margin: 10px 5px;
+  }
 }
 .selection__card {
   display: flex;
   flex-direction: column;
   margin: 10px;
   padding: 8px;
-  border-radius: 1em;
-  background-color: #FAFAFA;
+  height: 300px;
   cursor: pointer;
 }
+@media screen and (max-width: 768px) {
+  .selection__card {
+    margin: 15px auto;
+    padding: 0;
+    height: fit-content;
+  }
+}
 .selection__card__div {
-  border-radius: 5px;
+  border-radius: 1em;
   width: 350px;
-  height: 300px;
+  height: 235px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .selection__card__div {
+    width: 350px;
+    height: 197px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .selection__card__div {
+    width: 310px;
+    height: 172px;
+  }
 }
 .selection__card__description {
   display: flex;
@@ -348,6 +391,7 @@
   line-height: 31px;
   text-align: right;
   color: #901C1C;
+  min-width: 50px;
 }
 .card__likes {
   width: fit-content;
@@ -378,10 +422,6 @@
 }
 .card__likes__icon:active {
   animation: heart 500ms ease-out;
-}
-
-img {
-  max-width: none;
 }
 
 @keyframes heart {
@@ -530,7 +570,7 @@ label {
 }
 .lightbox__modal__content__body {
   margin: 0 auto;
-  max-width: 80vw;
+  max-width: 78vw;
   max-height: 65vh;
 }
 
@@ -586,7 +626,14 @@ label {
 @media screen and (max-width: 768px) {
   .previous {
     font-size: 35px;
-    right: -2px;
+    left: -2px;
+    top: 246px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .previous {
+    left: -3px;
+    top: 195px;
   }
 }
 
@@ -605,6 +652,11 @@ label {
   .next {
     font-size: 35px;
     right: -30px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .next {
+    top: 195px;
   }
 }
 
@@ -774,8 +826,7 @@ footer {
 }
 @media screen and (max-width: 768px) {
   .tab {
-    flex-direction: column;
-    font-size: 12px;
+    display: none;
   }
 }
 .tab__photos {

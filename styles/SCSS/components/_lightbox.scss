@@ -36,7 +36,7 @@
 
         &__body{
             margin: 0 auto;
-            max-width: 80vw;   
+            max-width: 78vw;   
             max-height: 65vh;
 
         }
@@ -90,7 +90,13 @@
     color: $color-primary;
     @media screen and (max-width: 768px) {
         font-size: 35px;
-        right: -2px;
+        left: -2px;
+        top: 246px;
+    } 
+
+    @media screen and (max-width: 320px) {
+        left: -3px;
+        top: 195px;
     } 
 }
 
@@ -107,6 +113,9 @@
     @media screen and (max-width: 768px) {
         font-size: 35px;
         right: -30px;
+    } 
+    @media screen and (max-width: 320px) {
+       top : 195px;
     } 
   }
 

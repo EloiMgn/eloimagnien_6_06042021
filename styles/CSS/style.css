@@ -242,6 +242,9 @@
   text-decoration: none;
   text-align: center;
 }
+.photographer__profil:focus {
+  border: solid 2px black;
+}
 .photographer__profil__portrait {
   width: 200px;
   min-width: 200px;
@@ -693,6 +696,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  height: fit-content;
 }
 @media screen and (max-width: 768px) {
   header {
@@ -727,6 +731,25 @@ header {
 
 .hidden {
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #DB8876;
+  border-radius: 5px;
+  height: 30px;
+  width: 182px;
+  text-align: center;
+  margin: auto;
+}
+.hidden a {
+  text-decoration: none;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  margin: auto;
+  color: #000000;
 }
 
 .navigation__tag {

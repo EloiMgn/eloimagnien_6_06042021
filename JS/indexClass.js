@@ -1,4 +1,5 @@
 import {DomElement} from "./domElement.js";
+import {HiddenContent} from "./hidden.js";
 
 export class Index {
 
@@ -98,6 +99,8 @@ export class Index {
                         tagsList.appendChild(tag);
                 });
 
+                HiddenContent.showHiddenContent();
+                HiddenContent.hiddenAction();
         }
 
         // ==== Modification de la page d'accueil en focntion du tag sélectionné ====

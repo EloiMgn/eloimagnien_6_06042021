@@ -33,6 +33,9 @@
         width: 100%;
         text-decoration: none;
         text-align: center;
+        &:focus{
+            border: solid 2px black;
+        }
 
 
 

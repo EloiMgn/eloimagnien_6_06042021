@@ -3,7 +3,7 @@ import {ContactModal} from "./contactModal.js";
 
 import {SortSelection} from "./sortSelection.js";
 import { CreateFooter } from "./pagesFooter.js";
-import { ResizeImagesSelection } from "./imagesResponsive.js";
+// import { ResizeImagesSelection } from "./imagesResponsive.js";
 
 export const Init = data => { 
 
@@ -15,7 +15,7 @@ export const Init = data => {
     CreateBanner.pageHeader(data);
     CreateFooter.footerInit(data);
 
-    ResizeImagesSelection.getImageSize();
+    // ResizeImagesSelection.getImageSize();
 
     // ====== Contact Modal Opening/Closing ======        
     ContactModal.modalOpen(); 

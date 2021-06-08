@@ -1,37 +1,34 @@
 export class DomElement {
-    constructor (element){
-            return document.createElement(element);   
-    }
+  constructor (element) {
+    return document.createElement(element);
+  }
 
-    static addAttribute(element, attributeType, attributeName){
-        element.setAttribute(attributeType, attributeName);
-    }
+  static addAttribute (element, attributeType, attributeName) {
+    element.setAttribute(attributeType, attributeName);
+  }
 
-    static addClass(element, className) {
-            element.classList.add(className);
-    }
+  static addClass (element, className) {
+    element.classList.add(className);
+  }
 
-    static addLink(element, linkUrl, linkText=null) {
-            element.setAttribute("href", linkUrl);
-            element.textContent = linkText;
-    }
+  static addLink (element, linkUrl, linkText = null) {
+    element.setAttribute('href', linkUrl);
+    element.textContent = linkText;
+  }
 
-    static addImg(element, imgUrl, imgAlt) {
-            element.setAttribute("src", imgUrl);
-            element.setAttribute("alt", imgAlt);
-    }
+  static addImg (element, imgUrl, imgAlt) {
+    element.setAttribute('src', imgUrl);
+    element.setAttribute('alt', imgAlt);
+  }
 
-    static addText(element, text) {
-            element.textContent = `${text}`;
-    }
-
+  static addText (element, text) {
+    element.textContent = `${text}`;
+  }
 }
 
-export class UrlDatas{
-
-    static getUrlDatas(url){
-
-        const newUrl = new URL(url);
-        return newUrl
-    }
+export class UrlDatas {
+  static getUrlDatas (url) {
+    const newUrl = new URL(url);
+    return newUrl;
+  }
 }

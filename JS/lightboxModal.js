@@ -187,8 +187,10 @@ export class Lightbox {
                 this.createNextBtn();
                 this.createPreviousBtn();
                 NavigateLightbox.goNextClic();   
+                NavigateLightbox.goNextEnter();  
                 NavigateLightbox.goPreviousClic();
-                NavigateLightbox.keyboardNavigation()
+                NavigateLightbox.goPreviousEnter();
+                NavigateLightbox.keyboardNavigation();
                 this.lightboxCloseClic(); // === fonction fermeture lightbox
                 this.createTitle(image.title); // === modification du titre de la photo
                 this.removeSelection();
@@ -229,12 +231,11 @@ export class Lightbox {
         static lightboxOpen() {
 
                 const imagesLi = document.querySelectorAll(".selection__card__div");
-                // console.log(imagesLi);
 
                 imagesLi.forEach(element => {
                         // ==== clic de la souris 
                         element.addEventListener("click", (event) => {
-                                console.log(event);
+                        
                                 // === si l'élément cliqué est une image :
                                 if (element.firstChild.tagName == "IMG"){
                                         this.initImage(element.firstChild);

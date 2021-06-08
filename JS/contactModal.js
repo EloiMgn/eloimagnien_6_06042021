@@ -32,6 +32,7 @@ export class ContactModal {
                 var modalClose = new DomElement("span");
                 DomElement.addClass(modalClose, "close");
                 DomElement.addAttribute(modalClose, "id", "close_modal");
+                DomElement.addAttribute(modalClose, "tabindex", "0");
                 modalContent.appendChild(modalClose);
         }
 
@@ -238,9 +239,15 @@ export class ContactModal {
         }
 
         static modalCloseClic() {
-
+                
                 const closeBtn = document.getElementById("close_modal");
                 closeBtn.addEventListener("click", () => {
+                        this.modalClose();
+                });
+
+                // === fermeture de la modale au clic sur entrée en focus sur la croix ====
+                closeBtn.addEventListener("keypress", (event) => {
+                        if(event.key == "Enter")
                         this.modalClose();
                 });
         }

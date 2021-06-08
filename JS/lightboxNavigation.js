@@ -149,6 +149,38 @@ export class NavigateLightbox {
 
         }
 
+        static goNextEnter() {
+                var lightboxSection = document.getElementById("lightbox__modal");
+                const nextBtn = document.getElementById("next");
+                
+                if (lightboxSection){
+
+                        nextBtn.onkeydown = (event)=>{
+        
+                                if (event.key == "Enter"){
+                                        this.goNext();    
+                                }
+                        };
+                };
+
+        }
+
+        static goPreviousEnter() {
+                var lightboxSection = document.getElementById("lightbox__modal");
+                const previousBtn = document.getElementById("previous");
+
+                if (lightboxSection){
+
+                        previousBtn.onkeydown = (event)=>{
+        
+                                if (event.key == "Enter"){
+                                        this.goPrevious();    
+                                }
+                        };
+                };
+
+        }
+
         static keyboardNavigation(){
 
                 var lightboxSection = document.getElementById("lightbox__modal");

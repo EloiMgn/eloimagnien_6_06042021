@@ -12,7 +12,7 @@ export class SortSelection {
     const listbox = document.getElementById('sort_by');
     const medias = data.media;
     const url = new URL(window.location.href);
-    const artistId = url.searchParams.get('id');
+    const artistId = parseFloat(url.searchParams.get('id'));
     const mediasArray = [];
 
     // === création sélection de photo par artiste ===

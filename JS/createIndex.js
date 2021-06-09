@@ -1,7 +1,7 @@
 import { DomElement } from './domElement.js';
-import { HiddenContent } from './hidden.js';
+import { HiddenContent } from './hiddenContent.js';
 
-export class Index {
+export class CreateIndex {
   static tagLinks () {
     const portraits = document.getElementById('#Portraits');
     const art = document.getElementById('#Art');

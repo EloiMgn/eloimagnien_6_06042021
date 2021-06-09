@@ -1,17 +1,17 @@
-import { Index } from './JS/indexClass.js';
+import { CreateIndex } from './JS/createIndex.js';
 
 if (sessionStorage.getItem('data') === null) {
   fetch('./datas/datas.json')
     .then((data) => data.json())
     .then((datasObj) => {
       sessionStorage.setItem('data', JSON.stringify(datasObj));
-      Index.showPhotographers(datasObj);
+      CreateIndex.showPhotographers(datasObj);
       // console.log(datasObj);
-      Index.tagLinks();
+      CreateIndex.tagLinks();
     });
 } else {
   const storage = JSON.parse(sessionStorage.getItem('data'));
-  Index.showPhotographers(storage);
+  CreateIndex.showPhotographers(storage);
   // console.log(storage);
-  Index.tagLinks();
+  CreateIndex.tagLinks();
 }

@@ -1,6 +1,6 @@
 import { DomElement } from './domElement.js';
 
-export class CreateFooter {
+export class CreatePageFooter {
   static init () {
     this.createFooterTabSection();
     this.createTabDivPhotos();

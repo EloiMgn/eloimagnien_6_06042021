@@ -1,5 +1,5 @@
 import { DomElement } from './domElement.js';
-import { Lightbox } from './lightboxModal.js';
+import { CreateLightbox } from './createLightbox.js';
 
 export class CreateSelection {
   // ==== méthode de modifictaion de la sélection d'images de la page en focntion de l'artiste ====
@@ -8,7 +8,7 @@ export class CreateSelection {
 
     const url = new URL(window.location.href);
     const artistName = url.searchParams.get('name');
-    const artistId = url.searchParams.get('id');
+    const artistId = parseFloat(url.searchParams.get('id'));
 
     data.forEach((medias) => {
       if (medias.photographerId === artistId && medias.image) {
@@ -192,6 +192,6 @@ export class CreateSelection {
     });
 
     // ====== Lightbox Opening/Closing ======
-    Lightbox.lightboxOpen();
+    CreateLightbox.lightboxOpen();
   }
 }

@@ -1,6 +1,6 @@
 import { DomElement } from './domElement.js';
 
-export class CreateBanner {
+export class CreatePageBanner {
   // ==== Méthode de modification de la bannière de la page en fonction de l'artiste ====
 
   static showBanner (datas) {
@@ -95,26 +95,6 @@ export class CreateBanner {
         DomElement.addClass(imageHtml, 'photographer__profil__img');
         DomElement.addImg(imageHtml, `${`../images/Photographers_ID_Photos/tinified/${artistName.replace(' ', '')}.jpg`}`, `${artistName}`);
         photographerProfil.appendChild(imageHtml);
-      }
-    });
-  }
-
-  // === modification du titre de la page en fonction de l'artiste ====
-  static pageHeader (data) {
-    const { photographers } = data;
-    const head = document.getElementById('head');
-
-    const urlCourante = window.location.href;
-    const url = new URL(urlCourante);
-    const artistName = url.searchParams.get('name');
-    const artistId = url.searchParams.get('id');
-
-    photographers.forEach((photographers) => {
-      if (photographers.id === artistId) {
-        const pageTitle = new DomElement('title');
-        DomElement.addText(pageTitle, `${`Fisheye - ${artistName}`}`);
-
-        head.appendChild(pageTitle);
       }
     });
   }

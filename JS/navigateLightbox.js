@@ -1,4 +1,4 @@
-import { Lightbox } from './lightboxModal.js';
+import { CreateLightbox } from './createLightbox.js';
 import { DomElement } from './domElement.js';
 
 export class NavigateLightbox {
@@ -18,13 +18,13 @@ export class NavigateLightbox {
     const title = document.getElementById('image__title');
 
     for (let i = 0; i < mediasArray.length; i++) {
-      if (mediasArray[i].id === currentDiv.title) {
+      if (mediasArray[i].id === parseFloat(currentDiv.title)) {
         if (i === mediasArray.length - 1) {
           if (mediasArray[0].image) {
-            Lightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[0].image}`}`);
+            CreateLightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[0].image}`}`);
           }
           if (mediasArray[0].video) {
-            Lightbox.createLightboxBodyVideo(`${`../images/${artistFirst}/${mediasArray[0].video}`}`);
+            CreateLightbox.createLightboxBodyVideo(`${`../images/${artistFirst}/${mediasArray[0].video}`}`);
           }
 
           if (nextDiv) {
@@ -36,10 +36,10 @@ export class NavigateLightbox {
           DomElement.addText(title, `${mediasArray[0].title}`);
         } else {
           if (mediasArray[i + 1].image) {
-            Lightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[i + 1].image}`}`);
+            CreateLightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[i + 1].image}`}`);
           }
           if (mediasArray[i + 1].video) {
-            Lightbox.createLightboxBodyVideo(`${`../images/${artistFirst}/${mediasArray[i + 1].video}`}`);
+            CreateLightbox.createLightboxBodyVideo(`${`../images/${artistFirst}/${mediasArray[i + 1].video}`}`);
           }
 
           if (nextDiv) {
@@ -80,13 +80,13 @@ export class NavigateLightbox {
     const mediaLengthLast = mediasArray.length - 1;
 
     for (let i = 0; i < mediasArray.length; i++) {
-      if (mediasArray[i].id === currentDiv.title) {
+      if (mediasArray[i].id === parseFloat(currentDiv.title)) {
         if (i === 0) {
           if (mediasArray[mediaLengthLast].image) {
-            Lightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[mediaLengthLast].image}`}`);
+            CreateLightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[mediaLengthLast].image}`}`);
           }
           if (mediasArray[mediaLengthLast].video) {
-            Lightbox.createLightboxBodyVideo(`${`../images/${artistFirst}/${mediasArray[mediaLengthLast].video}`}`);
+            CreateLightbox.createLightboxBodyVideo(`${`../images/${artistFirst}/${mediasArray[mediaLengthLast].video}`}`);
           }
 
           if (previousDiv) {
@@ -99,10 +99,10 @@ export class NavigateLightbox {
           DomElement.addText(title, `${mediasArray[mediaLengthLast].title}`);
         } else {
           if (mediasArray[i - 1].image) {
-            Lightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[i - 1].image}`}`);
+            CreateLightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[i - 1].image}`}`);
           }
           if (mediasArray[i - 1].video) {
-            Lightbox.createLightboxBodyVideo(`${`../images/${artistFirst}/${mediasArray[i - 1].video}`}`);
+            CreateLightbox.createLightboxBodyVideo(`${`../images/${artistFirst}/${mediasArray[i - 1].video}`}`);
           }
 
           if (previousDiv) {
@@ -163,7 +163,7 @@ export class NavigateLightbox {
           this.goPrevious();
         }
         if (event.key === 'Escape') {
-          Lightbox.lightboxClose();
+          CreateLightbox.lightboxClose();
         }
       };
     }

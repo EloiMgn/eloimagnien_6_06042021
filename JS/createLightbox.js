@@ -1,7 +1,7 @@
 import { DomElement } from './domElement.js';
-import { NavigateLightbox } from './lightboxNavigation.js';
+import { NavigateLightbox } from './navigateLightbox.js';
 
-export class Lightbox {
+export class CreateLightbox {
   static createLightboxContent () {
     const lightboxSection = document.getElementById('lightbox__modal');
 

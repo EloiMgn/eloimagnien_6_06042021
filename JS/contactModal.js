@@ -1,6 +1,6 @@
 import { DomElement } from './domElement.js';
 
-import { Lightbox } from './lightboxModal.js';
+import { CreateLightbox } from './createLightbox.js';
 
 import { ModalValidation } from './modalValidation.js';
 
@@ -215,14 +215,14 @@ export class ContactModal {
       modalBtn.addEventListener('click', () => {
         this.createModalSection();
         this.initModal();
-        Lightbox.removeSelection();
+        CreateLightbox.removeSelection();
       });
     } else {
       const modalBtn = document.getElementById('contact__responsive');
       modalBtn.addEventListener('click', () => {
         this.createModalSection();
         this.initModal();
-        Lightbox.removeSelection();
+        CreateLightbox.removeSelection();
       });
     }
   }
@@ -243,7 +243,7 @@ export class ContactModal {
     const body = document.getElementById('main');
     const modal = document.getElementById('contact__modal');
     body.removeChild(modal);
-    Lightbox.addSelection();
+    CreateLightbox.addSelection();
   }
 
   static keyboardNavigation () {

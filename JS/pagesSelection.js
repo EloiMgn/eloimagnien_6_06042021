@@ -64,7 +64,6 @@ export class CreateSelection {
         DomElement.addText(likesNumber, `${medias.likes}`);
         cardLike.appendChild(likesNumber);
 
-        let like = medias.likes;
         const likeIcon = new DomElement('i');
         DomElement.addClass(likeIcon, 'fas');
         DomElement.addClass(likeIcon, 'fa-heart');
@@ -74,21 +73,25 @@ export class CreateSelection {
 
         // ==== fonction d'ajout du like au clic =====
 
-        likeIcon.addEventListener('click', () => {
+        function addLike (medias) {
+          let like = medias.likes;
+          const footerLikes = document.querySelector('.tab__likes__number');
+
           if (!likeIcon.classList.contains('liked')) {
             like++;
             DomElement.addText(likesNumber, `${like}`);
             DomElement.addClass(likeIcon, 'liked');
+            footerLikes.innerHTML = parseFloat(footerLikes.innerHTML) + 1;
           }
+        }
+
+        likeIcon.addEventListener('click', () => {
+          addLike(medias);
         });
 
         likeIcon.addEventListener('keypress', (event) => {
           if (event.key === 'Enter') {
-            if (!likeIcon.classList.contains('liked')) {
-              like++;
-              DomElement.addText(likesNumber, `${like}`);
-              DomElement.addClass(likeIcon, 'liked');
-            }
+            addLike(medias);
           }
         });
       }
@@ -155,13 +158,13 @@ export class CreateSelection {
         DomElement.addText(likesNumber, `${medias.likes}`);
         cardLike.appendChild(likesNumber);
 
-        let like = medias.likes;
         const likeIcon = new DomElement('i');
 
         DomElement.addClass(likeIcon, 'fas');
         DomElement.addClass(likeIcon, 'fa-heart');
         DomElement.addClass(likeIcon, 'card__likes__icon');
         DomElement.addAttribute(likeIcon, 'tabindex', '0');
+        DomElement.addAttribute(likeIcon, 'id', 'likeIcon');
         likeIcon.setAttribute('aria-label', 'likes');
         cardLike.appendChild(likeIcon);
 
@@ -170,22 +173,25 @@ export class CreateSelection {
           like.setAttribute('aria-label', 'likes');
         });
         // ==== fonction d'ajout du like au clic =====
+        function addLike (medias) {
+          let like = medias.likes;
+          const footerLikes = document.querySelector('.tab__likes__number');
 
-        likeIcon.addEventListener('click', () => {
           if (!likeIcon.classList.contains('liked')) {
             like++;
             DomElement.addText(likesNumber, `${like}`);
             DomElement.addClass(likeIcon, 'liked');
+            footerLikes.innerHTML = parseFloat(footerLikes.innerHTML) + 1;
           }
+        }
+
+        likeIcon.addEventListener('click', () => {
+          addLike(medias);
         });
 
         likeIcon.addEventListener('keypress', (event) => {
           if (event.key === 'Enter') {
-            if (!likeIcon.classList.contains('liked')) {
-              like++;
-              DomElement.addText(likesNumber, `${like}`);
-              DomElement.addClass(likeIcon, 'liked');
-            }
+            addLike(medias);
           }
         });
       }

@@ -705,8 +705,18 @@ header {
 }
 
 .main__logo {
-  width: 120px;
-  height: auto;
+  width: fit-content;
+  height: fit-content;
+}
+@media screen and (max-width: 768px) {
+  .main__logo {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding-left: 10px;
+    width: 120px;
+    height: auto;
+  }
 }
 
 .header__logo {
@@ -731,7 +741,7 @@ header {
   }
 }
 .header__logo__profil {
-  height: 50px;
+  height: fit-content;
 }
 
 .hidden {
@@ -789,6 +799,9 @@ header {
   justify-content: space-around;
   height: 20vh;
 }
+.header__navigation :nth-child(2) {
+  order: 3;
+}
 @media screen and (max-width: 768px) {
   .header__navigation {
     display: block;
@@ -808,6 +821,10 @@ header {
     margin-top: 20px;
   }
 }
+.header__navigation .responsive__container {
+  width: 100%;
+  display: flex;
+}
 .header__navigation h1 {
   font-family: DM Sans;
   font-style: normal;
@@ -820,10 +837,13 @@ header {
 @media screen and (max-width: 768px) {
   .header__navigation h1 {
     position: relative;
-    bottom: 210px;
-    left: 240px;
+    bottom: 60px;
+    left: 0px;
     padding-right: 10px;
     font-size: 16px;
+    width: 140px;
+    margin: auto;
+    margin-right: 10px;
   }
 }
 

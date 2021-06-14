@@ -1,0 +1,92 @@
+.contact, .btn-submit {
+    margin: 20px;
+    background: $color-primary;
+    border-radius: 7px;
+    border: none;
+    width: 170px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $text-hover-color;
+
+
+    &:hover {
+        background: $color-secondary;
+        cursor: pointer;
+        color: $text-color;
+    }
+
+    &__text {
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 130%;
+        line-height: 26px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+
+
+
+    }
+}
+.btn-submit{
+    margin: 20px auto;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 130%;
+    line-height: 26px;
+}
+
+.listbox {
+    padding-left: 100px;
+    margin: 20px 0;
+    &__label {
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 23px;
+
+        color: $text-color;
+    }
+
+    &__select {
+        background: $color-primary;
+        border-radius: 5px;
+        color: $text-hover-color;
+        border: none;
+        padding: 10px;
+        margin: auto 15px;
+
+        &__option{
+            padding: 10px;
+        }
+    }
+}
+
+#contact__responsive{
+
+    margin: auto;
+    position: sticky;
+    bottom: 25px;
+    padding: 5px;
+    background: $color-primary;
+    border-radius: 7px;
+    border: none;
+    width: 60vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $text-hover-color;
+}

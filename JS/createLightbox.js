@@ -23,6 +23,7 @@ export class CreateLightbox {
   }
 
   static createLightboxBodyImage (url, title) {
+    console.log(title);
     this.removeLightboxModalBody();
     const lightboxContent = document.getElementById('lightbox__modal__content');
     const urlLightbox = url.replace('/tinified', '');
@@ -161,7 +162,7 @@ export class CreateLightbox {
   static initLightbox (url, imageType, image) {
     this.createLightboxContent();
     this.createLightboxCloseBtn();
-    this.createLightboxModalContent(url, imageType, image.title);
+    this.createLightboxModalContent(url, imageType, image.alt);
     this.createNextBtn();
     this.createPreviousBtn();
     NavigateLightbox.goNextClic();

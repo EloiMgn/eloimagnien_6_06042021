@@ -21,7 +21,7 @@ export class NavigateLightbox {
       if (mediasArray[i].id === parseFloat(currentDiv.title)) {
         if (i === mediasArray.length - 1) {
           if (mediasArray[0].image) {
-            CreateLightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[0].image}`}`);
+            CreateLightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[0].image}`}`, `${mediasArray[0].alt}`);
           }
           if (mediasArray[0].video) {
             CreateLightbox.createLightboxBodyVideo(`${`../images/${artistFirst}/${mediasArray[0].video}`}`);
@@ -36,7 +36,7 @@ export class NavigateLightbox {
           DomElement.addText(title, `${mediasArray[0].title}`);
         } else {
           if (mediasArray[i + 1].image) {
-            CreateLightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[i + 1].image}`}`);
+            CreateLightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[i + 1].image}`}`, `${mediasArray[i + 1].alt}`);
           }
           if (mediasArray[i + 1].video) {
             CreateLightbox.createLightboxBodyVideo(`${`../images/${artistFirst}/${mediasArray[i + 1].video}`}`);
@@ -83,7 +83,7 @@ export class NavigateLightbox {
       if (mediasArray[i].id === parseFloat(currentDiv.title)) {
         if (i === 0) {
           if (mediasArray[mediaLengthLast].image) {
-            CreateLightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[mediaLengthLast].image}`}`);
+            CreateLightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[mediaLengthLast].image}`}`, `${mediasArray[mediaLengthLast].alt}`);
           }
           if (mediasArray[mediaLengthLast].video) {
             CreateLightbox.createLightboxBodyVideo(`${`../images/${artistFirst}/${mediasArray[mediaLengthLast].video}`}`);
@@ -99,7 +99,7 @@ export class NavigateLightbox {
           DomElement.addText(title, `${mediasArray[mediaLengthLast].title}`);
         } else {
           if (mediasArray[i - 1].image) {
-            CreateLightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[i - 1].image}`}`);
+            CreateLightbox.createLightboxBodyImage(`${`../images/${artistFirst}/${mediasArray[i - 1].image}`}`, `${mediasArray[i - 1].alt}`);
           }
           if (mediasArray[i - 1].video) {
             CreateLightbox.createLightboxBodyVideo(`${`../images/${artistFirst}/${mediasArray[i - 1].video}`}`);

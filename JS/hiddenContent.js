@@ -12,7 +12,6 @@ export class HiddenContent {
     linkArray = Array.prototype.slice.call(linkArray);
     hidden.addEventListener('click', () => {
       linkArray[0].focus();
-      console.log(linkArray[0]);
     });
   }
 }

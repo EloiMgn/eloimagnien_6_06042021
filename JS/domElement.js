@@ -25,10 +25,3 @@ export class DomElement {
     element.textContent = `${text}`;
   }
 }
-
-export class UrlDatas {
-  static getUrlDatas (url) {
-    const newUrl = new URL(url);
-    return newUrl;
-  }
-}

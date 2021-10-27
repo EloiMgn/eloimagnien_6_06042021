@@ -28,6 +28,9 @@
         width: 100%;
     } 
 
+    &:hover{
+        box-shadow: 2px 2px 5px 3px $border-color;
+    }
     &__profil {
         height: 100%;
         width: 100%;
@@ -58,9 +61,7 @@
             min-height: 100%;
             object-fit: cover;
             object-position: top;
-            &__selection{
-               
-            }
+
         }
 
         &__name {
@@ -178,6 +179,9 @@
                 width: 310px;
                 height: 172px;
             } 
+            &:hover{
+                box-shadow: 2px 2px 5px 3px $border-color;
+            }
         }
 
         &__description {
